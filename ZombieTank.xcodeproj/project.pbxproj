@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE1864241D5E7F7100027836 /* GameSceneViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1864231D5E7F7100027836 /* GameSceneViewModel.m */; };
 		CE98E5491D5E59CA001E00B1 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E5411D5E59CA001E00B1 /* GameViewController.m */; };
 		CE98E54F1D5E5A11001E00B1 /* AchievementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E54E1D5E5A11001E00B1 /* AchievementsViewController.m */; };
 		CE98E5521D5E5A23001E00B1 /* AchievementsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E5511D5E5A23001E00B1 /* AchievementsViewModel.m */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE1864221D5E7F7100027836 /* GameSceneViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneViewModel.h; sourceTree = "<group>"; };
+		CE1864231D5E7F7100027836 /* GameSceneViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSceneViewModel.m; sourceTree = "<group>"; };
 		CE98E5401D5E59CA001E00B1 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		CE98E5411D5E59CA001E00B1 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		CE98E54D1D5E5A11001E00B1 /* AchievementsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementsViewController.h; sourceTree = "<group>"; };
@@ -65,6 +68,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE1864211D5E7F7100027836 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE1864221D5E7F7100027836 /* GameSceneViewModel.h */,
+				CE1864231D5E7F7100027836 /* GameSceneViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		CE98E53E1D5E59CA001E00B1 /* GameScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +275,7 @@
 		CEB6DD781D5E485600FD0016 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				CE1864211D5E7F7100027836 /* ViewModel */,
 				CEB6DD791D5E485600FD0016 /* GameScene.h */,
 				CEB6DD7A1D5E485600FD0016 /* GameScene.m */,
 				CEB6DD7B1D5E485600FD0016 /* GameScene.sks */,
@@ -364,6 +377,7 @@
 				CE98E55B1D5E5A4B001E00B1 /* ShopViewController.m in Sources */,
 				CE98E55E1D5E5A53001E00B1 /* ShopViewModel.m in Sources */,
 				CE98E5551D5E5A37001E00B1 /* MainMenuViewController.m in Sources */,
+				CE1864241D5E7F7100027836 /* GameSceneViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
