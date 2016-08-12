@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE98E5491D5E59CA001E00B1 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E5411D5E59CA001E00B1 /* GameViewController.m */; };
+		CE98E54F1D5E5A11001E00B1 /* AchievementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E54E1D5E5A11001E00B1 /* AchievementsViewController.m */; };
+		CE98E5521D5E5A23001E00B1 /* AchievementsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E5511D5E5A23001E00B1 /* AchievementsViewModel.m */; };
+		CE98E5551D5E5A37001E00B1 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E5541D5E5A37001E00B1 /* MainMenuViewController.m */; };
+		CE98E5581D5E5A42001E00B1 /* MainMenuViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E5571D5E5A42001E00B1 /* MainMenuViewModel.m */; };
+		CE98E55B1D5E5A4B001E00B1 /* ShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E55A1D5E5A4B001E00B1 /* ShopViewController.m */; };
+		CE98E55E1D5E5A53001E00B1 /* ShopViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E55D1D5E5A53001E00B1 /* ShopViewModel.m */; };
+		CE98E5671D5E5BDC001E00B1 /* Defines.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E5661D5E5BDC001E00B1 /* Defines.m */; };
 		CEB6DD5E1D5E464300FD0016 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB6DD5D1D5E464300FD0016 /* main.m */; };
 		CEB6DD611D5E464300FD0016 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB6DD601D5E464300FD0016 /* AppDelegate.m */; };
 		CEB6DD6C1D5E464300FD0016 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB6DD6A1D5E464300FD0016 /* Main.storyboard */; };
@@ -14,10 +22,25 @@
 		CEB6DD711D5E464300FD0016 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB6DD6F1D5E464300FD0016 /* LaunchScreen.storyboard */; };
 		CEB6DD7C1D5E485600FD0016 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB6DD7A1D5E485600FD0016 /* GameScene.m */; };
 		CEB6DD7D1D5E485600FD0016 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CEB6DD7B1D5E485600FD0016 /* GameScene.sks */; };
-		CEB6DD811D5E485C00FD0016 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB6DD801D5E485C00FD0016 /* GameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE98E5401D5E59CA001E00B1 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		CE98E5411D5E59CA001E00B1 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		CE98E54D1D5E5A11001E00B1 /* AchievementsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementsViewController.h; sourceTree = "<group>"; };
+		CE98E54E1D5E5A11001E00B1 /* AchievementsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementsViewController.m; sourceTree = "<group>"; };
+		CE98E5501D5E5A23001E00B1 /* AchievementsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementsViewModel.h; sourceTree = "<group>"; };
+		CE98E5511D5E5A23001E00B1 /* AchievementsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementsViewModel.m; sourceTree = "<group>"; };
+		CE98E5531D5E5A37001E00B1 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
+		CE98E5541D5E5A37001E00B1 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
+		CE98E5561D5E5A42001E00B1 /* MainMenuViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewModel.h; sourceTree = "<group>"; };
+		CE98E5571D5E5A42001E00B1 /* MainMenuViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewModel.m; sourceTree = "<group>"; };
+		CE98E5591D5E5A4B001E00B1 /* ShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopViewController.h; sourceTree = "<group>"; };
+		CE98E55A1D5E5A4B001E00B1 /* ShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopViewController.m; sourceTree = "<group>"; };
+		CE98E55C1D5E5A53001E00B1 /* ShopViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopViewModel.h; sourceTree = "<group>"; };
+		CE98E55D1D5E5A53001E00B1 /* ShopViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopViewModel.m; sourceTree = "<group>"; };
+		CE98E5651D5E5BDC001E00B1 /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
+		CE98E5661D5E5BDC001E00B1 /* Defines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Defines.m; sourceTree = "<group>"; };
 		CEB6DD591D5E464200FD0016 /* ZombieTank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZombieTank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB6DD5D1D5E464300FD0016 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CEB6DD5F1D5E464300FD0016 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -29,8 +52,6 @@
 		CEB6DD791D5E485600FD0016 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		CEB6DD7A1D5E485600FD0016 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		CEB6DD7B1D5E485600FD0016 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		CEB6DD7F1D5E485C00FD0016 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
-		CEB6DD801D5E485C00FD0016 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +65,160 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE98E53E1D5E59CA001E00B1 /* GameScene */ = {
+			isa = PBXGroup;
+			children = (
+				CE98E53F1D5E59CA001E00B1 /* ViewController */,
+				CE98E5421D5E59CA001E00B1 /* ViewModel */,
+			);
+			path = GameScene;
+			sourceTree = "<group>";
+		};
+		CE98E53F1D5E59CA001E00B1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE98E5401D5E59CA001E00B1 /* GameViewController.h */,
+				CE98E5411D5E59CA001E00B1 /* GameViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CE98E5421D5E59CA001E00B1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE98E5431D5E59CA001E00B1 /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				CE98E5441D5E59CA001E00B1 /* ViewController */,
+				CE98E5451D5E59CA001E00B1 /* ViewModel */,
+			);
+			path = MainMenu;
+			sourceTree = "<group>";
+		};
+		CE98E5441D5E59CA001E00B1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE98E5531D5E5A37001E00B1 /* MainMenuViewController.h */,
+				CE98E5541D5E5A37001E00B1 /* MainMenuViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CE98E5451D5E59CA001E00B1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE98E5561D5E5A42001E00B1 /* MainMenuViewModel.h */,
+				CE98E5571D5E5A42001E00B1 /* MainMenuViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE98E5461D5E59CA001E00B1 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				CE98E5471D5E59CA001E00B1 /* ViewController */,
+				CE98E5481D5E59CA001E00B1 /* ViewModel */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
+		CE98E5471D5E59CA001E00B1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE98E5591D5E5A4B001E00B1 /* ShopViewController.h */,
+				CE98E55A1D5E5A4B001E00B1 /* ShopViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CE98E5481D5E59CA001E00B1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE98E55C1D5E5A53001E00B1 /* ShopViewModel.h */,
+				CE98E55D1D5E5A53001E00B1 /* ShopViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE98E54A1D5E59F8001E00B1 /* Achievement */ = {
+			isa = PBXGroup;
+			children = (
+				CE98E54B1D5E59F8001E00B1 /* ViewController */,
+				CE98E54C1D5E59F8001E00B1 /* ViewModel */,
+			);
+			path = Achievement;
+			sourceTree = "<group>";
+		};
+		CE98E54B1D5E59F8001E00B1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE98E54D1D5E5A11001E00B1 /* AchievementsViewController.h */,
+				CE98E54E1D5E5A11001E00B1 /* AchievementsViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CE98E54C1D5E59F8001E00B1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE98E5501D5E5A23001E00B1 /* AchievementsViewModel.h */,
+				CE98E5511D5E5A23001E00B1 /* AchievementsViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE98E55F1D5E5B79001E00B1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE98E5601D5E5B79001E00B1 /* Categories */,
+				CE98E5611D5E5B79001E00B1 /* Utilities */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CE98E5601D5E5B79001E00B1 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		CE98E5611D5E5B79001E00B1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CE98E5651D5E5BDC001E00B1 /* Defines.h */,
+				CE98E5661D5E5BDC001E00B1 /* Defines.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		CE98E5621D5E5BB3001E00B1 /* SpriteNodes */ = {
+			isa = PBXGroup;
+			children = (
+				CE98E5631D5E5BB3001E00B1 /* Objects */,
+				CE98E5641D5E5BB3001E00B1 /* SpriteAnimations */,
+			);
+			path = SpriteNodes;
+			sourceTree = "<group>";
+		};
+		CE98E5631D5E5BB3001E00B1 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		CE98E5641D5E5BB3001E00B1 /* SpriteAnimations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SpriteAnimations;
+			sourceTree = "<group>";
+		};
 		CEB6DD501D5E464200FD0016 = {
 			isa = PBXGroup;
 			children = (
@@ -63,8 +238,8 @@
 		CEB6DD5B1D5E464200FD0016 /* ZombieTank */ = {
 			isa = PBXGroup;
 			children = (
-				CEB6DD821D5E486000FD0016 /* Objects */,
-				CEB6DD831D5E486000FD0016 /* Sprites */,
+				CE98E5621D5E5BB3001E00B1 /* SpriteNodes */,
+				CE98E55F1D5E5B79001E00B1 /* Resources */,
 				CEB6DD7E1D5E485C00FD0016 /* Controllers */,
 				CEB6DD781D5E485600FD0016 /* Scene */,
 				CEB6DD6F1D5E464300FD0016 /* LaunchScreen.storyboard */,
@@ -98,25 +273,13 @@
 		CEB6DD7E1D5E485C00FD0016 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CE98E54A1D5E59F8001E00B1 /* Achievement */,
+				CE98E53E1D5E59CA001E00B1 /* GameScene */,
+				CE98E5431D5E59CA001E00B1 /* MainMenu */,
+				CE98E5461D5E59CA001E00B1 /* Shop */,
 				CEB6DD6A1D5E464300FD0016 /* Main.storyboard */,
-				CEB6DD7F1D5E485C00FD0016 /* GameViewController.h */,
-				CEB6DD801D5E485C00FD0016 /* GameViewController.m */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		CEB6DD821D5E486000FD0016 /* Objects */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Objects;
-			sourceTree = "<group>";
-		};
-		CEB6DD831D5E486000FD0016 /* Sprites */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Sprites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,10 +353,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEB6DD811D5E485C00FD0016 /* GameViewController.m in Sources */,
+				CE98E5491D5E59CA001E00B1 /* GameViewController.m in Sources */,
 				CEB6DD611D5E464300FD0016 /* AppDelegate.m in Sources */,
+				CE98E5521D5E5A23001E00B1 /* AchievementsViewModel.m in Sources */,
+				CE98E54F1D5E5A11001E00B1 /* AchievementsViewController.m in Sources */,
+				CE98E5581D5E5A42001E00B1 /* MainMenuViewModel.m in Sources */,
 				CEB6DD7C1D5E485600FD0016 /* GameScene.m in Sources */,
 				CEB6DD5E1D5E464300FD0016 /* main.m in Sources */,
+				CE98E55B1D5E5A4B001E00B1 /* ShopViewController.m in Sources */,
+				CE98E55E1D5E5A53001E00B1 /* ShopViewModel.m in Sources */,
+				CE98E5551D5E5A37001E00B1 /* MainMenuViewController.m in Sources */,
+				CE98E5671D5E5BDC001E00B1 /* Defines.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
