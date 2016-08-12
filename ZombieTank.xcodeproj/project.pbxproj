@@ -67,7 +67,6 @@
 				CEB6DD831D5E486000FD0016 /* Sprites */,
 				CEB6DD7E1D5E485C00FD0016 /* Controllers */,
 				CEB6DD781D5E485600FD0016 /* Scene */,
-				CEB6DD6D1D5E464300FD0016 /* Assets.xcassets */,
 				CEB6DD6F1D5E464300FD0016 /* LaunchScreen.storyboard */,
 				CEB6DD721D5E464300FD0016 /* Info.plist */,
 				CEB6DD5C1D5E464200FD0016 /* Supporting Files */,
@@ -78,6 +77,7 @@
 		CEB6DD5C1D5E464200FD0016 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CEB6DD6D1D5E464300FD0016 /* Assets.xcassets */,
 				CEB6DD5F1D5E464300FD0016 /* AppDelegate.h */,
 				CEB6DD601D5E464300FD0016 /* AppDelegate.m */,
 				CEB6DD5D1D5E464300FD0016 /* main.m */,
