@@ -14,7 +14,6 @@
 		CE98E5581D5E5A42001E00B1 /* MainMenuViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E5571D5E5A42001E00B1 /* MainMenuViewModel.m */; };
 		CE98E55B1D5E5A4B001E00B1 /* ShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E55A1D5E5A4B001E00B1 /* ShopViewController.m */; };
 		CE98E55E1D5E5A53001E00B1 /* ShopViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E55D1D5E5A53001E00B1 /* ShopViewModel.m */; };
-		CE98E5671D5E5BDC001E00B1 /* Defines.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E5661D5E5BDC001E00B1 /* Defines.m */; };
 		CE98E56B1D5E5CA1001E00B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE98E56A1D5E5CA1001E00B1 /* Localizable.strings */; };
 		CEB6DD5E1D5E464300FD0016 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB6DD5D1D5E464300FD0016 /* main.m */; };
 		CEB6DD611D5E464300FD0016 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB6DD601D5E464300FD0016 /* AppDelegate.m */; };
@@ -40,9 +39,8 @@
 		CE98E55A1D5E5A4B001E00B1 /* ShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopViewController.m; sourceTree = "<group>"; };
 		CE98E55C1D5E5A53001E00B1 /* ShopViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopViewModel.h; sourceTree = "<group>"; };
 		CE98E55D1D5E5A53001E00B1 /* ShopViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopViewModel.m; sourceTree = "<group>"; };
-		CE98E5651D5E5BDC001E00B1 /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
-		CE98E5661D5E5BDC001E00B1 /* Defines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Defines.m; sourceTree = "<group>"; };
 		CE98E56A1D5E5CA1001E00B1 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		CE98E56C1D5E64F6001E00B1 /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		CEB6DD591D5E464200FD0016 /* ZombieTank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZombieTank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB6DD5D1D5E464300FD0016 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CEB6DD5F1D5E464300FD0016 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -192,8 +190,7 @@
 		CE98E5611D5E5B79001E00B1 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				CE98E5651D5E5BDC001E00B1 /* Defines.h */,
-				CE98E5661D5E5BDC001E00B1 /* Defines.m */,
+				CE98E56C1D5E64F6001E00B1 /* Defines.h */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -246,8 +243,9 @@
 				CEB6DD781D5E485600FD0016 /* Scene */,
 				CEB6DD6F1D5E464300FD0016 /* LaunchScreen.storyboard */,
 				CEB6DD721D5E464300FD0016 /* Info.plist */,
-				CEB6DD5C1D5E464200FD0016 /* Supporting Files */,
+				CEB6DD6D1D5E464300FD0016 /* Assets.xcassets */,
 				CE98E56A1D5E5CA1001E00B1 /* Localizable.strings */,
+				CEB6DD5C1D5E464200FD0016 /* Supporting Files */,
 			);
 			path = ZombieTank;
 			sourceTree = "<group>";
@@ -255,7 +253,6 @@
 		CEB6DD5C1D5E464200FD0016 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CEB6DD6D1D5E464300FD0016 /* Assets.xcassets */,
 				CEB6DD5F1D5E464300FD0016 /* AppDelegate.h */,
 				CEB6DD601D5E464300FD0016 /* AppDelegate.m */,
 				CEB6DD5D1D5E464300FD0016 /* main.m */,
@@ -367,7 +364,6 @@
 				CE98E55B1D5E5A4B001E00B1 /* ShopViewController.m in Sources */,
 				CE98E55E1D5E5A53001E00B1 /* ShopViewModel.m in Sources */,
 				CE98E5551D5E5A37001E00B1 /* MainMenuViewController.m in Sources */,
-				CE98E5671D5E5BDC001E00B1 /* Defines.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

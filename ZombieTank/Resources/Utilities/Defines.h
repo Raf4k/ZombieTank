@@ -6,8 +6,10 @@
 //  Copyright © 2016 Rafal Kampa. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 
-@interface Defines : NSObject
+//spriteNames
 
-@end
+static NSString *const spriteNameTankBody = @"tankBody";
+static NSString *const spriteNameTankRifle = @"tankRifle";
+
+

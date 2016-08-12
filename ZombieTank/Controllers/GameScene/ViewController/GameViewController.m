@@ -15,6 +15,7 @@
 {
     [super viewDidLoad];
 
+    self.navigationController.navigationBar.hidden = YES;
     // Configure the view.
     SKView * skView = (SKView *)self.view;
 //    skView.showsFPS = YES;
@@ -22,6 +23,7 @@
     
     /* Sprite Kit applies additional optimizations to improve rendering performance */
     skView.ignoresSiblingOrder = YES;
+    
     
     // Create and configure the scene.
     GameScene *scene = [GameScene nodeWithFileNamed:@"GameScene"];
@@ -34,15 +36,6 @@
 - (BOOL)shouldAutorotate
 {
     return YES;
-}
-
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
-    } else {
-        return UIInterfaceOrientationMaskAll;
-    }
 }
 
 - (void)didReceiveMemoryWarning

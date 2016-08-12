@@ -7,11 +7,16 @@
 //
 
 #import "GameScene.h"
+#import "Defines.h"
+@interface GameScene ()
 
+@property (nonatomic, strong) SKSpriteNode *tankRifle;
+
+@end
 @implementation GameScene
 
 -(void)didMoveToView:(SKView *)view {
-    
+    self.tankRifle = (SKSpriteNode *)[self childNodeWithName:spriteNameTankRifle];
 }
 
 //-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
