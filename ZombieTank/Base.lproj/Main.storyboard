@@ -31,7 +31,7 @@
                                     <segue destination="BV1-FR-VrT" kind="show" id="ua8-aS-Swe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ya6-lm-tFk">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ya6-lm-tFk">
                                 <rect key="frame" x="282" y="154" width="36" height="30"/>
                                 <state key="normal" title="Shop"/>
                                 <connections>

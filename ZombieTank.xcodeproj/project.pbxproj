@@ -15,6 +15,7 @@
 		CE98E55B1D5E5A4B001E00B1 /* ShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E55A1D5E5A4B001E00B1 /* ShopViewController.m */; };
 		CE98E55E1D5E5A53001E00B1 /* ShopViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E55D1D5E5A53001E00B1 /* ShopViewModel.m */; };
 		CE98E5671D5E5BDC001E00B1 /* Defines.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E5661D5E5BDC001E00B1 /* Defines.m */; };
+		CE98E56B1D5E5CA1001E00B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE98E56A1D5E5CA1001E00B1 /* Localizable.strings */; };
 		CEB6DD5E1D5E464300FD0016 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB6DD5D1D5E464300FD0016 /* main.m */; };
 		CEB6DD611D5E464300FD0016 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB6DD601D5E464300FD0016 /* AppDelegate.m */; };
 		CEB6DD6C1D5E464300FD0016 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB6DD6A1D5E464300FD0016 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 		CE98E55D1D5E5A53001E00B1 /* ShopViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopViewModel.m; sourceTree = "<group>"; };
 		CE98E5651D5E5BDC001E00B1 /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		CE98E5661D5E5BDC001E00B1 /* Defines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Defines.m; sourceTree = "<group>"; };
+		CE98E56A1D5E5CA1001E00B1 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		CEB6DD591D5E464200FD0016 /* ZombieTank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZombieTank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB6DD5D1D5E464300FD0016 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CEB6DD5F1D5E464300FD0016 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				CEB6DD6F1D5E464300FD0016 /* LaunchScreen.storyboard */,
 				CEB6DD721D5E464300FD0016 /* Info.plist */,
 				CEB6DD5C1D5E464200FD0016 /* Supporting Files */,
+				CE98E56A1D5E5CA1001E00B1 /* Localizable.strings */,
 			);
 			path = ZombieTank;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE98E56B1D5E5CA1001E00B1 /* Localizable.strings in Resources */,
 				CEB6DD7D1D5E485600FD0016 /* GameScene.sks in Resources */,
 				CEB6DD711D5E464300FD0016 /* LaunchScreen.storyboard in Resources */,
 				CEB6DD6E1D5E464300FD0016 /* Assets.xcassets in Resources */,
