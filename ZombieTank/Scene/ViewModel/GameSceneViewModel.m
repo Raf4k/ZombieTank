@@ -8,6 +8,8 @@
 
 #import "GameSceneViewModel.h"
 
+#define speedRotation 0.5;
+
 @implementation GameSceneViewModel
 
 - (void)calculateRadiusAndDurationTimeFromTouchLocation:(CGPoint)touchLocation spriteNode:(SKSpriteNode *)spriteNode{
@@ -37,5 +39,7 @@
     if (self.duration < 0.1) {
         self.duration = 0.4;
     }
+    
+    self.duration = self.duration - speedRotation;
 }
 @end
