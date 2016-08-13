@@ -7,6 +7,7 @@
 //
 
 #import "Zombie.h"
+#import "Defines.h"
 
 @implementation Zombie
 + (SKSpriteNode *)zombieSpriteNode{
@@ -15,6 +16,9 @@
     zombie.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(10, 30)];
     zombie.physicsBody.allowsRotation = NO;
     zombie.physicsBody.usesPreciseCollisionDetection = YES;
+    
+    zombie.physicsBody.categoryBitMask = sprite2Category;
+    zombie.physicsBody.contactTestBitMask = sprite1Category;
     zombie.physicsBody.affectedByGravity = NO;
     zombie.zPosition = 1;
     zombie.size = CGSizeMake(40, 70);

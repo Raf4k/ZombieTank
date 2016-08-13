@@ -42,4 +42,18 @@
     
     self.duration = self.duration - speedRotation;
 }
+
+- (void)updateEnemyPosition:(NSArray *)children basePosition:(CGPoint)position enemyName:(NSString *)enemyName{
+    for (SKNode *zombie in children) {
+        if ([zombie.name isEqualToString:enemyName]) {
+            CGPoint currentPosition = zombie.position;
+            double angle = atan2(currentPosition.y - position.y, (currentPosition.x - position.x) + M_PI);
+            
+            CGFloat velX = 40 * cos(angle);
+            CGFloat velY = 40 * sin(angle);
+            
+            zombie.physicsBody.velocity = CGVectorMake(-velX, -velY);
+        }
+    }
+}
 @end

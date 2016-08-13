@@ -1,5 +1,5 @@
 //
-//  Zombie.h
+//  StageOne.h
 //  ZombieTank
 //
 //  Created by Rafal Kampa on 13.08.2016.
@@ -7,14 +7,8 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "GameScene.h"
 
-
-@interface Zombie : SKSpriteNode
-
-+ (SKSpriteNode *)zombieSpriteNode;
-
-
+@interface StageOne : SKScene
+- (void)createZombieFromScene:(SKScene *)scene;
 @end
-
-
-

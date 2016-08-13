@@ -7,56 +7,45 @@
 //
 
 #import "GameScene.h"
+#import "StageOne.h"
 #import "Defines.h"
 #import "GameSceneViewModel.h"
 #import "Zombie.h"
 
-@interface GameScene ()
+
+
+@interface GameScene () <SKPhysicsContactDelegate>
 @property (nonatomic, strong) SKSpriteNode *tankRifle;
 @property (nonatomic , strong) SKAction *rotateAction;
 @property (nonatomic, strong) GameSceneViewModel *viewModel;
+@property (nonatomic, strong) StageOne *stageOne;
 @property (nonatomic, assign) BOOL rotating;
 @end
 @implementation GameScene
 
 -(void)didMoveToView:(SKView *)view {
     self.viewModel = [[GameSceneViewModel alloc] init];
+    self.physicsWorld.contactDelegate = self;
+#warning change by stage
+    self.viewModel.currentEnemyName = @"zombie";
     
     self.tankRifle = (SKSpriteNode *)[self childNodeWithName:spriteNameTankRifle];
-    self.tankRifle.physicsBody.affectedByGravity = NO;
+    self.tankRifle.physicsBody.categoryBitMask = sprite1Category;
+    self.tankRifle.physicsBody.contactTestBitMask = sprite2Category;
     
-    Zombie *zombie = (Zombie *)[Zombie zombieSpriteNode];
-    zombie.position = CGPointMake(0, 300);
-    [self addChild:zombie];
-    Zombie *zombie2 = (Zombie *)[Zombie zombieSpriteNode];
-    zombie2.position = CGPointMake(1000, 300);
-    [self addChild:zombie2];
+    StageOne *stageOne = [StageOne nodeWithFileNamed:@"StageOne"];
+    stageOne.physicsWorld.contactDelegate = self;
+    [stageOne createZombieFromScene:self];
 }
-
-- (void)updateZomibesPosition{
-    CGPoint position = self.tankRifle.position;
-    for (SKNode *zombie in self.children) {
-        if ([zombie.name isEqualToString:@"zombie"]) {
-            CGPoint currentPosition = zombie.position;
-            double angle = atan2(currentPosition.y - position.y, (currentPosition.x - position.x) + M_PI);
-            
-            CGFloat velX = 75 * cos(angle);
-            CGFloat velY = 75 * sin(angle);
-            
-            zombie.physicsBody.velocity = CGVectorMake(-velX, -velY);
-        }
-    }
-}
-
 
 - (void)update:(NSTimeInterval)currentTime{
-    [self updateZomibesPosition];
+    [self.viewModel updateEnemyPosition:self.children basePosition:self.tankRifle.position enemyName:self.viewModel.currentEnemyName];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     if (!self.rotating) {
-        self.rotating = YES;
+//        self.rotating = YES;
         CGPoint touchLocation = [[touches anyObject] locationInNode:self];
         [self.viewModel calculateRadiusAndDurationTimeFromTouchLocation:touchLocation spriteNode:self.tankRifle];
         self.rotateAction = [SKAction rotateToAngle:self.viewModel.moveByRadius duration:self.viewModel.duration shortestUnitArc:YES];
@@ -68,7 +57,12 @@
     [self.tankRifle removeAllActions];
     [self.tankRifle runAction:self.rotateAction completion:^{
         self.rotating = NO;
+        NSLog(@"kabuum");
     }];
+}
+
+- (void)didBeginContact:(SKPhysicsContact *)contact{
+    [contact.bodyB.node removeFromParent];
 }
 
 
