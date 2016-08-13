@@ -9,6 +9,8 @@
 #import "StageOne.h"
 #import "Zombie.h"
 #import "Utilities.h"
+#import "Defines.h"
+
 @interface StageOne()
 
 @property (nonatomic, strong) NSTimer *respawnZombiesTimer;
@@ -29,7 +31,7 @@
     self.spawnNumber++;
     Zombie *zombie = (Zombie *)[Zombie zombieSpriteNode];
 
-    zombie.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:@"SpawnStageOne"];
+    zombie.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageOne];
     zombie.zPosition = 5;
     [self.parentScene addChild:zombie];
     

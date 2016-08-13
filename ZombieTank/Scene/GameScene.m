@@ -20,6 +20,7 @@
 @property (nonatomic, strong) GameSceneViewModel *viewModel;
 @property (nonatomic, strong) StageOne *stageOne;
 @property (nonatomic, assign) BOOL rotating;
+@property (nonatomic, assign) double lastAngle;
 @end
 @implementation GameScene
 
@@ -27,13 +28,13 @@
     self.viewModel = [[GameSceneViewModel alloc] init];
     self.physicsWorld.contactDelegate = self;
 #warning change by stage
-    self.viewModel.currentEnemyName = @"zombie";
+    self.viewModel.currentEnemyName = spriteNameEnemyZombie;
     
     self.tankRifle = (SKSpriteNode *)[self childNodeWithName:spriteNameTankRifle];
     self.tankRifle.physicsBody.categoryBitMask = sprite1Category;
     self.tankRifle.physicsBody.contactTestBitMask = sprite2Category;
     
-    StageOne *stageOne = [StageOne nodeWithFileNamed:@"StageOne"];
+    StageOne *stageOne = [StageOne nodeWithFileNamed:stageNameStageOne];
     stageOne.physicsWorld.contactDelegate = self;
     [stageOne createZombieFromScene:self];
 }
@@ -45,10 +46,9 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     if (!self.rotating) {
-//        self.rotating = YES;
-        CGPoint touchLocation = [[touches anyObject] locationInNode:self];
-        [self.viewModel calculateRadiusAndDurationTimeFromTouchLocation:touchLocation spriteNode:self.tankRifle];
-        self.rotateAction = [SKAction rotateToAngle:self.viewModel.moveByRadius duration:self.viewModel.duration shortestUnitArc:YES];
+        self.rotating = YES;
+        CGPoint positionInScene = [[touches anyObject] locationInNode:self];
+        self.rotateAction = [SKAction rotateToAngle:[self.viewModel calculateRadiusAndDurationTimeFromTouchLocation:positionInScene spriteNode:self.tankRifle] duration:self.viewModel.speed];
         [self startObjectAnimation];
     }
 }
@@ -57,7 +57,6 @@
     [self.tankRifle removeAllActions];
     [self.tankRifle runAction:self.rotateAction completion:^{
         self.rotating = NO;
-        NSLog(@"kabuum");
     }];
 }
 
