@@ -19,6 +19,7 @@
 @property (nonatomic , strong) SKAction *rotateAction;
 @property (nonatomic, strong) GameSceneViewModel *viewModel;
 @property (nonatomic, strong) StageOne *stageOne;
+@property (nonatomic, strong) SKSpriteNode *bangNode;
 @property (nonatomic, assign) BOOL rotating;
 @property (nonatomic, assign) double lastAngle;
 @end
@@ -31,12 +32,18 @@
     self.viewModel.currentEnemyName = spriteNameEnemyZombie;
     
     self.tankRifle = (SKSpriteNode *)[self childNodeWithName:spriteNameTankRifle];
-    self.tankRifle.physicsBody.categoryBitMask = sprite1Category;
-    self.tankRifle.physicsBody.contactTestBitMask = sprite2Category;
+    self.tankRifle.physicsBody.categoryBitMask = 0;
+    self.tankRifle.physicsBody.contactTestBitMask = 0;
     
     StageOne *stageOne = [StageOne nodeWithFileNamed:stageNameStageOne];
-    stageOne.physicsWorld.contactDelegate = self;
     [stageOne createZombieFromScene:self];
+    
+    self.bangNode = (SKSpriteNode *)[self childNodeWithName:@"bang"];
+    self.bangNode.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.bangNode.size];
+    [self.bangNode runAction:[SKAction fadeOutWithDuration:0.1]];
+    
+    SKPhysicsJointFixed* pin =[SKPhysicsJointFixed jointWithBodyA:self.tankRifle.physicsBody bodyB:self.bangNode.physicsBody anchor:self.tankRifle.position];
+    [self.physicsWorld addJoint:pin];
 }
 
 - (void)update:(NSTimeInterval)currentTime{
@@ -57,6 +64,12 @@
     [self.tankRifle removeAllActions];
     [self.tankRifle runAction:self.rotateAction completion:^{
         self.rotating = NO;
+        SKAction *flashAction = [SKAction sequence:@[
+                                                     [SKAction fadeInWithDuration:0.2],
+                                                     [SKAction waitForDuration:0.2],
+                                                     [SKAction fadeOutWithDuration:0.2]
+                                                     ]];
+        [self.bangNode runAction:flashAction];
     }];
 }
 

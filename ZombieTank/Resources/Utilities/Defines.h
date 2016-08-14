@@ -19,7 +19,7 @@ static NSString *const spriteNameEnemyZombie = @"zombie";
 
 //stages
 
-static NSString *const stageNameStageOne = @"stageOne";
+static NSString *const stageNameStageOne = @"StageOne";
 
 
 //spawnPlaces
