@@ -7,6 +7,7 @@
 //
 
 #import "Utilities.h"
+#import "Defines.h"
 
 @implementation Utilities
 
@@ -37,6 +38,23 @@
     return CGPointMake(0, 0);
 }
 
++ (void)createPhysicBodyWithoutContactDetection:(SKSpriteNode *)sprite{
+    sprite.physicsBody.categoryBitMask = 0;
+    sprite.physicsBody.contactTestBitMask = 0;
+}
+
++ (void)createSpriteNode:(SKSpriteNode *)spriteNode withName:(NSString *)name size:(CGSize)size{
+    spriteNode.name = name;
+    spriteNode.size = size;
+    spriteNode.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:spriteNode.size];
+    spriteNode.physicsBody.allowsRotation = NO;
+    spriteNode.physicsBody.usesPreciseCollisionDetection = YES;
+    
+    spriteNode.physicsBody.categoryBitMask = sprite2Category;
+    spriteNode.physicsBody.contactTestBitMask = sprite1Category;
+    spriteNode.physicsBody.affectedByGravity = NO;
+    spriteNode.zPosition = 2;
+}
 
 
 @end

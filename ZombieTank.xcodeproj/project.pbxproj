@@ -17,6 +17,7 @@
 		CE98E55B1D5E5A4B001E00B1 /* ShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E55A1D5E5A4B001E00B1 /* ShopViewController.m */; };
 		CE98E55E1D5E5A53001E00B1 /* ShopViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E55D1D5E5A53001E00B1 /* ShopViewModel.m */; };
 		CE98E56B1D5E5CA1001E00B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE98E56A1D5E5CA1001E00B1 /* Localizable.strings */; };
+		CEB16A221D60E0A900376A99 /* ShootingBall.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB16A211D60E0A900376A99 /* ShootingBall.m */; };
 		CEB6DD5E1D5E464300FD0016 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB6DD5D1D5E464300FD0016 /* main.m */; };
 		CEB6DD611D5E464300FD0016 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB6DD601D5E464300FD0016 /* AppDelegate.m */; };
 		CEB6DD6C1D5E464300FD0016 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB6DD6A1D5E464300FD0016 /* Main.storyboard */; };
@@ -49,6 +50,8 @@
 		CE98E55D1D5E5A53001E00B1 /* ShopViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopViewModel.m; sourceTree = "<group>"; };
 		CE98E56A1D5E5CA1001E00B1 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		CE98E56C1D5E64F6001E00B1 /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
+		CEB16A201D60E0A900376A99 /* ShootingBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShootingBall.h; sourceTree = "<group>"; };
+		CEB16A211D60E0A900376A99 /* ShootingBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShootingBall.m; sourceTree = "<group>"; };
 		CEB6DD591D5E464200FD0016 /* ZombieTank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZombieTank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB6DD5D1D5E464300FD0016 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CEB6DD5F1D5E464300FD0016 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -242,6 +245,7 @@
 		CE98E5631D5E5BB3001E00B1 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				CEB16A1F1D60E09700376A99 /* ShootingBall */,
 				CEC3A8E81D5EF6F9002E845E /* Zombies */,
 			);
 			path = Objects;
@@ -252,6 +256,15 @@
 			children = (
 			);
 			path = SpriteAnimations;
+			sourceTree = "<group>";
+		};
+		CEB16A1F1D60E09700376A99 /* ShootingBall */ = {
+			isa = PBXGroup;
+			children = (
+				CEB16A201D60E0A900376A99 /* ShootingBall.h */,
+				CEB16A211D60E0A900376A99 /* ShootingBall.m */,
+			);
+			path = ShootingBall;
 			sourceTree = "<group>";
 		};
 		CEB6DD501D5E464200FD0016 = {
@@ -414,6 +427,7 @@
 				CE98E5491D5E59CA001E00B1 /* GameViewController.m in Sources */,
 				CEB6DD611D5E464300FD0016 /* AppDelegate.m in Sources */,
 				CECAE37B1D5F3B1700008176 /* StageOne.m in Sources */,
+				CEB16A221D60E0A900376A99 /* ShootingBall.m in Sources */,
 				CE98E5521D5E5A23001E00B1 /* AchievementsViewModel.m in Sources */,
 				CE98E54F1D5E5A11001E00B1 /* AchievementsViewController.m in Sources */,
 				CE98E5581D5E5A42001E00B1 /* MainMenuViewModel.m in Sources */,

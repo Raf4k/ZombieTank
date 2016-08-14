@@ -17,11 +17,23 @@
 
 - (double)calculateRadiusAndDurationTimeFromTouchLocation:(CGPoint)positionInScene spriteNode:(SKSpriteNode *)spriteNode{
     double dx = spriteNode.position.x - positionInScene.x;
-    double dy = spriteNode.position.y - positionInScene.y ;
+    double dy = spriteNode.position.y - positionInScene.y;
     double angle = atan2(dx, dy) + M_PI_2;
     self.speed = 1;
     double firstValue;
     double secondValue;
+    
+    if (angle > 4) {
+        double rest = (int)angle + 1 - angle;
+        angle =( 1 + rest) * -1.2;
+    }else if (angle > 3){
+        double rest = (int)angle + 1 - angle;
+        angle = (2 + rest + 0.1) * -1.05;
+    }
+
+    if (angle * -1 > 3.14) {
+        angle = 3;
+    }
     
     if (self.lastAngle > angle) {
         firstValue = self.lastAngle;
@@ -36,9 +48,8 @@
     }else if (firstValue - secondValue < 2){
         self.speed = 0.5;
     }
-    
+
     self.lastAngle = angle;
-    
     return -angle;
 }
 
@@ -55,4 +66,18 @@
         }
     }
 }
+
+- (NSString *)setBangSpriteImage{
+    
+    if (self.lastAngle <= -1.5) {
+        return @"bang_2_left";
+    }else if (self.lastAngle >= 1.5) {
+        return @"bang_2_left";
+    }else if (self.lastAngle >= -1.5) {
+        return @"bang_2_right";
+    }else{
+        return @"";
+    }
+}
+
 @end

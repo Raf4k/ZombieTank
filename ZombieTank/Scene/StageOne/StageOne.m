@@ -29,10 +29,9 @@
 
 - (void)spawnZombie{
     self.spawnNumber++;
-    Zombie *zombie = (Zombie *)[Zombie zombieSpriteNode];
+    Zombie *zombie = [Zombie zombieSpriteNode];
 
     zombie.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageOne];
-    zombie.zPosition = 5;
     [self.parentScene addChild:zombie];
     
     if (self.spawnNumber == 20) {

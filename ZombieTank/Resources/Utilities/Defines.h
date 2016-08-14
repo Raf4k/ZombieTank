@@ -14,6 +14,7 @@ static const uint32_t sprite2Category = 0x1 << 1;
 
 static NSString *const spriteNameTankBody = @"tankBody";
 static NSString *const spriteNameTankRifle = @"tankRifle";
+static NSString *const spriteNameBang = @"bang";
 
 static NSString *const spriteNameEnemyZombie = @"zombie";
 

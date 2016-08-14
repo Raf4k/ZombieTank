@@ -11,6 +11,7 @@
 #import "Defines.h"
 #import "GameSceneViewModel.h"
 #import "Zombie.h"
+#import "Utilities.h"
 
 
 
@@ -27,23 +28,21 @@
 
 -(void)didMoveToView:(SKView *)view {
     self.viewModel = [[GameSceneViewModel alloc] init];
-    self.physicsWorld.contactDelegate = self;
-#warning change by stage
     self.viewModel.currentEnemyName = spriteNameEnemyZombie;
+    self.physicsWorld.contactDelegate = self;
     
     self.tankRifle = (SKSpriteNode *)[self childNodeWithName:spriteNameTankRifle];
-    self.tankRifle.physicsBody.categoryBitMask = 0;
-    self.tankRifle.physicsBody.contactTestBitMask = 0;
-    
+    self.bangNode = (SKSpriteNode *)[self childNodeWithName:spriteNameBang];
     StageOne *stageOne = [StageOne nodeWithFileNamed:stageNameStageOne];
-    [stageOne createZombieFromScene:self];
     
-    self.bangNode = (SKSpriteNode *)[self childNodeWithName:@"bang"];
-    self.bangNode.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.bangNode.size];
-    [self.bangNode runAction:[SKAction fadeOutWithDuration:0.1]];
+    [Utilities createPhysicBodyWithoutContactDetection:self.tankRifle];
+    [Utilities createPhysicBodyWithoutContactDetection:self.bangNode];
+    self.bangNode.alpha = 0;
     
     SKPhysicsJointFixed* pin =[SKPhysicsJointFixed jointWithBodyA:self.tankRifle.physicsBody bodyB:self.bangNode.physicsBody anchor:self.tankRifle.position];
     [self.physicsWorld addJoint:pin];
+    
+    [stageOne createZombieFromScene:self];
 }
 
 - (void)update:(NSTimeInterval)currentTime{
@@ -54,19 +53,24 @@
     
     if (!self.rotating) {
         self.rotating = YES;
+        self.bangNode.alpha = 0;
+        
         CGPoint positionInScene = [[touches anyObject] locationInNode:self];
         self.rotateAction = [SKAction rotateToAngle:[self.viewModel calculateRadiusAndDurationTimeFromTouchLocation:positionInScene spriteNode:self.tankRifle] duration:self.viewModel.speed];
+        
+        self.bangNode.texture = [SKTexture textureWithImage:[UIImage imageNamed:[self.viewModel setBangSpriteImage]]];
+        
         [self startObjectAnimation];
     }
 }
 
 -(void)startObjectAnimation {
     [self.tankRifle removeAllActions];
+    self.rotating = NO;
     [self.tankRifle runAction:self.rotateAction completion:^{
-        self.rotating = NO;
         SKAction *flashAction = [SKAction sequence:@[
                                                      [SKAction fadeInWithDuration:0.2],
-                                                     [SKAction waitForDuration:0.2],
+                                                     [SKAction waitForDuration:0.08],
                                                      [SKAction fadeOutWithDuration:0.2]
                                                      ]];
         [self.bangNode runAction:flashAction];

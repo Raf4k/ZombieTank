@@ -11,7 +11,7 @@
 
 @interface Zombie : SKSpriteNode
 
-+ (SKSpriteNode *)zombieSpriteNode;
++ (Zombie *)zombieSpriteNode;
 
 
 @end
