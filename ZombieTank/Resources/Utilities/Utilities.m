@@ -9,8 +9,6 @@
 #import "Utilities.h"
 #import "Defines.h"
 
-static const uint32_t basketCategory      =  1 << 0;
-static const uint32_t ballCategory        =  1 << 1;
 
 @implementation Utilities
 
@@ -39,6 +37,18 @@ static const uint32_t ballCategory        =  1 << 1;
     }
     
     return CGPointMake(0, 0);
+}
+
++ (SKPhysicsJointFixed *)jointPinBodyA:(SKPhysicsBody *)bodyA toBodyB:(SKPhysicsBody *)bodyB atPosition:(CGPoint)position{
+    return [SKPhysicsJointFixed jointWithBodyA:bodyA bodyB:bodyB anchor:position];
+}
+
++ (SKAction *)fadeInFadeOutAction{
+    return [SKAction sequence:@[
+                             [SKAction fadeInWithDuration:0.2],
+                             [SKAction waitForDuration:0.08],
+                             [SKAction fadeOutWithDuration:0.2]
+                             ]];
 }
 
 + (void)createPhysicBodyWithoutContactDetection:(SKSpriteNode *)sprite{

@@ -17,4 +17,5 @@
 - (NSString *)setBangSpriteImage;
 
 - (void)updateEnemyPosition:(NSArray *)children basePosition:(CGPoint)position enemyName:(NSString *)enemyName;
+- (void)createCartoonLabelsWithName:(NSString *)name atPosition:(CGPoint)position inScene:(SKScene *)scene;
 @end

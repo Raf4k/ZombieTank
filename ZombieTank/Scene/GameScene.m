@@ -14,8 +14,6 @@
 #import "Zombie.h"
 #import "Utilities.h"
 
-
-
 @interface GameScene () <SKPhysicsContactDelegate>
 @property (nonatomic, strong) SKSpriteNode *tankRifle;
 @property (nonatomic , strong) SKAction *rotateAction;
@@ -40,9 +38,8 @@
     [Utilities createPhysicBodyWithoutContactDetection:self.tankRifle];
     [Utilities createPhysicBodyWithoutContactDetection:self.bangNode];
     self.bangNode.alpha = 0;
-    
-    SKPhysicsJointFixed* pin =[SKPhysicsJointFixed jointWithBodyA:self.tankRifle.physicsBody bodyB:self.bangNode.physicsBody anchor:self.tankRifle.position];
-    [self.physicsWorld addJoint:pin];
+
+    [self.physicsWorld addJoint:[Utilities jointPinBodyA:self.tankRifle.physicsBody toBodyB:self.bangNode.physicsBody atPosition:self.tankRifle.position]];
     
     [stageOne createZombieFromScene:self];
 }
@@ -71,27 +68,22 @@
     self.rotating = NO;
     [self.tankRifle runAction:self.rotateAction completion:^{
         [self shootBallToPosition:position];
-        SKAction *flashAction = [SKAction sequence:@[
-                                                     [SKAction fadeInWithDuration:0.2],
-                                                     [SKAction waitForDuration:0.08],
-                                                     [SKAction fadeOutWithDuration:0.2]
-                                                     ]];
-        [self.bangNode runAction:flashAction];
+        [self.bangNode runAction:[Utilities fadeInFadeOutAction]];
     }];
 }
 
 - (void)didBeginContact:(SKPhysicsContact *)contact{
     if (contact.bodyA == self.shootingBall.physicsBody || contact.bodyB == self.shootingBall.physicsBody) {
+        
         [contact.bodyB.node removeFromParent];
         [contact.bodyA.node removeFromParent];
-        
+        [self.viewModel createCartoonLabelsWithName:@"boom" atPosition:contact.bodyB.node.position inScene:self];
     }else{
         [contact.bodyB.node removeFromParent];
     }
 }
 
 - (void)shootBallToPosition:(CGPoint)position{
-    
     self.shootingBall = [ShootingBall shootingBallSpriteNodeWithStartPosition:self.bangNode.position];
     [self addChild:self.shootingBall];
 

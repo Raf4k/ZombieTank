@@ -7,6 +7,7 @@
 //
 
 #import "GameSceneViewModel.h"
+#import "Utilities.h"
 
 #define speedRotation 0.5;
 @interface GameSceneViewModel()
@@ -78,6 +79,19 @@
     }else{
         return @"";
     }
+}
+
+- (void)createCartoonLabelsWithName:(NSString *)name atPosition:(CGPoint)position inScene:(SKScene *)scene{
+    SKSpriteNode *cartoonLabel = [SKSpriteNode spriteNodeWithImageNamed:name];
+    
+    cartoonLabel.position = position;
+    cartoonLabel.size = CGSizeMake(90, 70);
+    cartoonLabel.zPosition = 5;
+    [scene addChild:cartoonLabel];
+    cartoonLabel.alpha = 0;
+    [cartoonLabel runAction:[Utilities fadeInFadeOutAction] completion:^{
+        [cartoonLabel removeFromParent];
+    }];
 }
 
 @end

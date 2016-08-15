@@ -13,4 +13,6 @@
 + (CGPoint)positionOfRespawnPlaceFromNodesArray:(NSArray *)nodesArray respawnName:(NSString *)respawnName;
 + (void)createPhysicBodyWithoutContactDetection:(SKSpriteNode *)sprite;
 + (void)createSpriteNode:(SKSpriteNode *)spriteNode withName:(NSString *)name size:(CGSize)size;
++ (SKPhysicsJointFixed *)jointPinBodyA:(SKPhysicsBody *)bodyA toBodyB:(SKPhysicsBody *)bodyB atPosition:(CGPoint)position;
++ (SKAction *)fadeInFadeOutAction;
 @end
