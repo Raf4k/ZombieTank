@@ -10,7 +10,7 @@
 #import "Zombie.h"
 #import "Utilities.h"
 #import "Defines.h"
-
+#import "AppEngine.h"
 @interface StageOne()
 
 @property (nonatomic, strong) NSTimer *respawnZombiesTimer;
@@ -35,6 +35,8 @@
     [self.parentScene addChild:zombie];
     
     if (self.spawnNumber == 10) {
+        [AppEngine defaultEngine].goToNextLevel = YES;
+        
         [self.respawnZombiesTimer invalidate];
     }
 }

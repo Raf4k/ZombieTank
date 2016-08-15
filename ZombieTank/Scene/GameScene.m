@@ -14,6 +14,7 @@
 #import "Zombie.h"
 #import "Actions.h"
 #import "Utilities.h"
+#import "AppEngine.h"
 
 @interface GameScene () <SKPhysicsContactDelegate>
 @property (nonatomic, strong) SKSpriteNode *tankRifle;
@@ -106,7 +107,6 @@
     self.camera = camera;
 }
 
-
 - (void)checkNodes{
     BOOL zombies = NO;
     for (SKNode *node in self.children) {
@@ -114,9 +114,10 @@
             zombies = YES;
         }
     }
-    if (zombies == NO) {
+    if (zombies == NO && [AppEngine defaultEngine].goToNextLevel) {
         [self.tankBody runAction:[Actions rotateToAngle:1.5 andMoveByX:0 moveByY:800]];
         [self.tankRifle runAction:[Actions rotateToAngle:1.5 andMoveByX:0 moveByY:800]];
+        [AppEngine defaultEngine].goToNextLevel = NO;
     }
 }
 
