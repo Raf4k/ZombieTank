@@ -63,10 +63,10 @@
     spriteNode.physicsBody.allowsRotation = NO;
     spriteNode.physicsBody.usesPreciseCollisionDetection = YES;
     spriteNode.physicsBody.collisionBitMask = 0;
-    spriteNode.physicsBody.categoryBitMask = sprite1Category;
+    spriteNode.physicsBody.categoryBitMask = sprite3Category;
     spriteNode.physicsBody.contactTestBitMask = sprite2Category;
     spriteNode.physicsBody.affectedByGravity = NO;
-    spriteNode.zPosition = 10;
+    spriteNode.zPosition = 3;
 }
 
 

@@ -73,11 +73,17 @@
 }
 
 - (void)didBeginContact:(SKPhysicsContact *)contact{
-    if (contact.bodyA == self.shootingBall.physicsBody || contact.bodyB == self.shootingBall.physicsBody) {
-        
+    SKPhysicsBody *firstBody;
+    if (contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask) {
+        firstBody = contact.bodyA;
+    }else{
+        firstBody = contact.bodyB;
+    }
+    
+    if (firstBody == self.shootingBall.physicsBody) {
         [contact.bodyB.node removeFromParent];
         [contact.bodyA.node removeFromParent];
-        [self.viewModel createCartoonLabelsWithName:@"boom" atPosition:contact.bodyB.node.position inScene:self];
+        [self.viewModel createCartoonLabelsWithName:@"boom" atPosition:firstBody.node.position inScene:self];
     }else{
         [contact.bodyB.node removeFromParent];
     }
