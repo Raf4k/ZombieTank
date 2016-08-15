@@ -34,7 +34,7 @@
     zombie.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageOne];
     [self.parentScene addChild:zombie];
     
-    if (self.spawnNumber == 20) {
+    if (self.spawnNumber == 10) {
         [self.respawnZombiesTimer invalidate];
     }
 }

@@ -8,6 +8,7 @@
 
 #import "GameSceneViewModel.h"
 #import "Utilities.h"
+#import "Actions.h"
 
 #define speedRotation 0.5;
 @interface GameSceneViewModel()
@@ -89,7 +90,7 @@
     cartoonLabel.zPosition = 5;
     [scene addChild:cartoonLabel];
     cartoonLabel.alpha = 0;
-    [cartoonLabel runAction:[Utilities fadeInFadeOutAction] completion:^{
+    [cartoonLabel runAction:[Actions fadeInFadeOutAction] completion:^{
         [cartoonLabel removeFromParent];
     }];
 }

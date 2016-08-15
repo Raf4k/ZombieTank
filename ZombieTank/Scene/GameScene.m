@@ -12,6 +12,7 @@
 #import "GameSceneViewModel.h"
 #import "ShootingBall.h"
 #import "Zombie.h"
+#import "Actions.h"
 #import "Utilities.h"
 
 @interface GameScene () <SKPhysicsContactDelegate>
@@ -21,6 +22,7 @@
 @property (nonatomic, strong) ShootingBall *shootingBall;
 @property (nonatomic, strong) StageOne *stageOne;
 @property (nonatomic, strong) SKSpriteNode *bangNode;
+@property (nonatomic, strong) SKSpriteNode *tankBody;
 @property (nonatomic, assign) BOOL rotating;
 @property (nonatomic, assign) double lastAngle;
 @end
@@ -33,6 +35,7 @@
     
     self.tankRifle = (SKSpriteNode *)[self childNodeWithName:spriteNameTankRifle];
     self.bangNode = (SKSpriteNode *)[self childNodeWithName:spriteNameBang];
+    self.tankBody = (SKSpriteNode *)[self childNodeWithName:spriteNameTankBody];
     StageOne *stageOne = [StageOne nodeWithFileNamed:stageNameStageOne];
     
     [Utilities createPhysicBodyWithoutContactDetection:self.tankRifle];
@@ -40,6 +43,7 @@
     self.bangNode.alpha = 0;
 
     [self.physicsWorld addJoint:[Utilities jointPinBodyA:self.tankRifle.physicsBody toBodyB:self.bangNode.physicsBody atPosition:self.tankRifle.position]];
+//    [self.physicsWorld addJoint:[Utilities jointPinBodyA:self.tankBody.physicsBody toBodyB:self.tankRifle.physicsBody atPosition:self.tankBody.position]];
     
     [stageOne createZombieFromScene:self];
 }
@@ -55,10 +59,8 @@
         self.bangNode.alpha = 0;
         
         CGPoint positionInScene = [[touches anyObject] locationInNode:self];
-        self.rotateAction = [SKAction rotateToAngle:[self.viewModel calculateRadiusAndDurationTimeFromTouchLocation:positionInScene spriteNode:self.tankRifle] duration:self.viewModel.speed];
         
         self.bangNode.texture = [SKTexture textureWithImage:[UIImage imageNamed:[self.viewModel setBangSpriteImage]]];
-        
         [self startObjectAnimationToPosition:positionInScene];
     }
 }
@@ -66,9 +68,9 @@
 -(void)startObjectAnimationToPosition:(CGPoint)position {
     [self.tankRifle removeAllActions];
     self.rotating = NO;
-    [self.tankRifle runAction:self.rotateAction completion:^{
+    [self.tankRifle runAction:[SKAction rotateToAngle:[self.viewModel calculateRadiusAndDurationTimeFromTouchLocation:position spriteNode:self.tankRifle] duration:self.viewModel.speed] completion:^{
         [self shootBallToPosition:position];
-        [self.bangNode runAction:[Utilities fadeInFadeOutAction]];
+        [self.bangNode runAction:[Actions fadeInFadeOutAction]];
     }];
 }
 
@@ -84,6 +86,7 @@
         [contact.bodyB.node removeFromParent];
         [contact.bodyA.node removeFromParent];
         [self.viewModel createCartoonLabelsWithName:@"boom" atPosition:firstBody.node.position inScene:self];
+        [self checkNodes];
     }else{
         [contact.bodyB.node removeFromParent];
     }
@@ -97,6 +100,25 @@
     [self.shootingBall.physicsBody applyImpulse:vector];
 }
 
+- (void)didSimulatePhysics{
+    SKCameraNode *camera = (SKCameraNode *)[self childNodeWithName:@"camera"];
+    camera.position = CGPointMake(self.tankBody.position.x, self.tankBody.position.y - 100);
+    self.camera = camera;
+}
+
+
+- (void)checkNodes{
+    BOOL zombies = NO;
+    for (SKNode *node in self.children) {
+        if ([node.name isEqualToString:spriteNameEnemyZombie]) {
+            zombies = YES;
+        }
+    }
+    if (zombies == NO) {
+        [self.tankBody runAction:[Actions rotateToAngle:1.5 andMoveByX:0 moveByY:800]];
+        [self.tankRifle runAction:[Actions rotateToAngle:1.5 andMoveByX:0 moveByY:800]];
+    }
+}
 
 
 

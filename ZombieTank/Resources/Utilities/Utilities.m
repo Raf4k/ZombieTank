@@ -43,14 +43,6 @@
     return [SKPhysicsJointFixed jointWithBodyA:bodyA bodyB:bodyB anchor:position];
 }
 
-+ (SKAction *)fadeInFadeOutAction{
-    return [SKAction sequence:@[
-                             [SKAction fadeInWithDuration:0.2],
-                             [SKAction waitForDuration:0.08],
-                             [SKAction fadeOutWithDuration:0.2]
-                             ]];
-}
-
 + (void)createPhysicBodyWithoutContactDetection:(SKSpriteNode *)sprite{
     sprite.physicsBody.categoryBitMask = 0;
     sprite.physicsBody.contactTestBitMask = 0;
