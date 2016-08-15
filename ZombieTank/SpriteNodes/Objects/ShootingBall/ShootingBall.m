@@ -14,8 +14,9 @@
 
 + (ShootingBall *)shootingBallSpriteNodeWithStartPosition:(CGPoint)startPosition{
     ShootingBall *shootingBall = (ShootingBall *)[SKSpriteNode spriteNodeWithImageNamed:@"ball"];
-    [Utilities createSpriteNode:shootingBall withName:@"ball" size:CGSizeMake(25, 25)];
+    [Utilities createSpriteNode:shootingBall withName:@"ball" size:CGSizeMake(10, 10)];
     shootingBall.position = startPosition;
+    shootingBall.physicsBody.mass = 0.4;
     return shootingBall;
 }
 

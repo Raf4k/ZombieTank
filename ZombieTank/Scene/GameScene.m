@@ -10,6 +10,7 @@
 #import "StageOne.h"
 #import "Defines.h"
 #import "GameSceneViewModel.h"
+#import "ShootingBall.h"
 #import "Zombie.h"
 #import "Utilities.h"
 
@@ -19,6 +20,7 @@
 @property (nonatomic, strong) SKSpriteNode *tankRifle;
 @property (nonatomic , strong) SKAction *rotateAction;
 @property (nonatomic, strong) GameSceneViewModel *viewModel;
+@property (nonatomic, strong) ShootingBall *shootingBall;
 @property (nonatomic, strong) StageOne *stageOne;
 @property (nonatomic, strong) SKSpriteNode *bangNode;
 @property (nonatomic, assign) BOOL rotating;
@@ -60,14 +62,15 @@
         
         self.bangNode.texture = [SKTexture textureWithImage:[UIImage imageNamed:[self.viewModel setBangSpriteImage]]];
         
-        [self startObjectAnimation];
+        [self startObjectAnimationToPosition:positionInScene];
     }
 }
 
--(void)startObjectAnimation {
+-(void)startObjectAnimationToPosition:(CGPoint)position {
     [self.tankRifle removeAllActions];
     self.rotating = NO;
     [self.tankRifle runAction:self.rotateAction completion:^{
+        [self shootBallToPosition:position];
         SKAction *flashAction = [SKAction sequence:@[
                                                      [SKAction fadeInWithDuration:0.2],
                                                      [SKAction waitForDuration:0.08],
@@ -78,10 +81,23 @@
 }
 
 - (void)didBeginContact:(SKPhysicsContact *)contact{
-    [contact.bodyB.node removeFromParent];
+    if (contact.bodyA == self.shootingBall.physicsBody || contact.bodyB == self.shootingBall.physicsBody) {
+        [contact.bodyB.node removeFromParent];
+        [contact.bodyA.node removeFromParent];
+        
+    }else{
+        [contact.bodyB.node removeFromParent];
+    }
 }
 
+- (void)shootBallToPosition:(CGPoint)position{
+    
+    self.shootingBall = [ShootingBall shootingBallSpriteNodeWithStartPosition:self.bangNode.position];
+    [self addChild:self.shootingBall];
 
+    CGVector vector = CGVectorMake(position.x - self.tankRifle.position.x, position.y - self.tankRifle.position.y);
+    [self.shootingBall.physicsBody applyImpulse:vector];
+}
 
 
 

@@ -9,6 +9,9 @@
 #import "Utilities.h"
 #import "Defines.h"
 
+static const uint32_t basketCategory      =  1 << 0;
+static const uint32_t ballCategory        =  1 << 1;
+
 @implementation Utilities
 
 + (CGPoint)positionOfRespawnPlaceFromNodesArray:(NSArray *)nodesArray respawnName:(NSString *)respawnName{
@@ -49,11 +52,11 @@
     spriteNode.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:spriteNode.size];
     spriteNode.physicsBody.allowsRotation = NO;
     spriteNode.physicsBody.usesPreciseCollisionDetection = YES;
-    
-    spriteNode.physicsBody.categoryBitMask = sprite2Category;
-    spriteNode.physicsBody.contactTestBitMask = sprite1Category;
+    spriteNode.physicsBody.collisionBitMask = 0;
+    spriteNode.physicsBody.categoryBitMask = sprite1Category;
+    spriteNode.physicsBody.contactTestBitMask = sprite2Category;
     spriteNode.physicsBody.affectedByGravity = NO;
-    spriteNode.zPosition = 2;
+    spriteNode.zPosition = 10;
 }
 
 
