@@ -7,8 +7,8 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "GameScene.h"
 
 @interface StageOne : SKScene
-- (void)createZombieFromScene:(SKScene *)scene;
+- (void)createMonstersFromScene:(SKScene *)scene;
+- (NSArray *)arrayWithMonsters;
 @end

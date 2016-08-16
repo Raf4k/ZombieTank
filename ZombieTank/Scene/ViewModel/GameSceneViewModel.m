@@ -21,7 +21,7 @@
     double dx = spriteNode.position.x - positionInScene.x;
     double dy = spriteNode.position.y - positionInScene.y;
     double angle = atan2(dx, dy) + M_PI_2;
-    self.speed = 1;
+    self.speed = 0.5;
     double firstValue;
     double secondValue;
     
@@ -46,25 +46,25 @@
     }
     
     if (firstValue - secondValue < 1.3) {
-        self.speed = 0.3;
+        self.speed = 0.1;
     }else if (firstValue - secondValue < 2){
-        self.speed = 0.5;
+        self.speed = 0.2;
     }
 
     self.lastAngle = angle;
     return -angle;
 }
 
-- (void)updateEnemyPosition:(NSArray *)children basePosition:(CGPoint)position enemyName:(NSString *)enemyName{
-    for (SKNode *zombie in children) {
-        if ([zombie.name isEqualToString:enemyName]) {
-            CGPoint currentPosition = zombie.position;
+- (void)updateEnemyPosition:(NSArray *)children basePosition:(CGPoint)position enemyNames:(NSArray *)enemyName{
+    for (SKNode *monster in children) {
+        if ([monster.name isEqualToString:enemyName]) {
+            CGPoint currentPosition = monster.position;
             double angle = atan2(currentPosition.y - position.y, (currentPosition.x - position.x) + M_PI);
             
             CGFloat velX = 40 * cos(angle);
             CGFloat velY = 40 * sin(angle);
             
-            zombie.physicsBody.velocity = CGVectorMake(-velX, -velY);
+            monster.physicsBody.velocity = CGVectorMake(-velX, -velY);
         }
     }
 }
@@ -94,5 +94,6 @@
         [cartoonLabel removeFromParent];
     }];
 }
+
 
 @end

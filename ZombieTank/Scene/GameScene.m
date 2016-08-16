@@ -12,9 +12,11 @@
 #import "GameSceneViewModel.h"
 #import "ShootingBall.h"
 #import "Zombie.h"
+#import "Ghost.h"
 #import "Actions.h"
 #import "Utilities.h"
 #import "AppEngine.h"
+#import "GameOver.h"
 
 @interface GameScene () <SKPhysicsContactDelegate>
 @property (nonatomic, strong) SKSpriteNode *tankRifle;
@@ -31,7 +33,7 @@
 
 -(void)didMoveToView:(SKView *)view {
     self.viewModel = [[GameSceneViewModel alloc] init];
-    self.viewModel.currentEnemyName = spriteNameEnemyZombie;
+    
     self.physicsWorld.contactDelegate = self;
     
     self.tankRifle = (SKSpriteNode *)[self childNodeWithName:spriteNameTankRifle];
@@ -44,13 +46,13 @@
     self.bangNode.alpha = 0;
 
     [self.physicsWorld addJoint:[Utilities jointPinBodyA:self.tankRifle.physicsBody toBodyB:self.bangNode.physicsBody atPosition:self.tankRifle.position]];
-//    [self.physicsWorld addJoint:[Utilities jointPinBodyA:self.tankBody.physicsBody toBodyB:self.tankRifle.physicsBody atPosition:self.tankBody.position]];
+    [self.physicsWorld addJoint:[Utilities jointPinBodyA:self.tankBody.physicsBody toBodyB:self.tankRifle.physicsBody atPosition:self.tankBody.position]];
     
-    [stageOne createZombieFromScene:self];
+    [stageOne createMonstersFromScene:self];
 }
 
 - (void)update:(NSTimeInterval)currentTime{
-    [self.viewModel updateEnemyPosition:self.children basePosition:self.tankRifle.position enemyName:self.viewModel.currentEnemyName];
+    [self.viewModel updateEnemyPosition:self.children basePosition:self.tankRifle.position enemyNames:self.viewModel.arrayWithMonsters];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -108,13 +110,13 @@
 }
 
 - (void)checkNodes{
-    BOOL zombies = NO;
+    BOOL monsters = NO;
     for (SKNode *node in self.children) {
-        if ([node.name isEqualToString:spriteNameEnemyZombie]) {
-            zombies = YES;
+        if ([node.name isEqualToString:spriteNameEnemyZombie] && [node.name isEqualToString:spriteNameEnemyGhost]) {
+            monsters = YES;
         }
     }
-    if (zombies == NO && [AppEngine defaultEngine].goToNextLevel) {
+    if (monsters == NO && [AppEngine defaultEngine].goToNextLevel) {
         [self.tankBody runAction:[Actions rotateToAngle:1.5 andMoveByX:0 moveByY:800]];
         [self.tankRifle runAction:[Actions rotateToAngle:1.5 andMoveByX:0 moveByY:800]];
         [AppEngine defaultEngine].goToNextLevel = NO;

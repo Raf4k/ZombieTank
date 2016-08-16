@@ -31,6 +31,15 @@
 		CECAE37E1D5F47E300008176 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CECAE37D1D5F47E300008176 /* Utilities.m */; };
 		CEF187091D61D38100979544 /* StageTwo.sks in Resources */ = {isa = PBXBuildFile; fileRef = CEF187081D61D38100979544 /* StageTwo.sks */; };
 		CEF1870C1D61D39300979544 /* StageTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF1870B1D61D39300979544 /* StageTwo.m */; };
+		F6E373541D62EDB80045EAA9 /* AppEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E373531D62EDB80045EAA9 /* AppEngine.m */; };
+		F6E3735B1D6300400045EAA9 /* StageThree.sks in Resources */ = {isa = PBXBuildFile; fileRef = F6E3735A1D6300400045EAA9 /* StageThree.sks */; };
+		F6E3735E1D6300610045EAA9 /* StageThree.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E3735D1D6300610045EAA9 /* StageThree.m */; };
+		F6E373621D6306DE0045EAA9 /* Ghost.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E373611D6306DE0045EAA9 /* Ghost.m */; };
+		F6E373661D6312350045EAA9 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E373651D6312350045EAA9 /* GameOver.m */; };
+		F6E3736A1D631ADB0045EAA9 /* StageFour.sks in Resources */ = {isa = PBXBuildFile; fileRef = F6E373691D631ADB0045EAA9 /* StageFour.sks */; };
+		F6E3736C1D631AE40045EAA9 /* StageFive.sks in Resources */ = {isa = PBXBuildFile; fileRef = F6E3736B1D631AE40045EAA9 /* StageFive.sks */; };
+		F6E3736F1D631AF90045EAA9 /* StageFour.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E3736E1D631AF90045EAA9 /* StageFour.m */; };
+		F6E373721D631B010045EAA9 /* StageFive.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E373711D631B010045EAA9 /* StageFive.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +86,21 @@
 		CEF187081D61D38100979544 /* StageTwo.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StageTwo.sks; sourceTree = "<group>"; };
 		CEF1870A1D61D39300979544 /* StageTwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageTwo.h; sourceTree = "<group>"; };
 		CEF1870B1D61D39300979544 /* StageTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageTwo.m; sourceTree = "<group>"; };
+		F6E373521D62EDB80045EAA9 /* AppEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppEngine.h; sourceTree = "<group>"; };
+		F6E373531D62EDB80045EAA9 /* AppEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppEngine.m; sourceTree = "<group>"; };
+		F6E3735A1D6300400045EAA9 /* StageThree.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StageThree.sks; sourceTree = "<group>"; };
+		F6E3735C1D6300610045EAA9 /* StageThree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageThree.h; sourceTree = "<group>"; };
+		F6E3735D1D6300610045EAA9 /* StageThree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageThree.m; sourceTree = "<group>"; };
+		F6E373601D6306DE0045EAA9 /* Ghost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ghost.h; sourceTree = "<group>"; };
+		F6E373611D6306DE0045EAA9 /* Ghost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ghost.m; sourceTree = "<group>"; };
+		F6E373641D6312350045EAA9 /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; };
+		F6E373651D6312350045EAA9 /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOver.m; sourceTree = "<group>"; };
+		F6E373691D631ADB0045EAA9 /* StageFour.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StageFour.sks; sourceTree = "<group>"; };
+		F6E3736B1D631AE40045EAA9 /* StageFive.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StageFive.sks; sourceTree = "<group>"; };
+		F6E3736D1D631AF90045EAA9 /* StageFour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageFour.h; sourceTree = "<group>"; };
+		F6E3736E1D631AF90045EAA9 /* StageFour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageFour.m; sourceTree = "<group>"; };
+		F6E373701D631B010045EAA9 /* StageFive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageFive.h; sourceTree = "<group>"; };
+		F6E373711D631B010045EAA9 /* StageFive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageFive.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +287,7 @@
 		CE98E5631D5E5BB3001E00B1 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				F6E3735F1D6306CA0045EAA9 /* Ghosts */,
 				CEB16A1F1D60E09700376A99 /* ShootingBall */,
 				CEC3A8E81D5EF6F9002E845E /* Zombies */,
 			);
@@ -330,6 +355,10 @@
 		CEB6DD781D5E485600FD0016 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				F6E373631D6312230045EAA9 /* GameOver */,
+				F6E373681D631AC00045EAA9 /* StageFive */,
+				F6E373671D631AB60045EAA9 /* StageFour */,
+				F6E373571D6300060045EAA9 /* StageThree */,
 				CEF187071D61D36000979544 /* StageTwo */,
 				CE310DAB1D5F2AFB0084E18A /* StageOne */,
 				CE1864211D5E7F7100027836 /* ViewModel */,
@@ -343,6 +372,8 @@
 		CEB6DD7E1D5E485C00FD0016 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F6E373521D62EDB80045EAA9 /* AppEngine.h */,
+				F6E373531D62EDB80045EAA9 /* AppEngine.m */,
 				CE98E54A1D5E59F8001E00B1 /* Achievement */,
 				CE98E53E1D5E59CA001E00B1 /* GameScene */,
 				CE98E5431D5E59CA001E00B1 /* MainMenu */,
@@ -369,6 +400,54 @@
 				CEF1870B1D61D39300979544 /* StageTwo.m */,
 			);
 			path = StageTwo;
+			sourceTree = "<group>";
+		};
+		F6E373571D6300060045EAA9 /* StageThree */ = {
+			isa = PBXGroup;
+			children = (
+				F6E3735A1D6300400045EAA9 /* StageThree.sks */,
+				F6E3735C1D6300610045EAA9 /* StageThree.h */,
+				F6E3735D1D6300610045EAA9 /* StageThree.m */,
+			);
+			path = StageThree;
+			sourceTree = "<group>";
+		};
+		F6E3735F1D6306CA0045EAA9 /* Ghosts */ = {
+			isa = PBXGroup;
+			children = (
+				F6E373601D6306DE0045EAA9 /* Ghost.h */,
+				F6E373611D6306DE0045EAA9 /* Ghost.m */,
+			);
+			path = Ghosts;
+			sourceTree = "<group>";
+		};
+		F6E373631D6312230045EAA9 /* GameOver */ = {
+			isa = PBXGroup;
+			children = (
+				F6E373641D6312350045EAA9 /* GameOver.h */,
+				F6E373651D6312350045EAA9 /* GameOver.m */,
+			);
+			path = GameOver;
+			sourceTree = "<group>";
+		};
+		F6E373671D631AB60045EAA9 /* StageFour */ = {
+			isa = PBXGroup;
+			children = (
+				F6E373691D631ADB0045EAA9 /* StageFour.sks */,
+				F6E3736D1D631AF90045EAA9 /* StageFour.h */,
+				F6E3736E1D631AF90045EAA9 /* StageFour.m */,
+			);
+			path = StageFour;
+			sourceTree = "<group>";
+		};
+		F6E373681D631AC00045EAA9 /* StageFive */ = {
+			isa = PBXGroup;
+			children = (
+				F6E3736B1D631AE40045EAA9 /* StageFive.sks */,
+				F6E373701D631B010045EAA9 /* StageFive.h */,
+				F6E373711D631B010045EAA9 /* StageFive.m */,
+			);
+			path = StageFive;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,13 +508,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6E3736C1D631AE40045EAA9 /* StageFive.sks in Resources */,
 				CE98E56B1D5E5CA1001E00B1 /* Localizable.strings in Resources */,
+				F6E3735B1D6300400045EAA9 /* StageThree.sks in Resources */,
 				CEB6DD7D1D5E485600FD0016 /* GameScene.sks in Resources */,
 				CEB6DD711D5E464300FD0016 /* LaunchScreen.storyboard in Resources */,
 				CEB6DD6E1D5E464300FD0016 /* Assets.xcassets in Resources */,
 				CEB6DD6C1D5E464300FD0016 /* Main.storyboard in Resources */,
 				CE310DAD1D5F2B690084E18A /* StageOne.sks in Resources */,
 				CEF187091D61D38100979544 /* StageTwo.sks in Resources */,
+				F6E3736A1D631ADB0045EAA9 /* StageFour.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,23 +528,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6E373721D631B010045EAA9 /* StageFive.m in Sources */,
 				CE98E5491D5E59CA001E00B1 /* GameViewController.m in Sources */,
 				CEB6DD611D5E464300FD0016 /* AppDelegate.m in Sources */,
 				CECAE37B1D5F3B1700008176 /* StageOne.m in Sources */,
+				F6E373661D6312350045EAA9 /* GameOver.m in Sources */,
 				CEF1870C1D61D39300979544 /* StageTwo.m in Sources */,
 				CEB16A221D60E0A900376A99 /* ShootingBall.m in Sources */,
 				CE98E5521D5E5A23001E00B1 /* AchievementsViewModel.m in Sources */,
 				CE98E54F1D5E5A11001E00B1 /* AchievementsViewController.m in Sources */,
+				F6E373621D6306DE0045EAA9 /* Ghost.m in Sources */,
 				CE98E5581D5E5A42001E00B1 /* MainMenuViewModel.m in Sources */,
 				CEB6DD7C1D5E485600FD0016 /* GameScene.m in Sources */,
 				CE441DFE1D62226400AAFF64 /* Actions.m in Sources */,
 				CEB6DD5E1D5E464300FD0016 /* main.m in Sources */,
+				F6E373541D62EDB80045EAA9 /* AppEngine.m in Sources */,
+				F6E3736F1D631AF90045EAA9 /* StageFour.m in Sources */,
 				CE98E55B1D5E5A4B001E00B1 /* ShopViewController.m in Sources */,
 				CE98E55E1D5E5A53001E00B1 /* ShopViewModel.m in Sources */,
 				CEC3A8EB1D5EF708002E845E /* Zombie.m in Sources */,
 				CE98E5551D5E5A37001E00B1 /* MainMenuViewController.m in Sources */,
 				CECAE37E1D5F47E300008176 /* Utilities.m in Sources */,
 				CE1864241D5E7F7100027836 /* GameSceneViewModel.m in Sources */,
+				F6E3735E1D6300610045EAA9 /* StageThree.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

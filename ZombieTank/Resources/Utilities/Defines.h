@@ -18,15 +18,25 @@ static NSString *const spriteNameTankRifle = @"tankRifle";
 static NSString *const spriteNameBang = @"bang";
 
 static NSString *const spriteNameEnemyZombie = @"zombie";
+static NSString *const spriteNameEnemyGhost = @"ghost";
 
 //stages
 
 static NSString *const stageNameStageOne = @"StageOne";
+static NSString *const stageNameStageTwo = @"StageTwo";
+static NSString *const stageNameStageThree = @"StageThree";
+static NSString *const stageNameStageFour = @"StageFour";
+static NSString *const stageNameStageFive = @"StageFive";
+
 
 
 //spawnPlaces
 
 static NSString *const spawnStageOne = @"SpawnStageOne";
+static NSString *const spawnStageTwo = @"SpawnStageTwo";
+static NSString *const spawnStageThree = @"SpawnStageThree";
+static NSString *const spawnStageFour = @"SpawnStageFour";
+static NSString *const spawnStageFive = @"SpawnStageFive";
 
 
 
