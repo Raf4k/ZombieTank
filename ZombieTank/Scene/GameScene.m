@@ -52,7 +52,7 @@
 }
 
 - (void)update:(NSTimeInterval)currentTime{
-    [self.viewModel updateEnemyPosition:self.children basePosition:self.tankRifle.position enemyNames:self.viewModel.arrayWithMonsters];
+    [self.viewModel updateEnemyPosition:self.children basePosition:self.tankRifle.position enemyName:self.viewModel.currentEnemyName];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

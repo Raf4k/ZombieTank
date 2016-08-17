@@ -11,12 +11,12 @@
 @interface GameSceneViewModel : NSObject
 @property (nonatomic, assign) CGFloat moveByRadius;
 @property (nonatomic, assign) CGFloat speed;
-@property (nonatomic, strong) NSMutableArray *arrayWithMonsters;
+@property (nonatomic, strong) NSString *currentEnemyName;
 
 - (double)calculateRadiusAndDurationTimeFromTouchLocation:(CGPoint)positionInScene spriteNode:(SKSpriteNode *)spriteNode;
 - (NSString *)setBangSpriteImage;
 
-- (void)updateEnemyPosition:(NSArray *)children basePosition:(CGPoint)position enemyNames:(NSArray *)enemyName;
+- (void)updateEnemyPosition:(NSArray *)children basePosition:(CGPoint)position enemyName:(NSString *)enemyName;
 - (void)createCartoonLabelsWithName:(NSString *)name atPosition:(CGPoint)position inScene:(SKScene *)scene;
 
 @end

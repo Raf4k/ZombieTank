@@ -57,14 +57,17 @@
 
 - (void)updateEnemyPosition:(NSArray *)children basePosition:(CGPoint)position enemyNames:(NSArray *)enemyName{
     for (SKNode *monster in children) {
-        if ([monster.name isEqualToString:enemyName]) {
-            CGPoint currentPosition = monster.position;
-            double angle = atan2(currentPosition.y - position.y, (currentPosition.x - position.x) + M_PI);
-            
-            CGFloat velX = 40 * cos(angle);
-            CGFloat velY = 40 * sin(angle);
-            
-            monster.physicsBody.velocity = CGVectorMake(-velX, -velY);
+        for (int i = 0; i < enemyName.count; i++) {
+           if ([monster.name isEqualToString:enemyName[i]]) {
+               
+               CGPoint currentPosition = monster.position;
+               double angle = atan2(currentPosition.y - position.y, (currentPosition.x - position.x) + M_PI);
+               
+               CGFloat velX = 40 * cos(angle);
+               CGFloat velY = 40 * sin(angle);
+               
+               monster.physicsBody.velocity = CGVectorMake(-velX, -velY);
+            }
         }
     }
 }
