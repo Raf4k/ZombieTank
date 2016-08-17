@@ -18,6 +18,8 @@
 @property (nonatomic, strong) NSTimer *respawnMonsterTimer;
 @property (nonatomic, strong) SKScene *parentScene;
 @property (nonatomic, assign) int spawnNumber;
+@property (nonatomic, strong) Zombie *zombie;
+@property (nonatomic, strong) Ghost *ghost;
 
 @end
 
@@ -32,22 +34,22 @@
 }
 
 - (NSArray *)arrayWithMonsters{
-    NSArray *array = [[NSArray alloc]initWithObjects:spriteNameEnemyZombie, spriteNameEnemyGhost, nil];
+    NSArray *array = [[NSArray alloc]initWithObjects:self.zombie, self.ghost, nil];
     return array;
 }
 
 - (void)spawnMonsters{
     self.spawnNumber++;
-    Zombie *zombie = [Zombie zombieSpriteNode];
-    Ghost *ghost = [Ghost ghostSpriteNode];
-    int rand = arc4random() % 1;
+    self.zombie = [Zombie zombieSpriteNode];
+    self.ghost = [Ghost ghostSpriteNode];
+    int rand = arc4random() % 2;
     switch (rand) {
         case 0:
-            zombie.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageOne];
-            [self.parentScene addChild:zombie];
+            self.zombie.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageOne];
+            [self.parentScene addChild:self.zombie];
             break;
         case 1:
-            ghost.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageOne];
+            self.ghost.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageOne];
             break;
         default:
             NSLog(@"difult");

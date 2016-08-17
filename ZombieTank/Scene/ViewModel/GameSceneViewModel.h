@@ -12,11 +12,12 @@
 @property (nonatomic, assign) CGFloat moveByRadius;
 @property (nonatomic, assign) CGFloat speed;
 @property (nonatomic, strong) NSString *currentEnemyName;
+@property (nonatomic, strong) NSArray *arrayWithMonsters;
 
 - (double)calculateRadiusAndDurationTimeFromTouchLocation:(CGPoint)positionInScene spriteNode:(SKSpriteNode *)spriteNode;
 - (NSString *)setBangSpriteImage;
 
-- (void)updateEnemyPosition:(NSArray *)children basePosition:(CGPoint)position enemyName:(NSString *)enemyName;
+- (void)updateEnemyPosition:(NSArray *)children basePosition:(CGPoint)position enemyNames:(NSArray *)enemyName;
 - (void)createCartoonLabelsWithName:(NSString *)name atPosition:(CGPoint)position inScene:(SKScene *)scene;
 
 @end
