@@ -28,19 +28,18 @@
     self.parentScene = scene;
     self.spawnNumber = 0;
     
-    self.respawnMonsterTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(spawnMonsters) userInfo:nil repeats:YES];
+    self.respawnMonsterTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(spawnMonsters) userInfo:nil repeats:YES];
 }
 
-- (NSArray *)arrayWithMonsters{
-    NSArray *array = [[NSArray alloc]initWithObjects:spriteNameEnemyZombie, spriteNameEnemyGhost, nil];
-    return array;
+- (void)arrayWithMonsters{
+   self.viewModel.arrayWithMonsters = [[NSArray alloc]initWithObjects:spriteNameEnemyZombie, spriteNameEnemyGhost, nil];
 }
 
 - (void)spawnMonsters{
     self.spawnNumber++;
     Zombie *zombie = [Zombie zombieSpriteNode];
     Ghost *ghost = [Ghost ghostSpriteNode];
-    int rand = arc4random() % 1;
+    int rand = arc4random() % 2;
     switch (rand) {
         case 0:
             zombie.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageOne];
@@ -48,16 +47,16 @@
             break;
         case 1:
             ghost.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageOne];
+             [self.parentScene addChild:ghost];
             break;
         default:
             NSLog(@"difult");
             break;
     }
     
-    if (self.spawnNumber == 10) {
+    if (self.spawnNumber == 2) {
+         [self.respawnMonsterTimer invalidate];
         [AppEngine defaultEngine].goToNextLevel = YES;
-        
-        [self.respawnMonsterTimer invalidate];
     }
 }
 

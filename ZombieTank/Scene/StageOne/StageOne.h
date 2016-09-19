@@ -6,9 +6,8 @@
 //  Copyright © 2016 Rafal Kampa. All rights reserved.
 //
 
-#import <SpriteKit/SpriteKit.h>
+#import "StagesParent.h"
 
-@interface StageOne : SKScene
-- (void)createMonstersFromScene:(SKScene *)scene;
-- (NSArray *)arrayWithMonsters;
+@interface StageOne : StagesParent
+
 @end

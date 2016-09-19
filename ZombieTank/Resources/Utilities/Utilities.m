@@ -8,11 +8,14 @@
 
 #import "Utilities.h"
 #import "Defines.h"
+#import "AppEngine.h"
 
 
 @implementation Utilities
 
 + (CGPoint)positionOfRespawnPlaceFromNodesArray:(NSArray *)nodesArray respawnName:(NSString *)respawnName{
+    int baseXPosition = [AppEngine defaultEngine].baseXPosition;
+    int baseYPosition = [AppEngine defaultEngine].baseYPosition;
     
     int numberOfRespawns = 0;
     
@@ -30,7 +33,7 @@
         if ([node.name isEqualToString:respawnName]) {
             numberOfRespawns ++;
             if (numberOfRespawns == randomNumber) {
-                return node.position;
+                return CGPointMake(node.position.x + baseXPosition, node.position.y + baseYPosition);
                 break;
             }
         }

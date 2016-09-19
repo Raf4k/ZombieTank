@@ -11,6 +11,8 @@
 @interface AppEngine : NSObject
 
 @property (nonatomic, assign) BOOL goToNextLevel;
+@property (nonatomic, assign) int baseXPosition;
+@property (nonatomic, assign) int baseYPosition;
 
 + (instancetype)defaultEngine;
 

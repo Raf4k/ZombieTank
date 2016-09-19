@@ -5,9 +5,12 @@
 //  Created by Rafal Kampa on 12.08.2016.
 //  Copyright (c) 2016 Rafal Kampa. All rights reserved.
 //
+#import "StageOne.h"
+#import "StageTwo.h"
+#import "StageThree.h"
 
 #import "GameScene.h"
-#import "StageOne.h"
+
 #import "Defines.h"
 #import "GameSceneViewModel.h"
 #import "ShootingBall.h"
@@ -23,24 +26,23 @@
 @property (nonatomic , strong) SKAction *rotateAction;
 @property (nonatomic, strong) GameSceneViewModel *viewModel;
 @property (nonatomic, strong) ShootingBall *shootingBall;
-@property (nonatomic, strong) StageOne *stageOne;
 @property (nonatomic, strong) SKSpriteNode *bangNode;
 @property (nonatomic, strong) SKSpriteNode *tankBody;
 @property (nonatomic, assign) BOOL rotating;
+@property (nonatomic, assign) BOOL moving;
 @property (nonatomic, assign) double lastAngle;
+@property (nonatomic, assign) int level;
 @end
 @implementation GameScene
 
 -(void)didMoveToView:(SKView *)view {
     self.viewModel = [[GameSceneViewModel alloc] init];
-    
     self.physicsWorld.contactDelegate = self;
     
     self.tankRifle = (SKSpriteNode *)[self childNodeWithName:spriteNameTankRifle];
     self.bangNode = (SKSpriteNode *)[self childNodeWithName:spriteNameBang];
     self.tankBody = (SKSpriteNode *)[self childNodeWithName:spriteNameTankBody];
-    StageOne *stageOne = [StageOne nodeWithFileNamed:stageNameStageOne];
-    
+
     [Utilities createPhysicBodyWithoutContactDetection:self.tankRifle];
     [Utilities createPhysicBodyWithoutContactDetection:self.bangNode];
     self.bangNode.alpha = 0;
@@ -48,7 +50,8 @@
     [self.physicsWorld addJoint:[Utilities jointPinBodyA:self.tankRifle.physicsBody toBodyB:self.bangNode.physicsBody atPosition:self.tankRifle.position]];
     [self.physicsWorld addJoint:[Utilities jointPinBodyA:self.tankBody.physicsBody toBodyB:self.tankRifle.physicsBody atPosition:self.tankBody.position]];
     
-    [stageOne createMonstersFromScene:self];
+    self.level = 1;
+    [self createWorldLevel:self.level];
 }
 
 - (void)update:(NSTimeInterval)currentTime{
@@ -57,7 +60,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
-    if (!self.rotating) {
+    if (!self.rotating && !self.moving) {
         self.rotating = YES;
         self.bangNode.alpha = 0;
         
@@ -89,7 +92,10 @@
         [contact.bodyB.node removeFromParent];
         [contact.bodyA.node removeFromParent];
         [self.viewModel createCartoonLabelsWithName:@"boom" atPosition:firstBody.node.position inScene:self];
-        [self checkNodes];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self checkNodes];
+        });
+        
     }else{
         [contact.bodyB.node removeFromParent];
     }
@@ -112,17 +118,47 @@
 - (void)checkNodes{
     BOOL monsters = NO;
     for (SKNode *node in self.children) {
-        if ([node.name isEqualToString:spriteNameEnemyZombie] && [node.name isEqualToString:spriteNameEnemyGhost]) {
-            monsters = YES;
+        for (int i = 0; i < self.viewModel.arrayWithMonsters.count; i++) {
+            if ([node.name isEqualToString:self.viewModel.arrayWithMonsters[i]]) {
+                monsters = YES;
+            }
         }
     }
     if (monsters == NO && [AppEngine defaultEngine].goToNextLevel) {
-        [self.tankBody runAction:[Actions rotateToAngle:1.5 andMoveByX:0 moveByY:800]];
-        [self.tankRifle runAction:[Actions rotateToAngle:1.5 andMoveByX:0 moveByY:800]];
+        self.moving = YES;
+        [self.tankBody runAction:[Actions rotateToAngle:1.5 andMoveByX:0 moveByY:1200]];
+        [self.tankRifle runAction:[Actions rotateToAngle:1.5 andMoveByX:0 moveByY:1200] completion:^{
+            self.level++;
+            self.moving = NO;
+            [self createWorldLevel:self.level];
+        }];
         [AppEngine defaultEngine].goToNextLevel = NO;
     }
 }
 
+- (void)createWorldLevel:(int)level{
+    switch (level) {
+        case 1:
+        {
+            StageOne *stageOne = [StageOne nodeWithFileNamed:stageNameStageOne];
+            stageOne.viewModel = self.viewModel;
+            [stageOne arrayWithMonsters];
+            [stageOne createMonstersFromScene:self];
+
+            break;
+        }
+        case 2:
+        {
+            StageTwo *stageTwo = [StageTwo nodeWithFileNamed:stageNameStageTwo];
+            stageTwo.viewModel = self.viewModel;
+            [stageTwo arrayWithMonsters];
+            [stageTwo createMonstersFromScene:self];
+            break;
+        }
+        default:
+            break;
+    }
+}
 
 
 

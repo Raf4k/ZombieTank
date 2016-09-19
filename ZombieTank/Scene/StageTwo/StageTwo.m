@@ -24,11 +24,15 @@
 @implementation StageTwo
 
 - (void)createMonstersFromScene:(SKScene *)scene{
-    
+    [self setBasePosition];
     self.parentScene = scene;
     self.spawnNumber = 0;
     
     self.respawnMonsterTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(spawnMonsters) userInfo:nil repeats:YES];
+}
+
+- (void)setBasePosition{
+    [AppEngine defaultEngine].baseYPosition = [AppEngine defaultEngine].baseYPosition + 1200;
 }
 
 - (void)spawnMonsters{

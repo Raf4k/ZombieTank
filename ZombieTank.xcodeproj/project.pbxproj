@@ -29,6 +29,7 @@
 		CEC3A8EB1D5EF708002E845E /* Zombie.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC3A8EA1D5EF708002E845E /* Zombie.m */; };
 		CECAE37B1D5F3B1700008176 /* StageOne.m in Sources */ = {isa = PBXBuildFile; fileRef = CECAE37A1D5F3B1700008176 /* StageOne.m */; };
 		CECAE37E1D5F47E300008176 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CECAE37D1D5F47E300008176 /* Utilities.m */; };
+		CEEBE8661D900B68003037CA /* StagesParent.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEBE8651D900B68003037CA /* StagesParent.m */; };
 		CEF187091D61D38100979544 /* StageTwo.sks in Resources */ = {isa = PBXBuildFile; fileRef = CEF187081D61D38100979544 /* StageTwo.sks */; };
 		CEF1870C1D61D39300979544 /* StageTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF1870B1D61D39300979544 /* StageTwo.m */; };
 		F6E373541D62EDB80045EAA9 /* AppEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E373531D62EDB80045EAA9 /* AppEngine.m */; };
@@ -83,6 +84,8 @@
 		CECAE37A1D5F3B1700008176 /* StageOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageOne.m; sourceTree = "<group>"; };
 		CECAE37C1D5F47E300008176 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		CECAE37D1D5F47E300008176 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		CEEBE8641D900B68003037CA /* StagesParent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StagesParent.h; sourceTree = "<group>"; };
+		CEEBE8651D900B68003037CA /* StagesParent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StagesParent.m; sourceTree = "<group>"; };
 		CEF187081D61D38100979544 /* StageTwo.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StageTwo.sks; sourceTree = "<group>"; };
 		CEF1870A1D61D39300979544 /* StageTwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageTwo.h; sourceTree = "<group>"; };
 		CEF1870B1D61D39300979544 /* StageTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageTwo.m; sourceTree = "<group>"; };
@@ -365,6 +368,8 @@
 				CEB6DD791D5E485600FD0016 /* GameScene.h */,
 				CEB6DD7A1D5E485600FD0016 /* GameScene.m */,
 				CEB6DD7B1D5E485600FD0016 /* GameScene.sks */,
+				CEEBE8641D900B68003037CA /* StagesParent.h */,
+				CEEBE8651D900B68003037CA /* StagesParent.m */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -530,6 +535,7 @@
 			files = (
 				F6E373721D631B010045EAA9 /* StageFive.m in Sources */,
 				CE98E5491D5E59CA001E00B1 /* GameViewController.m in Sources */,
+				CEEBE8661D900B68003037CA /* StagesParent.m in Sources */,
 				CEB6DD611D5E464300FD0016 /* AppDelegate.m in Sources */,
 				CECAE37B1D5F3B1700008176 /* StageOne.m in Sources */,
 				F6E373661D6312350045EAA9 /* GameOver.m in Sources */,
