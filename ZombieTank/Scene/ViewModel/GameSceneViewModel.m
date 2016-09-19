@@ -56,7 +56,7 @@
 }
 
 - (void)updateEnemyPosition:(NSArray *)children basePosition:(CGPoint)position enemyNames:(NSArray *)enemyName{
-    
+
     for (int i = 0; i < enemyName.count; i++) {
         NSString *enemyNameString = enemyName[i];
         for (SKNode *monster in children) {

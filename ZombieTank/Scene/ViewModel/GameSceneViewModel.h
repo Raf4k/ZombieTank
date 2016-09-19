@@ -11,6 +11,7 @@
 @interface GameSceneViewModel : NSObject
 @property (nonatomic, assign) CGFloat moveByRadius;
 @property (nonatomic, assign) CGFloat speed;
+@property (nonatomic, strong) NSString *currentEnemyName;
 @property (nonatomic, strong) NSArray *arrayWithMonsters;
 
 - (double)calculateRadiusAndDurationTimeFromTouchLocation:(CGPoint)positionInScene spriteNode:(SKSpriteNode *)spriteNode;
