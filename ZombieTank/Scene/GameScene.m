@@ -74,11 +74,25 @@
 -(void)startObjectAnimationToPosition:(CGPoint)position {
     [self.tankRifle removeAllActions];
     self.rotating = NO;
-    [self.tankRifle runAction:[SKAction rotateToAngle:[self.viewModel calculateRadiusAndDurationTimeFromTouchLocation:position spriteNode:self.tankRifle] duration:self.viewModel.speed] completion:^{
+    
+    double angle = atan2(position.y - self.tankRifle.position.y, position.x - self.tankRifle.position.x);
+    
+    if (self.tankRifle.zRotation < 0) {
+        self.tankRifle.zRotation = self.tankRifle.zRotation + M_PI * 2;
+    }
+    
+    [self.tankRifle runAction:[SKAction rotateToAngle:angle duration:self.viewModel.speed shortestUnitArc:YES] completion:^{
         [self shootBallToPosition:position];
         [self.bangNode runAction:[Actions fadeInFadeOutAction]];
+
     }];
+//    
+//    [self.tankRifle runAction:[SKAction rotateToAngle:[self.viewModel calculateRadiusAndDurationTimeFromTouchLocation:position spriteNode:self.tankRifle] duration:self.viewModel.speed]  completion:^{
+//        [self shootBallToPosition:position];
+//        [self.bangNode runAction:[Actions fadeInFadeOutAction]];
+//    }];
 }
+
 
 - (void)didBeginContact:(SKPhysicsContact *)contact{
     SKPhysicsBody *firstBody;
