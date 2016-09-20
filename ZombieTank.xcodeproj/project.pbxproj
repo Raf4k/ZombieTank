@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE16DFC11D915A1600AB1465 /* FireRing.m in Sources */ = {isa = PBXBuildFile; fileRef = CE16DFC01D915A1600AB1465 /* FireRing.m */; };
 		CE1864241D5E7F7100027836 /* GameSceneViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1864231D5E7F7100027836 /* GameSceneViewModel.m */; };
 		CE310DAD1D5F2B690084E18A /* StageOne.sks in Resources */ = {isa = PBXBuildFile; fileRef = CE310DAC1D5F2B690084E18A /* StageOne.sks */; };
 		CE441DFE1D62226400AAFF64 /* Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = CE441DFD1D62226400AAFF64 /* Actions.m */; };
@@ -44,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE16DFBF1D915A1600AB1465 /* FireRing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FireRing.h; sourceTree = "<group>"; };
+		CE16DFC01D915A1600AB1465 /* FireRing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FireRing.m; sourceTree = "<group>"; };
 		CE1864221D5E7F7100027836 /* GameSceneViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneViewModel.h; sourceTree = "<group>"; };
 		CE1864231D5E7F7100027836 /* GameSceneViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSceneViewModel.m; sourceTree = "<group>"; };
 		CE310DAC1D5F2B690084E18A /* StageOne.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StageOne.sks; sourceTree = "<group>"; };
@@ -117,6 +120,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE16DFBE1D915A0C00AB1465 /* FireRing */ = {
+			isa = PBXGroup;
+			children = (
+				CE16DFBF1D915A1600AB1465 /* FireRing.h */,
+				CE16DFC01D915A1600AB1465 /* FireRing.m */,
+			);
+			path = FireRing;
+			sourceTree = "<group>";
+		};
 		CE1864211D5E7F7100027836 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +302,7 @@
 		CE98E5631D5E5BB3001E00B1 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				CE16DFBE1D915A0C00AB1465 /* FireRing */,
 				F6E3735F1D6306CA0045EAA9 /* Ghosts */,
 				CEB16A1F1D60E09700376A99 /* ShootingBall */,
 				CEC3A8E81D5EF6F9002E845E /* Zombies */,
@@ -533,6 +546,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE16DFC11D915A1600AB1465 /* FireRing.m in Sources */,
 				F6E373721D631B010045EAA9 /* StageFive.m in Sources */,
 				CE98E5491D5E59CA001E00B1 /* GameViewController.m in Sources */,
 				CEEBE8661D900B68003037CA /* StagesParent.m in Sources */,

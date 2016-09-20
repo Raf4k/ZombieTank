@@ -20,6 +20,7 @@
     
     zombie.physicsBody.categoryBitMask = sprite2Category;
     zombie.physicsBody.contactTestBitMask = sprite2Category;
+    zombie.physicsBody.collisionBitMask = sprite2Category;
     zombie.physicsBody.affectedByGravity = NO;
     zombie.zPosition = 3;
     

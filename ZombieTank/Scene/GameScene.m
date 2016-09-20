@@ -14,6 +14,7 @@
 #import "Defines.h"
 #import "GameSceneViewModel.h"
 #import "ShootingBall.h"
+#import "FireRing.h"
 #import "Zombie.h"
 #import "Ghost.h"
 #import "Actions.h"
@@ -26,12 +27,15 @@
 @property (nonatomic , strong) SKAction *rotateAction;
 @property (nonatomic, strong) GameSceneViewModel *viewModel;
 @property (nonatomic, strong) ShootingBall *shootingBall;
+@property (nonatomic, strong) FireRing *fireRing;
 @property (nonatomic, strong) SKSpriteNode *bangNode;
 @property (nonatomic, strong) SKSpriteNode *tankBody;
+@property (nonatomic, assign) CGPoint selectedPoint;
 @property (nonatomic, assign) BOOL rotating;
 @property (nonatomic, assign) BOOL moving;
 @property (nonatomic, assign) double lastAngle;
 @property (nonatomic, assign) int level;
+@property (nonatomic, strong) NSTimer *shieldAndBombTimer;
 @end
 @implementation GameScene
 
@@ -51,6 +55,10 @@
     [self.physicsWorld addJoint:[Utilities jointPinBodyA:self.tankBody.physicsBody toBodyB:self.tankRifle.physicsBody atPosition:self.tankBody.position]];
     
     self.level = 1;
+    
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
+    [view addGestureRecognizer:longPress];
+    
     [self createWorldLevel:self.level];
 }
 
@@ -60,14 +68,12 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     UITouch *touch = [[event allTouches] anyObject];
-    CGPoint selectedPoint = [touch locationInNode:self];
-    if (![self.tankBody containsPoint:selectedPoint]) {
+    self.selectedPoint = [touch locationInNode:self];
+    if (![self.tankBody containsPoint:self.selectedPoint]) {
         if (!self.rotating && !self.moving) {
             self.rotating = YES;
             self.bangNode.alpha = 0;
-            
             CGPoint positionInScene = [[touches anyObject] locationInNode:self];
-            
             self.bangNode.texture = [SKTexture textureWithImage:[UIImage imageNamed:[self.viewModel setBangSpriteImage]]];
             [self startObjectAnimationToPosition:positionInScene];
         }
@@ -100,10 +106,20 @@
         firstBody = contact.bodyB;
     }
     
-    if (firstBody == self.shootingBall.physicsBody) {
-        [contact.bodyB.node removeFromParent];
-        [contact.bodyA.node removeFromParent];
-        [self.viewModel createCartoonLabelsWithName:@"boom" atPosition:firstBody.node.position inScene:self];
+    if (firstBody == self.shootingBall.physicsBody || firstBody == self.fireRing.physicsBody) {
+        if (contact.bodyB != self.fireRing.physicsBody && contact.bodyB != self.tankBody.physicsBody) {
+            [contact.bodyB.node removeFromParent];
+        }
+        if (contact.bodyA != self.fireRing.physicsBody && contact.bodyA != self.tankBody.physicsBody) {
+            [contact.bodyA.node removeFromParent];
+        }
+      
+        if (firstBody == self.fireRing.physicsBody) {
+            
+        }else{
+            [self.viewModel createCartoonLabelsWithName:@"boom" atPosition:firstBody.node.position inScene:self];
+        }
+        
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self checkNodes];
         });
@@ -145,6 +161,36 @@
             [self createWorldLevel:self.level];
         }];
         [AppEngine defaultEngine].goToNextLevel = NO;
+    }
+}
+
+- (void)longPressAction:(UILongPressGestureRecognizer *)recognizer{
+    self.viewModel.chargingLevel = 0;
+    [self.shieldAndBombTimer invalidate];
+    if ([self.tankBody containsPoint:self.selectedPoint]) {
+        NSLog(@"charging");
+        self.shieldAndBombTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(charging) userInfo:nil repeats:YES];
+    }
+    
+    if (recognizer.state == UIGestureRecognizerStateEnded) {
+        [self.shieldAndBombTimer invalidate];
+        NSLog(@"end");
+    }
+  
+}
+
+- (void)charging{
+    self.viewModel.chargingLevel++;
+    if (self.viewModel.chargingLevel == self.viewModel.maxChargingLevel) {
+        [self.shieldAndBombTimer invalidate];
+        self.fireRing = [FireRing fireSpriteNode];
+         self.fireRing.position = self.tankBody.position;
+        [self addChild:self.fireRing];
+        [Actions shakeScreenFor:10 withIntensity:CGVectorMake(2, 2) andDuration:1 scene:self.scene];
+         [self.fireRing runAction:[SKAction scaleXBy:20 y:10 duration:3] completion:^{
+             [self.fireRing removeFromParent];
+         }];
+       
     }
 }
 

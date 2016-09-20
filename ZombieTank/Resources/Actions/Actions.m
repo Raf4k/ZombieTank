@@ -36,4 +36,15 @@
                                 ]];
 }
 
++ (void)shakeScreenFor:(int)numberOfShakes withIntensity:(CGVector)intensity andDuration:(CGFloat)duration scene:(SKScene *)scene{
+    UIView *sceneView = scene.view;
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
+    [animation setDuration:(duration/numberOfShakes)];
+    [animation setRepeatCount:numberOfShakes];
+    [animation setAutoreverses:YES];
+    [animation setFromValue:[NSValue valueWithCGPoint: CGPointMake([sceneView center].x - intensity.dx, [sceneView center].y - intensity.dy)]];
+    [animation setToValue:[NSValue valueWithCGPoint: CGPointMake([sceneView center].x + intensity.dx, [sceneView center].y + intensity.dy)]];
+    [[sceneView layer] addAnimation:animation forKey:@"position"];
+}
+
 @end

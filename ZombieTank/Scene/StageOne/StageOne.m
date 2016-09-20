@@ -35,6 +35,7 @@
 
 - (void)arrayWithMonsters{
     self.viewModel.speed = 0.3;
+    self.viewModel.maxChargingLevel = 3;
    self.viewModel.arrayWithMonsters = [[NSArray alloc]initWithObjects:spriteNameEnemyZombie, spriteNameEnemyGhost, nil];
 }
 

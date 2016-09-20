@@ -13,4 +13,5 @@
 + (SKAction *)fadeInFadeOutAction;
 + (SKAction *)rotateToAngle:(CGFloat)angle andMoveByX:(CGFloat)x moveByY:(CGFloat)y;
 + (SKAction *)scaleFrom:(CGFloat)from to:(CGFloat)to;
++ (void)shakeScreenFor:(int)numberOfShakes withIntensity:(CGVector)intensity andDuration:(CGFloat)duration scene:(SKScene *)scene;
 @end

@@ -10,6 +10,8 @@
 
 @interface GameSceneViewModel : NSObject
 @property (nonatomic, assign) CGFloat moveByRadius;
+@property (nonatomic, assign) int chargingLevel;
+@property (nonatomic, assign) int maxChargingLevel;
 @property (nonatomic, assign) CGFloat speed;
 @property (nonatomic, strong) NSString *currentEnemyName;
 @property (nonatomic, strong) NSArray *arrayWithMonsters;
