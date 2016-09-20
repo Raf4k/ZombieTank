@@ -10,4 +10,6 @@
 
 @interface ShootingBall : SKSpriteNode
 + (ShootingBall *)shootingBallSpriteNodeWithStartPosition:(CGPoint)startPosition;
+
++ (ShootingBall *)dragonsFireBallWithStartPosition:(CGPoint)startPosition;
 @end

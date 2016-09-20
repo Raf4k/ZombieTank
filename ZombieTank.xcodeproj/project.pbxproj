@@ -33,6 +33,7 @@
 		CEF187091D61D38100979544 /* StageTwo.sks in Resources */ = {isa = PBXBuildFile; fileRef = CEF187081D61D38100979544 /* StageTwo.sks */; };
 		CEF1870C1D61D39300979544 /* StageTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF1870B1D61D39300979544 /* StageTwo.m */; };
 		CEFD97D61D91B4F6004EB5A0 /* StagesParent.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFD97D51D91B4F6004EB5A0 /* StagesParent.m */; };
+		CEFD97DA1D91D310004EB5A0 /* Dragon.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFD97D91D91D310004EB5A0 /* Dragon.m */; };
 		F6E373541D62EDB80045EAA9 /* AppEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E373531D62EDB80045EAA9 /* AppEngine.m */; };
 		F6E3735B1D6300400045EAA9 /* StageThree.sks in Resources */ = {isa = PBXBuildFile; fileRef = F6E3735A1D6300400045EAA9 /* StageThree.sks */; };
 		F6E3735E1D6300610045EAA9 /* StageThree.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E3735D1D6300610045EAA9 /* StageThree.m */; };
@@ -92,6 +93,8 @@
 		CEF1870B1D61D39300979544 /* StageTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageTwo.m; sourceTree = "<group>"; };
 		CEFD97D41D91B4F6004EB5A0 /* StagesParent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StagesParent.h; sourceTree = "<group>"; };
 		CEFD97D51D91B4F6004EB5A0 /* StagesParent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StagesParent.m; sourceTree = "<group>"; };
+		CEFD97D81D91D310004EB5A0 /* Dragon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dragon.h; sourceTree = "<group>"; };
+		CEFD97D91D91D310004EB5A0 /* Dragon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dragon.m; sourceTree = "<group>"; };
 		F6E373521D62EDB80045EAA9 /* AppEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppEngine.h; sourceTree = "<group>"; };
 		F6E373531D62EDB80045EAA9 /* AppEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppEngine.m; sourceTree = "<group>"; };
 		F6E3735A1D6300400045EAA9 /* StageThree.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StageThree.sks; sourceTree = "<group>"; };
@@ -302,6 +305,7 @@
 		CE98E5631D5E5BB3001E00B1 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				CEFD97D71D91D2F9004EB5A0 /* Dragon */,
 				CE16DFBE1D915A0C00AB1465 /* FireRing */,
 				F6E3735F1D6306CA0045EAA9 /* Ghosts */,
 				CEB16A1F1D60E09700376A99 /* ShootingBall */,
@@ -418,6 +422,15 @@
 				CEF1870B1D61D39300979544 /* StageTwo.m */,
 			);
 			path = StageTwo;
+			sourceTree = "<group>";
+		};
+		CEFD97D71D91D2F9004EB5A0 /* Dragon */ = {
+			isa = PBXGroup;
+			children = (
+				CEFD97D81D91D310004EB5A0 /* Dragon.h */,
+				CEFD97D91D91D310004EB5A0 /* Dragon.m */,
+			);
+			path = Dragon;
 			sourceTree = "<group>";
 		};
 		F6E373571D6300060045EAA9 /* StageThree */ = {
@@ -550,6 +563,7 @@
 				CE16DFC11D915A1600AB1465 /* FireRing.m in Sources */,
 				F6E373721D631B010045EAA9 /* StageFive.m in Sources */,
 				CE98E5491D5E59CA001E00B1 /* GameViewController.m in Sources */,
+				CEFD97DA1D91D310004EB5A0 /* Dragon.m in Sources */,
 				CEB6DD611D5E464300FD0016 /* AppDelegate.m in Sources */,
 				CECAE37B1D5F3B1700008176 /* StageOne.m in Sources */,
 				F6E373661D6312350045EAA9 /* GameOver.m in Sources */,

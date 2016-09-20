@@ -11,6 +11,7 @@
 
 @interface Utilities : NSObject
 + (CGPoint)positionOfRespawnPlaceFromNodesArray:(NSArray *)nodesArray respawnName:(NSString *)respawnName;
++ (CGPoint)positionOfRespawnWithoutRandomizePlaceFromNodesArray:(NSArray *)nodesArray respawnName:(NSString *)respawnName number:(int)number;
 + (void)createPhysicBodyWithoutContactDetection:(SKSpriteNode *)sprite;
 + (void)createSpriteNode:(SKSpriteNode *)spriteNode withName:(NSString *)name size:(CGSize)size;
 + (SKPhysicsJointFixed *)jointPinBodyA:(SKPhysicsBody *)bodyA toBodyB:(SKPhysicsBody *)bodyB atPosition:(CGPoint)position;

@@ -11,6 +11,7 @@
 
 @interface StagesParent : SKScene
 @property (nonatomic, strong)GameSceneViewModel *viewModel;
+@property (nonatomic, assign) int spawnNumber;
 @property (nonatomic, strong) SKScene *parentScene;
 @property (nonatomic, strong) NSTimer *monsterSkillsTimer;
 @property (nonatomic, strong) NSTimer *respawnMonsterTimer;
@@ -22,6 +23,7 @@
 - (void)respawnMonstersTimer:(float)time;
 - (void)monsterSkillsTimer:(float)time;
 
+- (void)setBasePosition;
 - (void)createMonstersFromScene:(SKScene *)scene;
 - (void)moveByX:(CGFloat)x byY:(CGFloat)y byAngle:(CGFloat)angle;
 - (void)setRifleSpeed:(float)rifleSpeed monstersSpeed:(int)monstersSpeed chargingLevel:(int)chargingLevel;

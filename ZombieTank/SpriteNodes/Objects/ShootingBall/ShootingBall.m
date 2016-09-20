@@ -24,5 +24,18 @@
     return shootingBall;
 }
 
++ (ShootingBall *)dragonsFireBallWithStartPosition:(CGPoint)startPosition{
+    ShootingBall *shootingBall = (ShootingBall *)[SKSpriteNode spriteNodeWithImageNamed:@"fireBall"];
+    [Utilities createSpriteNode:shootingBall withName:@"fireBall" size:CGSizeMake(50, 50)];
+    
+    shootingBall.physicsBody.categoryBitMask = sprite3Category;
+    shootingBall.physicsBody.collisionBitMask = sprite3Category;
+    shootingBall.physicsBody.contactTestBitMask = sprite3Category;
+    shootingBall.position = startPosition;
+    shootingBall.physicsBody.mass = 0.4;
+    return shootingBall;
+
+}
+
 
 @end

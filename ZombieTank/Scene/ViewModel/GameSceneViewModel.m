@@ -60,15 +60,17 @@
 
     for (int i = 0; i < enemyName.count; i++) {
         NSString *enemyNameString = enemyName[i];
-        for (SKNode *monster in children) {
-            if ([monster.name isEqualToString:enemyNameString]) {
-                CGPoint currentPosition = monster.position;
-                double angle = atan2(currentPosition.y - position.y, (currentPosition.x - position.x) + M_PI);
-                
-                CGFloat velX = self.monsterSpeed * cos(angle);
-                CGFloat velY = self.monsterSpeed * sin(angle);
-                
-                monster.physicsBody.velocity = CGVectorMake(-velX, -velY);
+        if (![enemyNameString isEqualToString:spriteNameEnemyDragon]) {
+            for (SKNode *monster in children) {
+                if ([monster.name isEqualToString:enemyNameString]) {
+                    CGPoint currentPosition = monster.position;
+                    double angle = atan2(currentPosition.y - position.y, (currentPosition.x - position.x) + M_PI);
+                    
+                    CGFloat velX = self.monsterSpeed * cos(angle);
+                    CGFloat velY = self.monsterSpeed * sin(angle);
+                    
+                    monster.physicsBody.velocity = CGVectorMake(-velX, -velY);
+                }
             }
         }
     }    

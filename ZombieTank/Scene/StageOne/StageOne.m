@@ -15,8 +15,6 @@
 
 @interface StageOne()
 
-@property (nonatomic, assign) int spawnNumber;
-
 @end
 
 @implementation StageOne

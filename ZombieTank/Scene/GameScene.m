@@ -215,6 +215,14 @@
             [stageTwo createMonstersFromScene:self];
             break;
         }
+        case 3:
+        {
+            StageThree *stageThree = [StageThree nodeWithFileNamed:stageNameStageThree];
+            stageThree.viewModel = self.viewModel;
+            [stageThree arrayWithMonsters];
+            [stageThree createMonstersFromScene:self];
+            break;
+        }
         default:
             break;
     }

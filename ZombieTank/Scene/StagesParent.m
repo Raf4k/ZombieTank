@@ -7,6 +7,7 @@
 //
 
 #import "StagesParent.h"
+#import "AppEngine.h"
 
 @implementation StagesParent
 
@@ -38,6 +39,11 @@
     self.viewModel.moveByX = x;
     self.viewModel.moveByY = y;
     self.viewModel.moveByAngle = angle;
+}
+
+- (void)setBasePosition{
+    [AppEngine defaultEngine].baseYPosition = [AppEngine defaultEngine].baseYPosition + self.viewModel.moveByY;
+    [AppEngine defaultEngine].baseXPosition = [AppEngine defaultEngine].baseXPosition + self.viewModel.moveByX;
 }
 
 - (void)setRifleSpeed:(float)rifleSpeed monstersSpeed:(int)monstersSpeed chargingLevel:(int)chargingLevel{

@@ -15,8 +15,6 @@
 
 @interface StageTwo()
 
-@property (nonatomic, assign) int spawnNumber;
-
 @end
 
 @implementation StageTwo
@@ -24,16 +22,11 @@
 - (void)createMonstersFromScene:(SKScene *)scene{
     self.parentScene = scene;
     self.spawnNumber = 0;
-    
     [self setBasePosition];
     [self moveByX:1200 byY:0 byAngle:0];
     [self setRifleSpeed:0.3 monstersSpeed:50 chargingLevel:2];
     [self respawnMonstersTimer:0.5];
     [self monsterSkillsTimer:2];
-}
-
-- (void)setBasePosition{
-    [AppEngine defaultEngine].baseYPosition = [AppEngine defaultEngine].baseYPosition + 1200;
 }
 
 - (void)arrayWithMonsters{

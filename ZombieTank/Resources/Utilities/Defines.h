@@ -20,6 +20,8 @@ static NSString *const spriteNameBang = @"bang";
 
 static NSString *const spriteNameEnemyZombie = @"zombie";
 static NSString *const spriteNameEnemyGhost = @"ghost";
+static NSString *const spriteNameEnemyDragon = @"dragon";
+static NSString *const spriteNameEnemyfireBall = @"fireBall";
 
 //stages
 

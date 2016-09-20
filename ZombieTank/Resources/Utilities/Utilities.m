@@ -42,6 +42,25 @@
     return CGPointMake(0, 0);
 }
 
++ (CGPoint)positionOfRespawnWithoutRandomizePlaceFromNodesArray:(NSArray *)nodesArray respawnName:(NSString *)respawnName number:(int)number{
+    int baseXPosition = [AppEngine defaultEngine].baseXPosition;
+    int baseYPosition = [AppEngine defaultEngine].baseYPosition;
+    
+    int numberOfRespawns = 0;
+    
+    for (SKNode *node in nodesArray) {
+        if ([node.name isEqualToString:respawnName]) {
+            numberOfRespawns ++;
+            if (numberOfRespawns == number) {
+                return CGPointMake(node.position.x + baseXPosition, node.position.y + baseYPosition);
+                break;
+            }
+        }
+    }
+    
+    return CGPointMake(0, 0);
+}
+
 + (SKPhysicsJointFixed *)jointPinBodyA:(SKPhysicsBody *)bodyA toBodyB:(SKPhysicsBody *)bodyB atPosition:(CGPoint)position{
     return [SKPhysicsJointFixed jointWithBodyA:bodyA bodyB:bodyB anchor:position];
 }

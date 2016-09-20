@@ -7,47 +7,48 @@
 //
 
 #import "StageThree.h"
-#import "Zombie.h"
-#import "Ghost.h"
+#import "Dragon.h"
 #import "Utilities.h"
 #import "Defines.h"
 #import "AppEngine.h"
 
 @interface StageThree()
 
-@property (nonatomic, strong) NSTimer *respawnMonsterTimer;
-@property (nonatomic, strong) SKScene *parentScene;
-@property (nonatomic, assign) int spawnNumber;
-
 @end
 
 @implementation StageThree
 
 - (void)createMonstersFromScene:(SKScene *)scene{
-    
     self.parentScene = scene;
     self.spawnNumber = 0;
+    [self setBasePosition];
     
-    self.respawnMonsterTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(spawnMonsters) userInfo:nil repeats:YES];
+    [self moveByX:0 byY:1200 byAngle:0];
+    [self setRifleSpeed:0.3 monstersSpeed:50 chargingLevel:2];
+    [self respawnMonstersTimer:0.5];
+    [self monsterSkillsTimer:0.5];
+}
+
+- (void)arrayWithMonsters{
+    self.viewModel.arrayWithMonsters = [[NSArray alloc]initWithObjects:spriteNameEnemyDragon, spriteNameEnemyfireBall, nil];
 }
 
 - (void)spawnMonsters{
+    Dragon *dragon = [Dragon dragonSpriteNode];
+    dragon.position = [Utilities positionOfRespawnWithoutRandomizePlaceFromNodesArray:self.children respawnName:spawnStageThree number:self.spawnNumber];
     self.spawnNumber++;
-    Zombie *zombie = [Zombie zombieSpriteNode];
+    [self.parentScene addChild:dragon];
     
-    zombie.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageThree];
-    [self.parentScene addChild:zombie];
-    
-    Ghost *ghost = [Ghost ghostSpriteNode];
-    
-    ghost.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageThree];
-    [self.parentScene addChild:ghost];
-    
-    if (self.spawnNumber == 20) {
-        [AppEngine defaultEngine].goToNextLevel = YES;
-        
+    if (self.spawnNumber == 12) {
         [self.respawnMonsterTimer invalidate];
+        
+        
+        [AppEngine defaultEngine].goToNextLevel = YES;
     }
+}
+
+- (void)monsterSkills{
+    [Dragon fireBallFromParentScene:self.parentScene];
 }
 
 @end
