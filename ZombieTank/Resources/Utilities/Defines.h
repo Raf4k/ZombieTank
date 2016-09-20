@@ -43,4 +43,5 @@ static NSString *const spawnStageFive = @"SpawnStageFive";
 
 static NSString *const userDefaultsAvaiableSkins = @"avaiableSkins";
 static NSString *const userDefaultsSelectedTankSkin = @"selectedTankSkin";
+static NSString *const userDefaultsSelectedLevel = @"selectedLevel";
 

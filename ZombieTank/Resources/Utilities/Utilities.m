@@ -64,5 +64,15 @@
     spriteNode.zPosition = 3;
 }
 
++ (id)objectFromUserDefaultsWithKey:(NSString *)key{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults objectForKey:key];
+}
+
++ (void)saveUserDefaultsObject:(id)object forKey:(NSString *)key{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:object forKey:key];
+    [defaults synchronize];
+}
 
 @end

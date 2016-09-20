@@ -34,7 +34,6 @@
 @property (nonatomic, assign) BOOL rotating;
 @property (nonatomic, assign) BOOL moving;
 @property (nonatomic, assign) double lastAngle;
-@property (nonatomic, assign) int level;
 @property (nonatomic, strong) NSTimer *shieldAndBombTimer;
 @end
 @implementation GameScene
@@ -54,12 +53,12 @@
     [self.physicsWorld addJoint:[Utilities jointPinBodyA:self.tankRifle.physicsBody toBodyB:self.bangNode.physicsBody atPosition:self.tankRifle.position]];
     [self.physicsWorld addJoint:[Utilities jointPinBodyA:self.tankBody.physicsBody toBodyB:self.tankRifle.physicsBody atPosition:self.tankBody.position]];
     
-    self.level = 1;
+    [self.viewModel selectedLevel];
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
     [view addGestureRecognizer:longPress];
     
-    [self createWorldLevel:self.level];
+    [self createWorldLevel:self.viewModel.level];
 }
 
 - (void)update:(NSTimeInterval)currentTime{
@@ -81,9 +80,7 @@
 }
 
 -(void)startObjectAnimationToPosition:(CGPoint)position {
-    [self.tankRifle removeAllActions];
-    self.rotating = NO;
-    
+   [self.tankRifle removeAllActions];
     self.viewModel.lastAngle = atan2(position.y - self.tankRifle.position.y, position.x - self.tankRifle.position.x);
     
     if (self.tankRifle.zRotation < 0) {
@@ -91,9 +88,9 @@
     }
     
     [self.tankRifle runAction:[SKAction rotateToAngle:self.viewModel.lastAngle duration:self.viewModel.speed shortestUnitArc:YES] completion:^{
+        self.rotating = NO;
         [self shootBallToPosition:position];
         [self.bangNode runAction:[Actions fadeInFadeOutAction]];
-
     }];
 }
 
@@ -123,7 +120,6 @@
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self checkNodes];
         });
-        
     }else{
         [contact.bodyB.node removeFromParent];
     }
@@ -139,7 +135,7 @@
 
 - (void)didSimulatePhysics{
     SKCameraNode *camera = (SKCameraNode *)[self childNodeWithName:@"camera"];
-    camera.position = CGPointMake(self.tankBody.position.x, self.tankBody.position.y - 100);
+    camera.position = CGPointMake(self.tankBody.position.x, self.tankBody.position.y);
     self.camera = camera;
 }
 
@@ -156,27 +152,29 @@
         self.moving = YES;
         [self.tankBody runAction:[Actions rotateToAngle:1.5 andMoveByX:0 moveByY:1200]];
         [self.tankRifle runAction:[Actions rotateToAngle:1.5 andMoveByX:0 moveByY:1200] completion:^{
-            self.level++;
+            self.viewModel.level++;
             self.moving = NO;
-            [self createWorldLevel:self.level];
+            [self createWorldLevel:self.viewModel.level];
         }];
         [AppEngine defaultEngine].goToNextLevel = NO;
     }
 }
 
 - (void)longPressAction:(UILongPressGestureRecognizer *)recognizer{
-    self.viewModel.chargingLevel = 0;
-    [self.shieldAndBombTimer invalidate];
-    if ([self.tankBody containsPoint:self.selectedPoint]) {
-        NSLog(@"charging");
-        self.shieldAndBombTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(charging) userInfo:nil repeats:YES];
+   
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        self.viewModel.chargingLevel = 0;
+        [self.shieldAndBombTimer invalidate];
+        
+        if ([self.tankBody containsPoint:self.selectedPoint]) {
+            NSLog(@"charging");
+            self.shieldAndBombTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(charging) userInfo:nil repeats:YES];
+        }
     }
     
     if (recognizer.state == UIGestureRecognizerStateEnded) {
         [self.shieldAndBombTimer invalidate];
-        NSLog(@"end");
     }
-  
 }
 
 - (void)charging{
@@ -186,11 +184,16 @@
         self.fireRing = [FireRing fireSpriteNode];
          self.fireRing.position = self.tankBody.position;
         [self addChild:self.fireRing];
-        [Actions shakeScreenFor:10 withIntensity:CGVectorMake(2, 2) andDuration:1 scene:self.scene];
-         [self.fireRing runAction:[SKAction scaleXBy:20 y:10 duration:3] completion:^{
-             [self.fireRing removeFromParent];
-         }];
-       
+        if (!self.viewModel.bossLevel) {
+            [Actions shakeScreenFor:10 withIntensity:CGVectorMake(2, 2) andDuration:1 scene:self.scene];
+            [self.fireRing runAction:[SKAction scaleXBy:20 y:10 duration:3] completion:^{
+            [self.fireRing removeFromParent]; 
+            }];
+        }else{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.fireRing removeFromParent];
+            });
+        }
     }
 }
 
@@ -202,7 +205,6 @@
             stageOne.viewModel = self.viewModel;
             [stageOne arrayWithMonsters];
             [stageOne createMonstersFromScene:self];
-
             break;
         }
         case 2:

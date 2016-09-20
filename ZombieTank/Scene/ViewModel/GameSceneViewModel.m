@@ -8,6 +8,7 @@
 
 #import "GameSceneViewModel.h"
 #import "Utilities.h"
+#import "Defines.h"
 #import "Actions.h"
 
 #define speedRotation 0.5;
@@ -64,13 +65,12 @@
                 CGPoint currentPosition = monster.position;
                 double angle = atan2(currentPosition.y - position.y, (currentPosition.x - position.x) + M_PI);
                 
-                CGFloat velX = 40 * cos(angle);
-                CGFloat velY = 40 * sin(angle);
+                CGFloat velX = self.monsterSpeed * cos(angle);
+                CGFloat velY = self.monsterSpeed * sin(angle);
                 
                 monster.physicsBody.velocity = CGVectorMake(-velX, -velY);
             }
         }
-
     }    
 }
 
@@ -84,6 +84,13 @@
         return @"bang_2_right";
     }else{
         return @"";
+    }
+}
+
+- (void)selectedLevel{
+    self.level = [[Utilities objectFromUserDefaultsWithKey:userDefaultsSelectedLevel] intValue];
+    if (!self.level || self.level == 0) {
+        self.level = 1;
     }
 }
 

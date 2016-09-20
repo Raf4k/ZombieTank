@@ -14,4 +14,6 @@
 + (void)createPhysicBodyWithoutContactDetection:(SKSpriteNode *)sprite;
 + (void)createSpriteNode:(SKSpriteNode *)spriteNode withName:(NSString *)name size:(CGSize)size;
 + (SKPhysicsJointFixed *)jointPinBodyA:(SKPhysicsBody *)bodyA toBodyB:(SKPhysicsBody *)bodyB atPosition:(CGPoint)position;
++ (id)objectFromUserDefaultsWithKey:(NSString *)key;
++ (void)saveUserDefaultsObject:(id)object forKey:(NSString *)key;
 @end

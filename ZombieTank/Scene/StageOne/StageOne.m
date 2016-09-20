@@ -16,7 +16,7 @@
 @interface StageOne()
 
 @property (nonatomic, strong) NSTimer *respawnMonsterTimer;
-@property (nonatomic, strong) NSTimer *dissapearGhostTimer;
+@property (nonatomic, strong) NSTimer *dashZombiesTimer;
 @property (nonatomic, strong) SKScene *parentScene;
 @property (nonatomic, assign) int spawnNumber;
 
@@ -25,49 +25,35 @@
 @implementation StageOne
 
 - (void)createMonstersFromScene:(SKScene *)scene{
-    
+    self.viewModel.speed = 0.3;
+    self.viewModel.monsterSpeed = 40;
+    self.viewModel.maxChargingLevel = 2;
     self.parentScene = scene;
     self.spawnNumber = 0;
-    
-    self.respawnMonsterTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(spawnMonsters) userInfo:nil repeats:YES];
-    self.dissapearGhostTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(disapearGhost) userInfo:nil repeats:YES];
+    self.respawnMonsterTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(spawnMonsters) userInfo:nil repeats:YES];
+    self.dashZombiesTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(dashZombies) userInfo:nil repeats:YES];
 }
 
 - (void)arrayWithMonsters{
-    self.viewModel.speed = 0.3;
-    self.viewModel.maxChargingLevel = 3;
+   
    self.viewModel.arrayWithMonsters = [[NSArray alloc]initWithObjects:spriteNameEnemyZombie, spriteNameEnemyGhost, nil];
 }
 
 - (void)spawnMonsters{
     self.spawnNumber++;
     Zombie *zombie = [Zombie zombieSpriteNode];
-    Ghost *ghost = [Ghost ghostSpriteNode];
-    int rand = arc4random() % 2;
-    switch (rand) {
-        case 0:
-            zombie.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageOne];
-            [self.parentScene addChild:zombie];
-            break;
-        case 1:
-            ghost.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageOne];
-             [self.parentScene addChild:ghost];
-            break;
-        default:
-            NSLog(@"difult");
-            break;
-    }
-    
-    if (self.spawnNumber == 30) {
-         [self.respawnMonsterTimer invalidate];
-        [self.dissapearGhostTimer invalidate];
+    zombie.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageOne];
+    [self.parentScene addChild:zombie];
+            
+    if (self.spawnNumber == 40) {
+        [self.respawnMonsterTimer invalidate];
+        [self.dashZombiesTimer invalidate];
         [AppEngine defaultEngine].goToNextLevel = YES;
     }
 }
 
-- (void)disapearGhost{
+- (void)dashZombies{
     [Zombie dashZombieFromParentScene:self.parentScene];
-    [Ghost dissapearGhostsFromparentScene:self.parentScene];
 }
 
 @end
