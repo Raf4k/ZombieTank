@@ -18,12 +18,29 @@
     //implement in child class
 }
 
-- (void)moveByX:(CGFloat)x byY:(CGFloat)y{
-    self.viewModel.moveByX = x;
-    self.viewModel.moveByY = y;
+- (void)spawnMonsters{
+    //implement in child class
 }
 
-- (void)setRifleSpeed:(int)rifleSpeed monstersSpeed:(int)monstersSpeed chargingLevel:(int)chargingLevel{
+- (void)monsterSkills{
+    //implement in child class
+}
+
+- (void)respawnMonstersTimer:(float)time{
+    self.respawnMonsterTimer = [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(spawnMonsters) userInfo:nil repeats:YES];
+}
+
+- (void)monsterSkillsTimer:(float)time{
+     self.monsterSkillsTimer = [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(monsterSkills) userInfo:nil repeats:YES];
+}
+
+- (void)moveByX:(CGFloat)x byY:(CGFloat)y byAngle:(CGFloat)angle{
+    self.viewModel.moveByX = x;
+    self.viewModel.moveByY = y;
+    self.viewModel.moveByAngle = angle;
+}
+
+- (void)setRifleSpeed:(float)rifleSpeed monstersSpeed:(int)monstersSpeed chargingLevel:(int)chargingLevel{
     self.viewModel.speed = rifleSpeed;
     self.viewModel.monsterSpeed = monstersSpeed;
     self.viewModel.maxChargingLevel = chargingLevel;

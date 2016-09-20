@@ -150,8 +150,8 @@
     }
     if (monsters == NO && [AppEngine defaultEngine].goToNextLevel) {
         self.moving = YES;
-        [self.tankBody runAction:[Actions rotateToAngle:1.5 andMoveByX:self.viewModel.moveByX moveByY:self.viewModel.moveByY]];
-        [self.tankRifle runAction:[Actions rotateToAngle:1.5 andMoveByX:0 moveByY:1200] completion:^{
+        [self.tankBody runAction:[Actions rotateToAngle:self.viewModel.moveByAngle andMoveByX:self.viewModel.moveByX moveByY:self.viewModel.moveByY]];
+        [self.tankRifle runAction:[Actions rotateToAngle:self.viewModel.moveByAngle andMoveByX:self.viewModel.moveByX moveByY:self.viewModel.moveByY] completion:^{
             self.viewModel.level++;
             self.moving = NO;
             [self createWorldLevel:self.viewModel.level];
@@ -184,7 +184,6 @@
         self.fireRing = [FireRing fireSpriteNode];
          self.fireRing.position = self.tankBody.position;
         [self addChild:self.fireRing];
-        
         if (!self.viewModel.bossLevel) {
             [Actions shakeScreenFor:10 withIntensity:CGVectorMake(2, 2) andDuration:1 scene:self.scene];
             [self.fireRing runAction:[SKAction scaleXBy:20 y:10 duration:3] completion:^{

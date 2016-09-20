@@ -15,8 +15,6 @@
 
 @interface StageTwo()
 
-@property (nonatomic, strong) NSTimer *respawnMonsterTimer;
-@property (nonatomic, strong) NSTimer *dissapearGhostTimer;
 @property (nonatomic, assign) int spawnNumber;
 
 @end
@@ -24,15 +22,14 @@
 @implementation StageTwo
 
 - (void)createMonstersFromScene:(SKScene *)scene{
-    [self setBasePosition];
-    [self moveByX:1200 byY:0];
-    [self setRifleSpeed:0.3 monstersSpeed:50 chargingLevel:2];
-    
     self.parentScene = scene;
     self.spawnNumber = 0;
     
-    self.respawnMonsterTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(spawnMonsters) userInfo:nil repeats:YES];
-    self.dissapearGhostTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(disapearGhost) userInfo:nil repeats:YES];
+    [self setBasePosition];
+    [self moveByX:1200 byY:0 byAngle:0];
+    [self setRifleSpeed:0.3 monstersSpeed:50 chargingLevel:2];
+    [self respawnMonstersTimer:0.5];
+    [self monsterSkillsTimer:2];
 }
 
 - (void)setBasePosition{
@@ -61,15 +58,16 @@
             break;
     }
     
-    if (self.spawnNumber == 40) {
+    if (self.spawnNumber == 10) {
         [self.respawnMonsterTimer invalidate];
-        [self.dissapearGhostTimer invalidate];
+        [self.monsterSkillsTimer invalidate];
         [AppEngine defaultEngine].goToNextLevel = YES;
     }
 }
 
-- (void)disapearGhost{
+- (void)monsterSkills{
     [Ghost dissapearGhostsFromparentScene:self.parentScene];
+    [Zombie dashZombieFromParentScene:self.parentScene];
 }
 
 @end

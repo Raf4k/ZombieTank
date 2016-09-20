@@ -11,6 +11,7 @@
 @interface GameSceneViewModel : NSObject
 @property (nonatomic, assign) CGFloat moveByRadius;
 @property (nonatomic, assign) CGFloat moveByX;
+@property (nonatomic, assign) CGFloat moveByAngle;
 @property (nonatomic, assign) CGFloat moveByY;
 @property (nonatomic, assign) float chargingLevel;
 @property (nonatomic, assign) int maxChargingLevel;
@@ -28,4 +29,5 @@
 - (void)updateEnemyPosition:(NSArray *)children basePosition:(CGPoint)position enemyNames:(NSArray *)enemyName;
 - (void)createCartoonLabelsWithName:(NSString *)name atPosition:(CGPoint)position inScene:(SKScene *)scene;
 - (void)selectedLevel;
+- (void)moveByX:(CGFloat)x byY:(CGFloat)y rifleSpeed:(int)rifleSpeed monstersSpeed:(int)monstersSpeed chargingLevel:(int)chargingLevel;
 @end

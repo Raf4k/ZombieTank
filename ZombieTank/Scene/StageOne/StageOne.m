@@ -15,8 +15,6 @@
 
 @interface StageOne()
 
-@property (nonatomic, strong) NSTimer *respawnMonsterTimer;
-@property (nonatomic, strong) NSTimer *dashZombiesTimer;
 @property (nonatomic, assign) int spawnNumber;
 
 @end
@@ -24,12 +22,12 @@
 @implementation StageOne
 
 - (void)createMonstersFromScene:(SKScene *)scene{
-    [self moveByX:0 byY:1200];
+    [self moveByX:0 byY:1100 byAngle:1.5];
     [self setRifleSpeed:0.3 monstersSpeed:40 chargingLevel:2];
     self.parentScene = scene;
     self.spawnNumber = 0;
-    self.respawnMonsterTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(spawnMonsters) userInfo:nil repeats:YES];
-    self.dashZombiesTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(dashZombies) userInfo:nil repeats:YES];
+    [self respawnMonstersTimer:0.5];
+    [self monsterSkillsTimer:2];
 }
 
 - (void)arrayWithMonsters{
@@ -42,14 +40,14 @@
     zombie.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageOne];
     [self.parentScene addChild:zombie];
             
-    if (self.spawnNumber == 40) {
+    if (self.spawnNumber == 10) {
         [self.respawnMonsterTimer invalidate];
-        [self.dashZombiesTimer invalidate];
+        [self.monsterSkillsTimer invalidate];
         [AppEngine defaultEngine].goToNextLevel = YES;
     }
 }
 
-- (void)dashZombies{
+- (void)monsterSkills{
     [Zombie dashZombieFromParentScene:self.parentScene];
 }
 
