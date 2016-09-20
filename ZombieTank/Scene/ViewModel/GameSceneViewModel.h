@@ -10,7 +10,9 @@
 
 @interface GameSceneViewModel : NSObject
 @property (nonatomic, assign) CGFloat moveByRadius;
-@property (nonatomic, assign) int chargingLevel;
+@property (nonatomic, assign) CGFloat moveByX;
+@property (nonatomic, assign) CGFloat moveByY;
+@property (nonatomic, assign) float chargingLevel;
 @property (nonatomic, assign) int maxChargingLevel;
 @property (nonatomic, assign) CGFloat speed;
 @property (nonatomic, assign) float monsterSpeed;

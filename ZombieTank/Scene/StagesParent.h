@@ -11,8 +11,10 @@
 
 @interface StagesParent : SKScene
 @property (nonatomic, strong)GameSceneViewModel *viewModel;
+@property (nonatomic, strong) SKScene *parentScene;
 
 - (void)arrayWithMonsters;
 - (void)createMonstersFromScene:(SKScene *)scene;
-
+- (void)moveByX:(CGFloat)x byY:(CGFloat)y;
+- (void)setRifleSpeed:(int)rifleSpeed monstersSpeed:(int)monstersSpeed chargingLevel:(int)chargingLevel;
 @end

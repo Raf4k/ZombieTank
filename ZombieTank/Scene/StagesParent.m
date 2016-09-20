@@ -17,4 +17,15 @@
 - (void)createMonstersFromScene:(SKScene *)scene{
     //implement in child class
 }
+
+- (void)moveByX:(CGFloat)x byY:(CGFloat)y{
+    self.viewModel.moveByX = x;
+    self.viewModel.moveByY = y;
+}
+
+- (void)setRifleSpeed:(int)rifleSpeed monstersSpeed:(int)monstersSpeed chargingLevel:(int)chargingLevel{
+    self.viewModel.speed = rifleSpeed;
+    self.viewModel.monsterSpeed = monstersSpeed;
+    self.viewModel.maxChargingLevel = chargingLevel;
+}
 @end

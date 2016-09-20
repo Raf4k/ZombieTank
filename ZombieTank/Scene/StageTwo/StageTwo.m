@@ -16,7 +16,6 @@
 @interface StageTwo()
 
 @property (nonatomic, strong) NSTimer *respawnMonsterTimer;
-@property (nonatomic, strong) SKScene *parentScene;
 @property (nonatomic, strong) NSTimer *dissapearGhostTimer;
 @property (nonatomic, assign) int spawnNumber;
 
@@ -26,11 +25,11 @@
 
 - (void)createMonstersFromScene:(SKScene *)scene{
     [self setBasePosition];
+    [self moveByX:1200 byY:0];
+    [self setRifleSpeed:0.3 monstersSpeed:50 chargingLevel:2];
+    
     self.parentScene = scene;
     self.spawnNumber = 0;
-    self.viewModel.speed = 0.3;
-    self.viewModel.monsterSpeed = 40;
-    self.viewModel.maxChargingLevel = 2;
     
     self.respawnMonsterTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(spawnMonsters) userInfo:nil repeats:YES];
     self.dissapearGhostTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(disapearGhost) userInfo:nil repeats:YES];
@@ -59,11 +58,10 @@
             [self.parentScene addChild:ghost];
             break;
         default:
-            NSLog(@"difult");
             break;
     }
     
-    if (self.spawnNumber == 30) {
+    if (self.spawnNumber == 40) {
         [self.respawnMonsterTimer invalidate];
         [self.dissapearGhostTimer invalidate];
         [AppEngine defaultEngine].goToNextLevel = YES;

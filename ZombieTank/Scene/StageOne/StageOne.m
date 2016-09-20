@@ -17,7 +17,6 @@
 
 @property (nonatomic, strong) NSTimer *respawnMonsterTimer;
 @property (nonatomic, strong) NSTimer *dashZombiesTimer;
-@property (nonatomic, strong) SKScene *parentScene;
 @property (nonatomic, assign) int spawnNumber;
 
 @end
@@ -25,9 +24,8 @@
 @implementation StageOne
 
 - (void)createMonstersFromScene:(SKScene *)scene{
-    self.viewModel.speed = 0.3;
-    self.viewModel.monsterSpeed = 40;
-    self.viewModel.maxChargingLevel = 2;
+    [self moveByX:0 byY:1200];
+    [self setRifleSpeed:0.3 monstersSpeed:40 chargingLevel:2];
     self.parentScene = scene;
     self.spawnNumber = 0;
     self.respawnMonsterTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(spawnMonsters) userInfo:nil repeats:YES];
@@ -35,7 +33,6 @@
 }
 
 - (void)arrayWithMonsters{
-   
    self.viewModel.arrayWithMonsters = [[NSArray alloc]initWithObjects:spriteNameEnemyZombie, spriteNameEnemyGhost, nil];
 }
 
