@@ -13,6 +13,7 @@
 @property (nonatomic, assign) CGFloat speed;
 @property (nonatomic, strong) NSString *currentEnemyName;
 @property (nonatomic, strong) NSArray *arrayWithMonsters;
+@property (nonatomic, assign) CGFloat lastAngle;
 
 - (double)calculateRadiusAndDurationTimeFromTouchLocation:(CGPoint)positionInScene spriteNode:(SKSpriteNode *)spriteNode;
 - (NSString *)setBangSpriteImage;

@@ -12,7 +12,7 @@
 
 #define speedRotation 0.5;
 @interface GameSceneViewModel()
-@property (nonatomic, assign) CGFloat lastAngle;
+
 
 @end
 @implementation GameSceneViewModel

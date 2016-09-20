@@ -10,4 +10,6 @@
 
 @interface Ghost : SKSpriteNode
 + (Ghost *)ghostSpriteNode;
++ (void)changePhysicsBody:(Ghost *)ghost;
++ (void)dissapearGhostsFromparentScene:(SKScene *)parentScene;
 @end

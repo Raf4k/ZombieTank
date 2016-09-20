@@ -10,6 +10,7 @@
 static const uint32_t sprite1Category = 0x1 << 0;
 static const uint32_t sprite2Category = 0x1 << 1;
 static const uint32_t sprite3Category = 0x1 << 2;
+static const uint32_t spriteDissapearCategory = 0x1 << 10;
 
 //spriteNames
 

@@ -12,7 +12,7 @@
 @interface Zombie : SKSpriteNode
 
 + (Zombie *)zombieSpriteNode;
-
++ (void)dashZombieFromParentScene:(SKScene *)parentScene;
 
 @end
 

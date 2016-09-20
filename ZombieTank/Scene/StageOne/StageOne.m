@@ -16,6 +16,7 @@
 @interface StageOne()
 
 @property (nonatomic, strong) NSTimer *respawnMonsterTimer;
+@property (nonatomic, strong) NSTimer *dissapearGhostTimer;
 @property (nonatomic, strong) SKScene *parentScene;
 @property (nonatomic, assign) int spawnNumber;
 
@@ -29,9 +30,11 @@
     self.spawnNumber = 0;
     
     self.respawnMonsterTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(spawnMonsters) userInfo:nil repeats:YES];
+    self.dissapearGhostTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(disapearGhost) userInfo:nil repeats:YES];
 }
 
 - (void)arrayWithMonsters{
+    self.viewModel.speed = 0.3;
    self.viewModel.arrayWithMonsters = [[NSArray alloc]initWithObjects:spriteNameEnemyZombie, spriteNameEnemyGhost, nil];
 }
 
@@ -54,10 +57,16 @@
             break;
     }
     
-    if (self.spawnNumber == 2) {
+    if (self.spawnNumber == 30) {
          [self.respawnMonsterTimer invalidate];
+        [self.dissapearGhostTimer invalidate];
         [AppEngine defaultEngine].goToNextLevel = YES;
     }
+}
+
+- (void)disapearGhost{
+    [Zombie dashZombieFromParentScene:self.parentScene];
+    [Ghost dissapearGhostsFromparentScene:self.parentScene];
 }
 
 @end
