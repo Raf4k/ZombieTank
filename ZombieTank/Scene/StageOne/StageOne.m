@@ -19,10 +19,10 @@
 @implementation StageOne
 
 - (void)createMonstersFromScene:(SKScene *)scene{
-    self.waveMaxSpawnNumber = 5;
+    self.waveMaxSpawnNumber = 10;
     self.parentScene = scene;
     [self moveByX:0 byY:1100 byAngle:1.5];
-    [self setRifleSpeed:0.3 monstersSpeed:40 chargingLevel:2];
+    [self setRifleSpeed:0.3 monstersSpeed:45 chargingLevel:5];
     [self respawnMonstersTimer:0.5];
     [self monsterSkillsTimer:2];
 }
@@ -39,13 +39,13 @@
             
     if (self.spawnNumber == self.waveMaxSpawnNumber) {
         [self.respawnMonsterTimer invalidate];
-        [self.monsterSkillsTimer invalidate];
-        [self wavesNumberToEndLevel:1];
+        [self wavesNumberToEndLevel:2];
     }
 }
 
 - (void)waitingWaveAdditionalOptions{
     self.waveMaxSpawnNumber = self.waveMaxSpawnNumber + 10;
+    self.viewModel.monsterSpeed = self.viewModel.monsterSpeed + 8;
 }
 
 - (void)monsterSkills{

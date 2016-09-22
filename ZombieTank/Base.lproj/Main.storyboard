@@ -131,12 +131,21 @@
                                 <color key="textColor" red="0.77615777527354335" green="0.82760847399563309" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TRb-eH-zZ7">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="212" id="5Ya-mY-2Ru"/>
+                                    <constraint firstAttribute="height" constant="42" id="crP-vk-yCD"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="du0-1J-SGk" firstAttribute="centerY" secondItem="8AK-CU-0U5" secondAttribute="centerY" id="Foe-YL-FLD"/>
+                            <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="TRb-eH-zZ7" secondAttribute="bottom" constant="10" id="G6j-5u-LdG"/>
                             <constraint firstItem="uxV-Qk-fBC" firstAttribute="centerY" secondItem="3se-qz-xqx" secondAttribute="centerY" id="M3y-mo-jk4"/>
                             <constraint firstItem="uxV-Qk-fBC" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="idN-jl-XbO"/>
+                            <constraint firstItem="TRb-eH-zZ7" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" constant="20" id="plj-sz-rm5"/>
                             <constraint firstItem="8AK-CU-0U5" firstAttribute="leading" secondItem="du0-1J-SGk" secondAttribute="trailing" constant="10" id="q5c-DZ-4jv"/>
                             <constraint firstAttribute="trailing" secondItem="8AK-CU-0U5" secondAttribute="trailing" constant="10" id="sWh-tM-taF"/>
                             <constraint firstItem="8AK-CU-0U5" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" constant="10" id="xGO-ys-zhZ"/>
@@ -144,6 +153,7 @@
                     </view>
                     <connections>
                         <outlet property="buttonPlayPause" destination="du0-1J-SGk" id="jqa-Yc-ywk"/>
+                        <outlet property="chargingView" destination="TRb-eH-zZ7" id="jWB-Pj-UoP"/>
                         <outlet property="labelPause" destination="uxV-Qk-fBC" id="YDm-Uy-LnG"/>
                     </connections>
                 </viewController>

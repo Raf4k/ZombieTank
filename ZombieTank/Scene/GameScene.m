@@ -118,7 +118,6 @@
             });
         }
     }
-
     
     if (firstBody == self.shootingBall.physicsBody || firstBody == self.fireRing.physicsBody) {
         if (contact.bodyB != self.fireRing.physicsBody && contact.bodyB != self.tankBody.physicsBody) {
@@ -176,17 +175,20 @@
         [self.shieldAndBombTimer invalidate];
         if ([self.tankBody containsPoint:self.selectedPoint]) {
             NSLog(@"charging");
-            self.shieldAndBombTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(charging) userInfo:nil repeats:YES];
+            self.shieldAndBombTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(charging) userInfo:nil repeats:YES];
         }
     }
     if (recognizer.state == UIGestureRecognizerStateEnded) {
+        [self.gameSceneDelegate stopCharging];
         [self.shieldAndBombTimer invalidate];
     }
 }
 
 - (void)charging{
+     [self.gameSceneDelegate chargingLevel:self.viewModel.chargingLevel maxLevel:self.viewModel.maxChargingLevel];
     self.viewModel.chargingLevel++;
     if (self.viewModel.chargingLevel == self.viewModel.maxChargingLevel) {
+        [self.gameSceneDelegate stopCharging];
         [self.shieldAndBombTimer invalidate];
         self.fireRing = [FireRing fireSpriteNode];
          self.fireRing.position = self.tankBody.position;
@@ -244,7 +246,6 @@
 - (void)showLevelLabel:(int)level{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.viewModel.wavesCounter ++;
-        self.labelEndingWave.zPosition = 0;
         self.labelEndingWave.fontColor = [Utilities colorWithHexString:[self.viewModel labelHexColorWithLevel:level]];
         self.labelEndingWave.position = CGPointMake(self.tankBody.position.x + 100, self.tankBody.position.y + 150);
         self.labelEndingWave.text = [NSString stringWithFormat:@"Wave %i",self.viewModel.wavesCounter];

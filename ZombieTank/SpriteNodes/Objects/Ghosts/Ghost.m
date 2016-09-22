@@ -19,8 +19,8 @@
     ghost.physicsBody.usesPreciseCollisionDetection = YES;
     
     ghost.physicsBody.categoryBitMask = sprite2Category;
-    ghost.physicsBody.contactTestBitMask = sprite2Category;
-     ghost.physicsBody.collisionBitMask = sprite2Category;
+    ghost.physicsBody.contactTestBitMask = sprite1Category;
+     ghost.physicsBody.collisionBitMask = sprite1Category;
     ghost.physicsBody.affectedByGravity = NO;
     ghost.zPosition = 3;
     

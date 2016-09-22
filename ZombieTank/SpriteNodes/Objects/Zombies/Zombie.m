@@ -19,8 +19,8 @@
     zombie.physicsBody.usesPreciseCollisionDetection = YES;
     
     zombie.physicsBody.categoryBitMask = sprite2Category;
-    zombie.physicsBody.contactTestBitMask = sprite2Category;
-    zombie.physicsBody.collisionBitMask = sprite2Category;
+    zombie.physicsBody.contactTestBitMask = sprite1Category;
+    zombie.physicsBody.collisionBitMask = sprite1Category;
     zombie.physicsBody.affectedByGravity = NO;
     zombie.zPosition = 3;
     

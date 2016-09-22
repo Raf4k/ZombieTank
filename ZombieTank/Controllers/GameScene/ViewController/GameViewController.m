@@ -14,6 +14,7 @@
 @property (nonatomic, assign) BOOL gameIsOver;
 @property (weak, nonatomic) IBOutlet UIButton *buttonPlayPause;
 @property (weak, nonatomic) IBOutlet UILabel *labelPause;
+@property (weak, nonatomic) IBOutlet UIView *chargingView;
 @end
 
 @implementation GameViewController
@@ -81,6 +82,29 @@
                 self.labelPause.alpha = 0;
             }];
         }
+    }
+}
+
+- (void)chargingLevel:(int)level maxLevel:(int)maxLevel{
+    for (UIImageView *imgView in self.chargingView.subviews) {
+        [imgView removeFromSuperview];
+    }
+    float startMargin = 0;
+    for (int i = 0; i < maxLevel; i++) {
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(startMargin, 0, 12, 42)];
+        startMargin = startMargin + 17;
+        if (level < i) {
+            imgView.image = [UIImage imageNamed:@"charging"];
+        }else{
+            imgView.image = [UIImage imageNamed:@"charged"];
+        }
+        [self.chargingView addSubview:imgView];
+    }
+}
+
+- (void)stopCharging{
+    for (UIImageView *imgView in self.chargingView.subviews) {
+        [imgView removeFromSuperview];
     }
 }
 

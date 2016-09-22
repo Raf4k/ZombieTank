@@ -25,7 +25,7 @@
     [self setBasePosition];
     
     [self moveByX:0 byY:1200 byAngle:0];
-    [self setRifleSpeed:0.3 monstersSpeed:50 chargingLevel:2];
+    [self setRifleSpeed:0.3 monstersSpeed:55 chargingLevel:4];
     [self respawnMonstersTimer:0.5];
     [self monsterSkillsTimer:0.5];
 }
@@ -42,6 +42,7 @@
     
     if (self.spawnNumber == self.waveMaxSpawnNumber) {
         [self.respawnMonsterTimer invalidate];
+        self.viewModel.monsterSpeed = self.viewModel.monsterSpeed + 8;
         [self wavesNumberToEndLevel:3];
     }
 }
