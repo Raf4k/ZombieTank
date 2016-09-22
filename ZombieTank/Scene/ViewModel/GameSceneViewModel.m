@@ -122,5 +122,19 @@
     }];
 }
 
+- (NSString *)labelHexColorWithLevel:(int)level{
+    switch (level) {
+        case 1:
+            return @"79F700";
+            break;
+        case 2:
+            return @"8041FC";
+            break;
+        default:
+            return @"FC131B";
+            break;
+    }
+}
+
 
 @end

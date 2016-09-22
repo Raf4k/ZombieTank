@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE03B78F1D93EAB300CC06E0 /* From_Cartoon_Blocks.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE03B78D1D93EAB300CC06E0 /* From_Cartoon_Blocks.ttf */; };
 		CE16DFC11D915A1600AB1465 /* FireRing.m in Sources */ = {isa = PBXBuildFile; fileRef = CE16DFC01D915A1600AB1465 /* FireRing.m */; };
 		CE1864241D5E7F7100027836 /* GameSceneViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1864231D5E7F7100027836 /* GameSceneViewModel.m */; };
 		CE310DAD1D5F2B690084E18A /* StageOne.sks in Resources */ = {isa = PBXBuildFile; fileRef = CE310DAC1D5F2B690084E18A /* StageOne.sks */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE03B78D1D93EAB300CC06E0 /* From_Cartoon_Blocks.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = From_Cartoon_Blocks.ttf; sourceTree = "<group>"; };
 		CE16DFBF1D915A1600AB1465 /* FireRing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FireRing.h; sourceTree = "<group>"; };
 		CE16DFC01D915A1600AB1465 /* FireRing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FireRing.m; sourceTree = "<group>"; };
 		CE1864221D5E7F7100027836 /* GameSceneViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneViewModel.h; sourceTree = "<group>"; };
@@ -123,6 +125,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE03B78B1D93EAA000CC06E0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CE03B78D1D93EAB300CC06E0 /* From_Cartoon_Blocks.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		CE16DFBE1D915A0C00AB1465 /* FireRing */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +279,7 @@
 		CE98E55F1D5E5B79001E00B1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE03B78B1D93EAA000CC06E0 /* Fonts */,
 				CE441DFB1D62224F00AAFF64 /* Actions */,
 				CE98E5601D5E5B79001E00B1 /* Categories */,
 				CE98E5611D5E5B79001E00B1 /* Utilities */,
@@ -549,6 +560,7 @@
 				CE310DAD1D5F2B690084E18A /* StageOne.sks in Resources */,
 				CEF187091D61D38100979544 /* StageTwo.sks in Resources */,
 				F6E3736A1D631ADB0045EAA9 /* StageFour.sks in Resources */,
+				CE03B78F1D93EAB300CC06E0 /* From_Cartoon_Blocks.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

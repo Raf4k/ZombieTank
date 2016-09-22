@@ -5,6 +5,7 @@
 //  Created by Rafal Kampa on 12.08.2016.
 //  Copyright (c) 2016 Rafal Kampa. All rights reserved.
 //
+#import "StagesParent.h"
 #import "StageOne.h"
 #import "StageTwo.h"
 #import "StageThree.h"
@@ -22,9 +23,10 @@
 #import "AppEngine.h"
 #import "GameOver.h"
 
-@interface GameScene () <SKPhysicsContactDelegate>
+@interface GameScene () <SKPhysicsContactDelegate, StagesParentDelegate>
 @property (nonatomic, strong) SKSpriteNode *tankRifle;
 @property (nonatomic , strong) SKAction *rotateAction;
+@property (nonatomic, strong) SKLabelNode *labelEndingWave;
 @property (nonatomic, strong) GameSceneViewModel *viewModel;
 @property (nonatomic, strong) ShootingBall *shootingBall;
 @property (nonatomic, strong) FireRing *fireRing;
@@ -40,8 +42,11 @@
 
 -(void)didMoveToView:(SKView *)view {
     self.viewModel = [[GameSceneViewModel alloc] init];
+    self.viewModel.wavesCounter = 0;
     self.physicsWorld.contactDelegate = self;
     
+    self.labelEndingWave = (SKLabelNode *)[self childNodeWithName:spriteNameLabelEndingWave];
+    [self.labelEndingWave runAction:[SKAction fadeOutWithDuration:0.01]];
     self.tankRifle = (SKSpriteNode *)[self childNodeWithName:spriteNameTankRifle];
     self.bangNode = (SKSpriteNode *)[self childNodeWithName:spriteNameBang];
     self.tankBody = (SKSpriteNode *)[self childNodeWithName:spriteNameTankBody];
@@ -192,12 +197,14 @@
 }
 
 - (void)createWorldLevel:(int)level{
+    [self showLevelLabel:level];
     switch (level) {
         case 1:
         {
             StageOne *stageOne = [StageOne nodeWithFileNamed:stageNameStageOne];
             stageOne.viewModel = self.viewModel;
             [stageOne arrayWithMonsters];
+            stageOne.parentSceneDelegate = self;
             [stageOne createMonstersFromScene:self];
             break;
         }
@@ -206,6 +213,7 @@
             StageTwo *stageTwo = [StageTwo nodeWithFileNamed:stageNameStageTwo];
             stageTwo.viewModel = self.viewModel;
             [stageTwo arrayWithMonsters];
+            stageTwo.parentSceneDelegate = self;
             [stageTwo createMonstersFromScene:self];
             break;
         }
@@ -213,6 +221,7 @@
         {
             StageThree *stageThree = [StageThree nodeWithFileNamed:stageNameStageThree];
             stageThree.viewModel = self.viewModel;
+            stageThree.parentSceneDelegate = self;
             [stageThree arrayWithMonsters];
             [stageThree createMonstersFromScene:self];
             break;
@@ -220,6 +229,21 @@
         default:
             break;
     }
+}
+
+#pragma mark - delegate Scene
+
+- (void)showLevelLabel:(int)level{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.viewModel.wavesCounter ++;
+        self.labelEndingWave.zPosition = 0;
+        self.labelEndingWave.fontColor = [Utilities colorWithHexString:[self.viewModel labelHexColorWithLevel:level]];
+        self.labelEndingWave.position = CGPointMake(self.tankBody.position.x + 100, self.tankBody.position.y + 150);
+        self.labelEndingWave.text = [NSString stringWithFormat:@"Wave %i",self.viewModel.wavesCounter];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.labelEndingWave runAction:[Actions fadeInFadeOutActionForLabels]];
+        });
+    });
 }
 
 

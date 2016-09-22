@@ -20,8 +20,9 @@
 @implementation StageTwo
 
 - (void)createMonstersFromScene:(SKScene *)scene{
+    self.waveMaxSpawnNumber = 15;
+    
     self.parentScene = scene;
-    self.spawnNumber = 0;
     [self setBasePosition];
     [self moveByX:1200 byY:0 byAngle:0];
     [self setRifleSpeed:0.3 monstersSpeed:50 chargingLevel:2];
@@ -51,16 +52,19 @@
             break;
     }
     
-    if (self.spawnNumber == 10) {
+    if (self.spawnNumber == self.waveMaxSpawnNumber) {
         [self.respawnMonsterTimer invalidate];
-        [self.monsterSkillsTimer invalidate];
-        [AppEngine defaultEngine].goToNextLevel = YES;
+        [self wavesNumberToEndLevel:1];
     }
 }
 
 - (void)monsterSkills{
     [Ghost dissapearGhostsFromparentScene:self.parentScene];
     [Zombie dashZombieFromParentScene:self.parentScene];
+}
+
+- (void)waitingWaveAdditionalOptions{
+    self.waveMaxSpawnNumber = self.waveMaxSpawnNumber + 5;
 }
 
 @end

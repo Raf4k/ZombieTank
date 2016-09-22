@@ -8,10 +8,14 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "GameSceneViewModel.h"
-
+@protocol StagesParentDelegate
+- (void)showLevelLabel:(int)level;
+@end
 @interface StagesParent : SKScene
+@property (nonatomic, weak) id <StagesParentDelegate> parentSceneDelegate;
 @property (nonatomic, strong)GameSceneViewModel *viewModel;
 @property (nonatomic, assign) int spawnNumber;
+@property (nonatomic, assign) int waveMaxSpawnNumber;
 @property (nonatomic, assign) int wavesNumber;
 
 @property (nonatomic, strong) SKScene *parentScene;
@@ -23,10 +27,13 @@
 - (void)spawnMonsters;
 - (void)monsterSkills;
 - (void)waitingWave;
+- (void)waitingWaveAdditionalOptions;
 
 - (void)respawnMonstersTimer:(float)time;
 - (void)monsterSkillsTimer:(float)time;
 - (void)waitingWaveTimer:(float)time;
+
+- (void)wavesNumberToEndLevel:(int)wavesNumber;
 
 - (void)setBasePosition;
 - (void)createMonstersFromScene:(SKScene *)scene;

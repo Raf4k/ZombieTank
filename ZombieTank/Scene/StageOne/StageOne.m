@@ -19,11 +19,11 @@
 @implementation StageOne
 
 - (void)createMonstersFromScene:(SKScene *)scene{
+    self.waveMaxSpawnNumber = 5;
+    
     [self moveByX:0 byY:1100 byAngle:1.5];
     [self setRifleSpeed:0.3 monstersSpeed:40 chargingLevel:2];
     self.parentScene = scene;
-    self.spawnNumber = 0;
-    self.wavesNumber = 0;
     [self respawnMonstersTimer:0.5];
     [self monsterSkillsTimer:2];
 }
@@ -38,24 +38,15 @@
     zombie.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageOne];
     [self.parentScene addChild:zombie];
             
-    if (self.spawnNumber == 10) {
+    if (self.spawnNumber == self.waveMaxSpawnNumber) {
         [self.respawnMonsterTimer invalidate];
         [self.monsterSkillsTimer invalidate];
-        if (self.wavesNumber <4) {
-            [self waitingWaveTimer:1];
-        }else{
-            [AppEngine defaultEngine].goToNextLevel = YES;
-        }
+        [self wavesNumberToEndLevel:1];
     }
 }
 
-- (void)waitingWave{
-    if (![self.viewModel areMonstersInScene:self.parentScene]) {
-        [self.waitingWaveTimer invalidate];
-        self.spawnNumber = 0;
-        self.wavesNumber++;
-        [self respawnMonstersTimer:0.5];
-    }
+- (void)waitingWaveAdditionalOptions{
+    self.waveMaxSpawnNumber = self.waveMaxSpawnNumber + 10;
 }
 
 - (void)monsterSkills{

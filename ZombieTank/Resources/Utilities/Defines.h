@@ -16,6 +16,7 @@ static const uint32_t spriteDissapearCategory = 0x1 << 5;
 
 static NSString *const spriteNameTankBody = @"tankBody";
 static NSString *const spriteNameTankRifle = @"tankRifle";
+static NSString *const spriteNameLabelEndingWave = @"labelEndingWave";
 static NSString *const spriteNameBang = @"bang";
 
 static NSString *const spriteNameEnemyZombie = @"zombie";

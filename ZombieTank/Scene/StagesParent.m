@@ -28,7 +28,20 @@
 }
 
 - (void)waitingWave{
-     //implement in child class
+    if (![self.viewModel areMonstersInScene:self.parentScene]) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.parentSceneDelegate showLevelLabel:self.viewModel.level];
+            [self.waitingWaveTimer invalidate];
+            self.spawnNumber = 0;
+            self.wavesNumber++;
+            [self respawnMonstersTimer:1];
+            [self waitingWaveAdditionalOptions];
+        });
+    }
+}
+
+- (void)waitingWaveAdditionalOptions{
+    
 }
 
 - (void)respawnMonstersTimer:(float)time{
@@ -36,11 +49,22 @@
 }
 
 - (void)monsterSkillsTimer:(float)time{
+    self.spawnNumber = 0;
+    self.wavesNumber = 0;
      self.monsterSkillsTimer = [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(monsterSkills) userInfo:nil repeats:YES];
 }
 
 - (void)waitingWaveTimer:(float)time{
-    self.waitingWaveTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(waitingWave) userInfo:nil repeats:YES];
+    self.waitingWaveTimer = [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(waitingWave) userInfo:nil repeats:YES];
+}
+
+- (void)wavesNumberToEndLevel:(int)wavesNumber{
+    if (self.wavesNumber < wavesNumber) {
+        [self waitingWaveTimer:2];
+    }else{
+        [self.monsterSkillsTimer invalidate];
+        [AppEngine defaultEngine].goToNextLevel = YES;
+    }
 }
 
 - (void)moveByX:(CGFloat)x byY:(CGFloat)y byAngle:(CGFloat)angle{
@@ -59,4 +83,5 @@
     self.viewModel.monsterSpeed = monstersSpeed;
     self.viewModel.maxChargingLevel = chargingLevel;
 }
+
 @end

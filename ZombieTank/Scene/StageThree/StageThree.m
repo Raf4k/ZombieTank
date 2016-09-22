@@ -20,6 +20,7 @@
 
 - (void)createMonstersFromScene:(SKScene *)scene{
     self.parentScene = scene;
+    self.waveMaxSpawnNumber = 12;
     self.spawnNumber = 0;
     [self setBasePosition];
     
@@ -35,15 +36,13 @@
 
 - (void)spawnMonsters{
     Dragon *dragon = [Dragon dragonSpriteNode];
-    dragon.position = [Utilities positionOfRespawnWithoutRandomizePlaceFromNodesArray:self.children respawnName:spawnStageThree number:self.spawnNumber];
     self.spawnNumber++;
+    dragon.position = [Utilities positionOfRespawnWithoutRandomizePlaceFromNodesArray:self.children respawnName:spawnStageThree number:self.spawnNumber];
     [self.parentScene addChild:dragon];
     
-    if (self.spawnNumber == 12) {
+    if (self.spawnNumber == self.waveMaxSpawnNumber) {
         [self.respawnMonsterTimer invalidate];
-        
-        
-        [AppEngine defaultEngine].goToNextLevel = YES;
+        [self wavesNumberToEndLevel:3];
     }
 }
 

@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSArray *arrayWithMonsters;
 @property (nonatomic, assign) CGFloat lastAngle;
 @property (nonatomic, assign) int level;
+@property (nonatomic, assign) int wavesCounter;
 @property (nonatomic, assign) BOOL bossLevel;
 
 - (double)calculateRadiusAndDurationTimeFromTouchLocation:(CGPoint)positionInScene spriteNode:(SKSpriteNode *)spriteNode;
@@ -30,5 +31,7 @@
 - (void)updateEnemyPosition:(NSArray *)children basePosition:(CGPoint)position enemyNames:(NSArray *)enemyName;
 - (void)createCartoonLabelsWithName:(NSString *)name atPosition:(CGPoint)position inScene:(SKScene *)scene;
 - (void)selectedLevel;
+
+- (NSString *)labelHexColorWithLevel:(int)level;
 
 @end

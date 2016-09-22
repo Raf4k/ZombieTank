@@ -17,4 +17,5 @@
 + (SKPhysicsJointFixed *)jointPinBodyA:(SKPhysicsBody *)bodyA toBodyB:(SKPhysicsBody *)bodyB atPosition:(CGPoint)position;
 + (id)objectFromUserDefaultsWithKey:(NSString *)key;
 + (void)saveUserDefaultsObject:(id)object forKey:(NSString *)key;
++ (UIColor*)colorWithHexString:(NSString*)hex;
 @end

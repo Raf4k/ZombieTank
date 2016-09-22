@@ -18,6 +18,14 @@
                                 ]];
 }
 
++ (SKAction *)fadeInFadeOutActionForLabels{
+    return [SKAction sequence:@[
+                                [SKAction fadeInWithDuration:1],
+                                [SKAction waitForDuration:2],
+                                [SKAction fadeOutWithDuration:1]
+                                ]];
+}
+
 + (SKAction *)rotateToAngle:(CGFloat)angle andMoveByX:(CGFloat)x moveByY:(CGFloat)y{
     return [SKAction sequence:@[
                                 [SKAction rotateToAngle:angle duration:2],
