@@ -25,9 +25,10 @@
 
 - (double)calculateRadiusAndDurationTimeFromTouchLocation:(CGPoint)positionInScene spriteNode:(SKSpriteNode *)spriteNode;
 - (NSString *)setBangSpriteImage;
+- (BOOL)areMonstersInScene:(SKScene *)scene;
 
 - (void)updateEnemyPosition:(NSArray *)children basePosition:(CGPoint)position enemyNames:(NSArray *)enemyName;
 - (void)createCartoonLabelsWithName:(NSString *)name atPosition:(CGPoint)position inScene:(SKScene *)scene;
 - (void)selectedLevel;
-- (void)moveByX:(CGFloat)x byY:(CGFloat)y rifleSpeed:(int)rifleSpeed monstersSpeed:(int)monstersSpeed chargingLevel:(int)chargingLevel;
+
 @end

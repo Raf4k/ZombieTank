@@ -76,6 +76,19 @@
     }    
 }
 
+- (BOOL)areMonstersInScene:(SKScene *)scene{
+    BOOL monsters = NO;
+    for (SKNode *node in scene.children) {
+        for (int i = 0; i < self.arrayWithMonsters.count; i++) {
+            if ([node.name isEqualToString:self.arrayWithMonsters[i]]) {
+                monsters = YES;
+                break;
+            }
+        }
+    }
+    return monsters;
+}
+
 - (NSString *)setBangSpriteImage{
     
     if (self.lastAngle <= -1.5) {

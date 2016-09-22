@@ -140,14 +140,8 @@
 }
 
 - (void)checkNodes{
-    BOOL monsters = NO;
-    for (SKNode *node in self.children) {
-        for (int i = 0; i < self.viewModel.arrayWithMonsters.count; i++) {
-            if ([node.name isEqualToString:self.viewModel.arrayWithMonsters[i]]) {
-                monsters = YES;
-            }
-        }
-    }
+    BOOL monsters = [self.viewModel areMonstersInScene:self.scene];
+  
     if (monsters == NO && [AppEngine defaultEngine].goToNextLevel) {
         self.moving = YES;
         [self.tankBody runAction:[Actions rotateToAngle:self.viewModel.moveByAngle andMoveByX:self.viewModel.moveByX moveByY:self.viewModel.moveByY]];

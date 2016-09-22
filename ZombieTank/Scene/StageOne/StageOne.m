@@ -14,7 +14,6 @@
 #import "AppEngine.h"
 
 @interface StageOne()
-
 @end
 
 @implementation StageOne
@@ -24,6 +23,7 @@
     [self setRifleSpeed:0.3 monstersSpeed:40 chargingLevel:2];
     self.parentScene = scene;
     self.spawnNumber = 0;
+    self.wavesNumber = 0;
     [self respawnMonstersTimer:0.5];
     [self monsterSkillsTimer:2];
 }
@@ -41,7 +41,20 @@
     if (self.spawnNumber == 10) {
         [self.respawnMonsterTimer invalidate];
         [self.monsterSkillsTimer invalidate];
-        [AppEngine defaultEngine].goToNextLevel = YES;
+        if (self.wavesNumber <4) {
+            [self waitingWaveTimer:1];
+        }else{
+            [AppEngine defaultEngine].goToNextLevel = YES;
+        }
+    }
+}
+
+- (void)waitingWave{
+    if (![self.viewModel areMonstersInScene:self.parentScene]) {
+        [self.waitingWaveTimer invalidate];
+        self.spawnNumber = 0;
+        self.wavesNumber++;
+        [self respawnMonstersTimer:0.5];
     }
 }
 

@@ -12,16 +12,21 @@
 @interface StagesParent : SKScene
 @property (nonatomic, strong)GameSceneViewModel *viewModel;
 @property (nonatomic, assign) int spawnNumber;
+@property (nonatomic, assign) int wavesNumber;
+
 @property (nonatomic, strong) SKScene *parentScene;
 @property (nonatomic, strong) NSTimer *monsterSkillsTimer;
 @property (nonatomic, strong) NSTimer *respawnMonsterTimer;
+@property (nonatomic, strong) NSTimer *waitingWaveTimer;
 
 - (void)arrayWithMonsters;
 - (void)spawnMonsters;
 - (void)monsterSkills;
+- (void)waitingWave;
 
 - (void)respawnMonstersTimer:(float)time;
 - (void)monsterSkillsTimer:(float)time;
+- (void)waitingWaveTimer:(float)time;
 
 - (void)setBasePosition;
 - (void)createMonstersFromScene:(SKScene *)scene;
