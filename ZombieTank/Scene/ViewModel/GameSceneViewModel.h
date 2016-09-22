@@ -33,5 +33,5 @@
 - (void)selectedLevel;
 
 - (NSString *)labelHexColorWithLevel:(int)level;
-
+- (BOOL)contact:(SKPhysicsContact *)contact isEqualToFirstPhysicBody:(SKPhysicsBody *)body;
 @end

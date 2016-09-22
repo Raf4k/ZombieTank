@@ -27,6 +27,10 @@
     //implement in child class
 }
 
+- (void)waitingWaveAdditionalOptions{
+    //implement in child class
+}
+
 - (void)waitingWave{
     if (![self.viewModel areMonstersInScene:self.parentScene]) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -38,10 +42,6 @@
             [self waitingWaveAdditionalOptions];
         });
     }
-}
-
-- (void)waitingWaveAdditionalOptions{
-    
 }
 
 - (void)respawnMonstersTimer:(float)time{

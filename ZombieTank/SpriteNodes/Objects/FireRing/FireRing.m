@@ -20,8 +20,8 @@
     fireRing.physicsBody.usesPreciseCollisionDetection = YES;
     
     fireRing.physicsBody.categoryBitMask = sprite3Category;
-    fireRing.physicsBody.contactTestBitMask = sprite1Category | sprite2Category;
-    fireRing.physicsBody.collisionBitMask = sprite3Category;
+    fireRing.physicsBody.contactTestBitMask = sprite2Category | sprite3Category;
+    fireRing.physicsBody.collisionBitMask = sprite2Category | sprite3Category;
     fireRing.physicsBody.affectedByGravity = NO;
     fireRing.zPosition = 5;
     

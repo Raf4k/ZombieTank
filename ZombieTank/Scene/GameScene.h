@@ -7,7 +7,11 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-
+@protocol GameSceneDelegate
+- (void)gameOver;
+@end
 @interface GameScene : SKScene
+@property (nonatomic, weak) id<GameSceneDelegate>gameSceneDelegate;
 
+- (void)startScene;
 @end

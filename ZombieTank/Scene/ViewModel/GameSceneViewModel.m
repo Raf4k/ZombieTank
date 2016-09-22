@@ -89,6 +89,14 @@
     return monsters;
 }
 
+- (BOOL)contact:(SKPhysicsContact *)contact isEqualToFirstPhysicBody:(SKPhysicsBody *)body{
+    if (contact.bodyA == body || contact.bodyB == body) {
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
 - (NSString *)setBangSpriteImage{
     
     if (self.lastAngle <= -1.5) {

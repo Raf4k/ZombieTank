@@ -5,6 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="From_Cartoon_Blocks.ttf">
+            <string>FromCartoonBlocks</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Main Menu View Controller-->
         <scene sceneID="6rz-XA-xO7">
@@ -100,19 +105,58 @@
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8AK-CU-0U5">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="ThI-9n-ptg"/>
+                                    <constraint firstAttribute="height" constant="30" id="fjO-Od-IBd"/>
+                                </constraints>
+                                <state key="normal" image="exit"/>
+                                <connections>
+                                    <action selector="quitButtonTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Qda-2b-1vj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="du0-1J-SGk">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="Kkp-qb-L1B"/>
+                                    <constraint firstAttribute="height" constant="30" id="fpI-FM-wlg"/>
+                                </constraints>
+                                <state key="normal" image="pause"/>
+                                <connections>
+                                    <action selector="playPauseButtonTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="NZC-aE-r4k"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PAUSE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxV-Qk-fBC">
+                                <fontDescription key="fontDescription" name="FromCartoonBlocks" family="From Cartoon Blocks" pointSize="90"/>
+                                <color key="textColor" red="0.77615777527354335" green="0.82760847399563309" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="du0-1J-SGk" firstAttribute="centerY" secondItem="8AK-CU-0U5" secondAttribute="centerY" id="Foe-YL-FLD"/>
+                            <constraint firstItem="uxV-Qk-fBC" firstAttribute="centerY" secondItem="3se-qz-xqx" secondAttribute="centerY" id="M3y-mo-jk4"/>
+                            <constraint firstItem="uxV-Qk-fBC" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="idN-jl-XbO"/>
+                            <constraint firstItem="8AK-CU-0U5" firstAttribute="leading" secondItem="du0-1J-SGk" secondAttribute="trailing" constant="10" id="q5c-DZ-4jv"/>
+                            <constraint firstAttribute="trailing" secondItem="8AK-CU-0U5" secondAttribute="trailing" constant="10" id="sWh-tM-taF"/>
+                            <constraint firstItem="8AK-CU-0U5" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" constant="10" id="xGO-ys-zhZ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="buttonPlayPause" destination="du0-1J-SGk" id="jqa-Yc-ywk"/>
+                        <outlet property="labelPause" destination="uxV-Qk-fBC" id="YDm-Uy-LnG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1682" y="97"/>
+            <point key="canvasLocation" x="1680.8" y="96.7016491754123"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="A8X-4V-wU0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="v15-kk-Xb5" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M5B-GS-NIs">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="M5B-GS-NIs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -126,4 +170,8 @@
             <point key="canvasLocation" x="-13" y="97"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="exit" width="2400" height="2400"/>
+        <image name="pause" width="128" height="128"/>
+    </resources>
 </document>

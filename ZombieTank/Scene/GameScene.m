@@ -51,18 +51,19 @@
     self.bangNode = (SKSpriteNode *)[self childNodeWithName:spriteNameBang];
     self.tankBody = (SKSpriteNode *)[self childNodeWithName:spriteNameTankBody];
 
+    self.tankBody.physicsBody.categoryBitMask = sprite1Category;
+    self.tankBody.physicsBody.contactTestBitMask = sprite2Category | sprite3Category;
+    self.tankBody.physicsBody.collisionBitMask = sprite2Category | sprite3Category;
     [Utilities createPhysicBodyWithoutContactDetection:self.tankRifle];
     [Utilities createPhysicBodyWithoutContactDetection:self.bangNode];
     self.bangNode.alpha = 0;
 
     [self.physicsWorld addJoint:[Utilities jointPinBodyA:self.tankRifle.physicsBody toBodyB:self.bangNode.physicsBody atPosition:self.tankRifle.position]];
     [self.physicsWorld addJoint:[Utilities jointPinBodyA:self.tankBody.physicsBody toBodyB:self.tankRifle.physicsBody atPosition:self.tankBody.position]];
-    
     [self.viewModel selectedLevel];
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
     [view addGestureRecognizer:longPress];
-    
     [self createWorldLevel:self.viewModel.level];
 }
 
@@ -99,7 +100,6 @@
     }];
 }
 
-
 - (void)didBeginContact:(SKPhysicsContact *)contact{
     SKPhysicsBody *firstBody;
     if (contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask) {
@@ -107,6 +107,18 @@
     }else{
         firstBody = contact.bodyB;
     }
+    if ([self.viewModel contact:contact isEqualToFirstPhysicBody:self.tankBody.physicsBody]) {
+        if (![self.viewModel contact:contact isEqualToFirstPhysicBody:self.fireRing.physicsBody]) {
+            [self.viewModel createCartoonLabelsWithName:@"boom" atPosition:self.tankBody.position inScene:self];
+            [self.tankBody removeFromParent];
+            [self.tankRifle removeFromParent];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.gameSceneDelegate gameOver];
+                self.scene.view.paused = YES;
+            });
+        }
+    }
+
     
     if (firstBody == self.shootingBall.physicsBody || firstBody == self.fireRing.physicsBody) {
         if (contact.bodyB != self.fireRing.physicsBody && contact.bodyB != self.tankBody.physicsBody) {
@@ -146,7 +158,6 @@
 
 - (void)checkNodes{
     BOOL monsters = [self.viewModel areMonstersInScene:self.scene];
-  
     if (monsters == NO && [AppEngine defaultEngine].goToNextLevel) {
         self.moving = YES;
         [self.tankBody runAction:[Actions rotateToAngle:self.viewModel.moveByAngle andMoveByX:self.viewModel.moveByX moveByY:self.viewModel.moveByY]];
@@ -160,17 +171,14 @@
 }
 
 - (void)longPressAction:(UILongPressGestureRecognizer *)recognizer{
-   
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         self.viewModel.chargingLevel = 0;
         [self.shieldAndBombTimer invalidate];
-        
         if ([self.tankBody containsPoint:self.selectedPoint]) {
             NSLog(@"charging");
             self.shieldAndBombTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(charging) userInfo:nil repeats:YES];
         }
     }
-    
     if (recognizer.state == UIGestureRecognizerStateEnded) {
         [self.shieldAndBombTimer invalidate];
     }
