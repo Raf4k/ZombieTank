@@ -8,6 +8,8 @@
 
 #import "GameViewController.h"
 #import "GameScene.h"
+#import "Utilities.h"
+#import "Defines.h"
 @interface GameViewController() <GameSceneDelegate>
 @property (nonatomic, strong) GameScene *scene;
 @property (nonatomic, assign) BOOL isPause;
@@ -22,6 +24,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [Utilities saveUserDefaultsObject:@3 forKey:userDefaultsSelectedLevel];
     self.labelPause.alpha = 0;
     self.navigationController.navigationBar.hidden = YES;
     // Configure the view.

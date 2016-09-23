@@ -30,14 +30,14 @@
 + (void)changePhysicsBody:(Ghost *)ghost{
     if (ghost.alpha == 1) {
         ghost.physicsBody.categoryBitMask = spriteDissapearCategory;
-        ghost.physicsBody.contactTestBitMask = spriteDissapearCategory;
-        ghost.physicsBody.collisionBitMask = spriteDissapearCategory;
+        ghost.physicsBody.contactTestBitMask = sprite1Category;
+        ghost.physicsBody.collisionBitMask = sprite1Category;
         ghost.alpha = 0.4;
     }else{
         ghost.alpha = 1;
         ghost.physicsBody.categoryBitMask = sprite2Category;
-        ghost.physicsBody.contactTestBitMask = sprite2Category;
-        ghost.physicsBody.collisionBitMask = sprite2Category;
+        ghost.physicsBody.contactTestBitMask = sprite1Category;
+        ghost.physicsBody.collisionBitMask = sprite1Category;
     }
 }
 

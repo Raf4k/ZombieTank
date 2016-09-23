@@ -10,6 +10,7 @@
 #import "Utilities.h"
 #import "Defines.h"
 #import "Actions.h"
+#import "StartingPosition.h"
 
 #define speedRotation 0.5;
 @interface GameSceneViewModel()
@@ -115,6 +116,7 @@
     if (!self.level || self.level == 0) {
         self.level = 1;
     }
+    [StartingPosition startingPositionBasedOnLvl:self.level viewModel:self];
 }
 
 - (void)createCartoonLabelsWithName:(NSString *)name atPosition:(CGPoint)position inScene:(SKScene *)scene{
@@ -143,6 +145,7 @@
             break;
     }
 }
+
 
 
 @end

@@ -18,7 +18,7 @@
     
     shootingBall.physicsBody.categoryBitMask = sprite3Category;
     shootingBall.physicsBody.collisionBitMask = sprite3Category;
-    shootingBall.physicsBody.contactTestBitMask = sprite1Category | sprite2Category;
+    shootingBall.physicsBody.contactTestBitMask = sprite2Category;
     shootingBall.position = startPosition;
     shootingBall.physicsBody.mass = 0.4;
     return shootingBall;

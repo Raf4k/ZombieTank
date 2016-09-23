@@ -11,11 +11,13 @@
 #import "StageThree.h"
 
 #import "GameScene.h"
+#import "StartingPosition.h"
 
 #import "Defines.h"
 #import "GameSceneViewModel.h"
 #import "ShootingBall.h"
 #import "FireRing.h"
+#import "TankBody.h"
 #import "Zombie.h"
 #import "Ghost.h"
 #import "Actions.h"
@@ -50,20 +52,22 @@
     self.tankRifle = (SKSpriteNode *)[self childNodeWithName:spriteNameTankRifle];
     self.bangNode = (SKSpriteNode *)[self childNodeWithName:spriteNameBang];
     self.tankBody = (SKSpriteNode *)[self childNodeWithName:spriteNameTankBody];
-
-    self.tankBody.physicsBody.categoryBitMask = sprite1Category;
-    self.tankBody.physicsBody.contactTestBitMask = sprite2Category | sprite3Category;
-    self.tankBody.physicsBody.collisionBitMask = sprite2Category | sprite3Category;
+    [TankBody tankBodySpriteNode:self.tankBody];
     [Utilities createPhysicBodyWithoutContactDetection:self.tankRifle];
     [Utilities createPhysicBodyWithoutContactDetection:self.bangNode];
     self.bangNode.alpha = 0;
 
     [self.physicsWorld addJoint:[Utilities jointPinBodyA:self.tankRifle.physicsBody toBodyB:self.bangNode.physicsBody atPosition:self.tankRifle.position]];
     [self.physicsWorld addJoint:[Utilities jointPinBodyA:self.tankBody.physicsBody toBodyB:self.tankRifle.physicsBody atPosition:self.tankBody.position]];
-    [self.viewModel selectedLevel];
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
     [view addGestureRecognizer:longPress];
+    [self createWorldAtSelectedLevel];
+}
+
+- (void)createWorldAtSelectedLevel{
+    [self.viewModel selectedLevel];
+    self.tankRifle.position = CGPointMake(self.viewModel.moveByX + self.tankRifle.position.x, self.viewModel.moveByY + self.tankRifle.position.y);
     [self createWorldLevel:self.viewModel.level];
 }
 
@@ -158,10 +162,12 @@
 - (void)checkNodes{
     BOOL monsters = [self.viewModel areMonstersInScene:self.scene];
     if (monsters == NO && [AppEngine defaultEngine].goToNextLevel) {
+         self.viewModel.level++;
+        [StartingPosition startingPositionBasedOnLvl:self.viewModel.level viewModel:self.viewModel];
         self.moving = YES;
         [self.tankBody runAction:[Actions rotateToAngle:self.viewModel.moveByAngle andMoveByX:self.viewModel.moveByX moveByY:self.viewModel.moveByY]];
         [self.tankRifle runAction:[Actions rotateToAngle:self.viewModel.moveByAngle andMoveByX:self.viewModel.moveByX moveByY:self.viewModel.moveByY] completion:^{
-            self.viewModel.level++;
+           
             self.moving = NO;
             [self createWorldLevel:self.viewModel.level];
         }];

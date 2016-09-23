@@ -21,7 +21,6 @@
 - (void)createMonstersFromScene:(SKScene *)scene{
     self.waveMaxSpawnNumber = 10;
     self.parentScene = scene;
-    [self moveByX:0 byY:1100 byAngle:1.5];
     [self setRifleSpeed:0.3 monstersSpeed:45 chargingLevel:5];
     [self respawnMonstersTimer:0.5];
     [self monsterSkillsTimer:2];

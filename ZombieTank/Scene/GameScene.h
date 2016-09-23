@@ -15,5 +15,4 @@
 @interface GameScene : SKScene
 @property (nonatomic, weak) id<GameSceneDelegate>gameSceneDelegate;
 
-- (void)startScene;
 @end
