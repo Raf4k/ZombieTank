@@ -31,7 +31,9 @@
 - (void)updateEnemyPosition:(NSArray *)children basePosition:(CGPoint)position enemyNames:(NSArray *)enemyName;
 - (void)createCartoonLabelsWithName:(NSString *)name atPosition:(CGPoint)position inScene:(SKScene *)scene;
 - (void)selectedLevel;
+- (void)unlockLevel;
 
 - (NSString *)labelHexColorWithLevel:(int)level;
 - (BOOL)contact:(SKPhysicsContact *)contact isEqualToFirstPhysicBody:(SKPhysicsBody *)body;
+
 @end

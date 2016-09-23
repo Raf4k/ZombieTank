@@ -111,7 +111,7 @@
     }else{
         firstBody = contact.bodyB;
     }
-    if ([self.viewModel contact:contact isEqualToFirstPhysicBody:self.tankBody.physicsBody]) {
+    if ([self.viewModel contact:contact isEqualToFirstPhysicBody:self.tankBody.physicsBody]) { 
         if (![self.viewModel contact:contact isEqualToFirstPhysicBody:self.fireRing.physicsBody]) {
             [self.viewModel createCartoonLabelsWithName:@"boom" atPosition:self.tankBody.position inScene:self];
             [self.tankBody removeFromParent];
@@ -163,6 +163,7 @@
     BOOL monsters = [self.viewModel areMonstersInScene:self.scene];
     if (monsters == NO && [AppEngine defaultEngine].goToNextLevel) {
          self.viewModel.level++;
+        [self.viewModel unlockLevel];
         [StartingPosition startingPositionBasedOnLvl:self.viewModel.level viewModel:self.viewModel];
         self.moving = YES;
         [self.tankBody runAction:[Actions rotateToAngle:self.viewModel.moveByAngle andMoveByX:self.viewModel.moveByX moveByY:self.viewModel.moveByY]];

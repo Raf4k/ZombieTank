@@ -11,6 +11,7 @@
 #import "Defines.h"
 #import "Actions.h"
 #import "StartingPosition.h"
+#import "AppEngine.h"
 
 #define speedRotation 0.5;
 @interface GameSceneViewModel()
@@ -98,6 +99,7 @@
     }
 }
 
+
 - (NSString *)setBangSpriteImage{
     
     if (self.lastAngle <= -1.5) {
@@ -112,11 +114,18 @@
 }
 
 - (void)selectedLevel{
-    self.level = [[Utilities objectFromUserDefaultsWithKey:userDefaultsSelectedLevel] intValue];
+    self.level = [AppEngine defaultEngine].startingLvl;
     if (!self.level || self.level == 0) {
         self.level = 1;
     }
     [StartingPosition startingPositionBasedOnLvl:self.level viewModel:self];
+}
+
+- (void)unlockLevel{
+    int lvl = [[Utilities objectFromUserDefaultsWithKey:userDefaultsUnlockedLevel] intValue];
+    if (lvl < self.level) {
+        [Utilities saveUserDefaultsObject:[NSNumber numberWithInt:self.level] forKey:userDefaultsUnlockedLevel];
+    }
 }
 
 - (void)createCartoonLabelsWithName:(NSString *)name atPosition:(CGPoint)position inScene:(SKScene *)scene{

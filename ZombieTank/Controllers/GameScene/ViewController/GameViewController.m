@@ -9,6 +9,7 @@
 #import "GameViewController.h"
 #import "GameScene.h"
 #import "Utilities.h"
+#import "AppEngine.h"
 #import "Defines.h"
 @interface GameViewController() <GameSceneDelegate>
 @property (nonatomic, strong) GameScene *scene;
@@ -24,18 +25,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [Utilities saveUserDefaultsObject:@3 forKey:userDefaultsSelectedLevel];
+    [AppEngine defaultEngine].startingLvl = 1;
     self.labelPause.alpha = 0;
     self.navigationController.navigationBar.hidden = YES;
     // Configure the view.
     SKView * skView = (SKView *)self.view;
-//    skView.showsFPS = YES;
-//    skView.showsNodeCount = YES;
-    
     /* Sprite Kit applies additional optimizations to improve rendering performance */
     skView.ignoresSiblingOrder = YES;
-    
     
     // Create and configure the scene.
     self.scene = [GameScene nodeWithFileNamed:@"GameScene"];
