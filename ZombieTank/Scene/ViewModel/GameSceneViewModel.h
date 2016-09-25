@@ -35,5 +35,6 @@
 
 - (NSString *)labelHexColorWithLevel:(int)level;
 - (BOOL)contact:(SKPhysicsContact *)contact isEqualToFirstPhysicBody:(SKPhysicsBody *)body;
+- (BOOL)healthIsZeroFromChildren:(NSArray *)children contactBody:(SKPhysicsBody *)bodyB;
 
 @end

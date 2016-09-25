@@ -7,8 +7,8 @@
 //
 
 #import "Zombie.h"
-#import "SKPhysicsBody+Health.h"
 #import "Defines.h"
+#import "SKSpriteNode+Health.h"
 
 @implementation Zombie
 + (Zombie *)zombieSpriteNode{
@@ -24,8 +24,7 @@
     zombie.physicsBody.collisionBitMask = sprite1Category;
     zombie.physicsBody.affectedByGravity = NO;
     zombie.zPosition = 3;
-
-    
+    [zombie setHealth:1];
     return zombie;
 }
 

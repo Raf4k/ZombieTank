@@ -9,6 +9,7 @@
 #import "ShootingBall.h"
 #import "Utilities.h"
 #import "Defines.h"
+#import "SKSpriteNode+Health.h"
 
 @implementation ShootingBall
 
@@ -21,6 +22,7 @@
     shootingBall.physicsBody.contactTestBitMask = sprite2Category;
     shootingBall.position = startPosition;
     shootingBall.physicsBody.mass = 0.4;
+    [shootingBall setHealth:1];
     return shootingBall;
 }
 
@@ -33,6 +35,7 @@
     shootingBall.physicsBody.contactTestBitMask = sprite3Category;
     shootingBall.position = startPosition;
     shootingBall.physicsBody.mass = 0.4;
+    [shootingBall setHealth:1];
     return shootingBall;
 
 }

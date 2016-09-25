@@ -9,6 +9,7 @@
 #import "Dragon.h"
 #import "ShootingBall.h"
 #import "Defines.h"
+#import "SKSpriteNode+Health.h"
 
 @implementation Dragon
 + (Dragon *)dragonSpriteNode{
@@ -24,6 +25,7 @@
     dragon.physicsBody.collisionBitMask = sprite2Category;
     dragon.physicsBody.affectedByGravity = NO;
     dragon.zPosition = 3;
+    [dragon setHealth:1];
     
     return dragon;
 }

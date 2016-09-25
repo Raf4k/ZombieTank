@@ -30,12 +30,12 @@
 		CEB6DD711D5E464300FD0016 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB6DD6F1D5E464300FD0016 /* LaunchScreen.storyboard */; };
 		CEB6DD7C1D5E485600FD0016 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB6DD7A1D5E485600FD0016 /* GameScene.m */; };
 		CEB6DD7D1D5E485600FD0016 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CEB6DD7B1D5E485600FD0016 /* GameScene.sks */; };
+		CEBE9CAC1D987E5700ABF46E /* SKSpriteNode+Health.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBE9CAB1D987E5700ABF46E /* SKSpriteNode+Health.m */; };
 		CEC3A8EB1D5EF708002E845E /* Zombie.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC3A8EA1D5EF708002E845E /* Zombie.m */; };
 		CECA0D151D98090B00F743B0 /* LevelSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECA0D141D98090B00F743B0 /* LevelSelectionViewController.m */; };
 		CECA0D191D98091C00F743B0 /* LevelSelectionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CECA0D171D98091C00F743B0 /* LevelSelectionCollectionViewCell.m */; };
 		CECA0D1A1D98091C00F743B0 /* LevelSelectionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECA0D181D98091C00F743B0 /* LevelSelectionCollectionViewCell.xib */; };
 		CECA0D1E1D9865FB00F743B0 /* BossHorsePutin.m in Sources */ = {isa = PBXBuildFile; fileRef = CECA0D1D1D9865FB00F743B0 /* BossHorsePutin.m */; };
-		CECA0D211D9866B000F743B0 /* SKPhysicsBody+Health.m in Sources */ = {isa = PBXBuildFile; fileRef = CECA0D201D9866AF00F743B0 /* SKPhysicsBody+Health.m */; };
 		CECAE37B1D5F3B1700008176 /* StageOne.m in Sources */ = {isa = PBXBuildFile; fileRef = CECAE37A1D5F3B1700008176 /* StageOne.m */; };
 		CECAE37E1D5F47E300008176 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CECAE37D1D5F47E300008176 /* Utilities.m */; };
 		CEF187091D61D38100979544 /* StageTwo.sks in Resources */ = {isa = PBXBuildFile; fileRef = CEF187081D61D38100979544 /* StageTwo.sks */; };
@@ -95,6 +95,8 @@
 		CEB6DD791D5E485600FD0016 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		CEB6DD7A1D5E485600FD0016 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		CEB6DD7B1D5E485600FD0016 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		CEBE9CAA1D987E5700ABF46E /* SKSpriteNode+Health.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKSpriteNode+Health.h"; sourceTree = "<group>"; };
+		CEBE9CAB1D987E5700ABF46E /* SKSpriteNode+Health.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKSpriteNode+Health.m"; sourceTree = "<group>"; };
 		CEC3A8E91D5EF708002E845E /* Zombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zombie.h; sourceTree = "<group>"; };
 		CEC3A8EA1D5EF708002E845E /* Zombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zombie.m; sourceTree = "<group>"; };
 		CECA0D131D98090B00F743B0 /* LevelSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectionViewController.h; sourceTree = "<group>"; };
@@ -104,8 +106,6 @@
 		CECA0D181D98091C00F743B0 /* LevelSelectionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LevelSelectionCollectionViewCell.xib; sourceTree = "<group>"; };
 		CECA0D1C1D9865FB00F743B0 /* BossHorsePutin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BossHorsePutin.h; sourceTree = "<group>"; };
 		CECA0D1D1D9865FB00F743B0 /* BossHorsePutin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BossHorsePutin.m; sourceTree = "<group>"; };
-		CECA0D1F1D9866AF00F743B0 /* SKPhysicsBody+Health.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKPhysicsBody+Health.h"; sourceTree = "<group>"; };
-		CECA0D201D9866AF00F743B0 /* SKPhysicsBody+Health.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKPhysicsBody+Health.m"; sourceTree = "<group>"; };
 		CECAE3791D5F3B1700008176 /* StageOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageOne.h; sourceTree = "<group>"; };
 		CECAE37A1D5F3B1700008176 /* StageOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageOne.m; sourceTree = "<group>"; };
 		CECAE37C1D5F47E300008176 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
@@ -202,8 +202,8 @@
 		CE68A9E31D951E6800843ED6 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				CECA0D1F1D9866AF00F743B0 /* SKPhysicsBody+Health.h */,
-				CECA0D201D9866AF00F743B0 /* SKPhysicsBody+Health.m */,
+				CEBE9CAA1D987E5700ABF46E /* SKSpriteNode+Health.h */,
+				CEBE9CAB1D987E5700ABF46E /* SKSpriteNode+Health.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -654,11 +654,11 @@
 				CEFD97DA1D91D310004EB5A0 /* Dragon.m in Sources */,
 				CEB6DD611D5E464300FD0016 /* AppDelegate.m in Sources */,
 				CECAE37B1D5F3B1700008176 /* StageOne.m in Sources */,
-				CECA0D211D9866B000F743B0 /* SKPhysicsBody+Health.m in Sources */,
 				CE68A9DC1D950A6000843ED6 /* StartingPosition.m in Sources */,
 				F6E373661D6312350045EAA9 /* GameOver.m in Sources */,
 				CE68A9E21D950E3C00843ED6 /* TankBody.m in Sources */,
 				CEF1870C1D61D39300979544 /* StageTwo.m in Sources */,
+				CEBE9CAC1D987E5700ABF46E /* SKSpriteNode+Health.m in Sources */,
 				CEB16A221D60E0A900376A99 /* ShootingBall.m in Sources */,
 				CE98E5521D5E5A23001E00B1 /* AchievementsViewModel.m in Sources */,
 				CE98E54F1D5E5A11001E00B1 /* AchievementsViewController.m in Sources */,

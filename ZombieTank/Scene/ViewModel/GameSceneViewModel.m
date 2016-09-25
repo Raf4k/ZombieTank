@@ -11,6 +11,7 @@
 #import "Defines.h"
 #import "Actions.h"
 #import "StartingPosition.h"
+#import "SKSpriteNode+Health.h"
 #import "AppEngine.h"
 
 #define speedRotation 0.5;
@@ -76,6 +77,20 @@
             }
         }
     }    
+}
+
+- (BOOL)healthIsZeroFromChildren:(NSArray *)children contactBody:(SKPhysicsBody *)body{
+    for (int i =0; i < children.count; i++) {
+        SKSpriteNode *node = (SKSpriteNode *)children[i];
+        if (node.physicsBody == body) {
+            node.health--;
+            if (node.health == 0) {
+                return YES;
+            }
+            break;
+        }
+    }
+    return NO;
 }
 
 - (BOOL)areMonstersInScene:(SKScene *)scene{

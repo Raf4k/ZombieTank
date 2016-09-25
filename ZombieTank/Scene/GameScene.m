@@ -125,12 +125,19 @@
         }
     }
     
+   
+    
     if (firstBody == self.shootingBall.physicsBody || firstBody == self.fireRing.physicsBody) {
         if (contact.bodyB != self.fireRing.physicsBody && contact.bodyB != self.tankBody.physicsBody) {
-            [contact.bodyB.node removeFromParent];
+            
+            if ([self.viewModel healthIsZeroFromChildren:self.scene.children contactBody:contact.bodyB]) {
+                [contact.bodyB.node removeFromParent];
+            }
         }
         if (contact.bodyA != self.fireRing.physicsBody && contact.bodyA != self.tankBody.physicsBody) {
-            [contact.bodyA.node removeFromParent];
+            if ([self.viewModel healthIsZeroFromChildren:self.scene.children contactBody:contact.bodyA]) {
+                [contact.bodyA.node removeFromParent];
+            }
         }
       
         if (firstBody == self.fireRing.physicsBody) {
@@ -142,8 +149,6 @@
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self checkNodes];
         });
-    }else{
-        [contact.bodyB.node removeFromParent];
     }
 }
 

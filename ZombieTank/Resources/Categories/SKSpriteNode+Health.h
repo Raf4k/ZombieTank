@@ -1,5 +1,5 @@
 //
-//  SKPhysicsBody+Health.h
+//  SKSpriteNode+Health.h
 //  ZombieTank
 //
 //  Created by Rafal Kampa on 25.09.2016.
@@ -8,8 +8,10 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-
-@interface SKPhysicsBody (Health)
-
+@interface SKSpriteNode (Health)
+@property (nonatomic, assign) int health;
 
 @end
+
+
+
