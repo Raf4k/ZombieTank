@@ -31,6 +31,11 @@
 		CEB6DD7C1D5E485600FD0016 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB6DD7A1D5E485600FD0016 /* GameScene.m */; };
 		CEB6DD7D1D5E485600FD0016 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CEB6DD7B1D5E485600FD0016 /* GameScene.sks */; };
 		CEC3A8EB1D5EF708002E845E /* Zombie.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC3A8EA1D5EF708002E845E /* Zombie.m */; };
+		CECA0D151D98090B00F743B0 /* LevelSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECA0D141D98090B00F743B0 /* LevelSelectionViewController.m */; };
+		CECA0D191D98091C00F743B0 /* LevelSelectionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CECA0D171D98091C00F743B0 /* LevelSelectionCollectionViewCell.m */; };
+		CECA0D1A1D98091C00F743B0 /* LevelSelectionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECA0D181D98091C00F743B0 /* LevelSelectionCollectionViewCell.xib */; };
+		CECA0D1E1D9865FB00F743B0 /* BossHorsePutin.m in Sources */ = {isa = PBXBuildFile; fileRef = CECA0D1D1D9865FB00F743B0 /* BossHorsePutin.m */; };
+		CECA0D211D9866B000F743B0 /* SKPhysicsBody+Health.m in Sources */ = {isa = PBXBuildFile; fileRef = CECA0D201D9866AF00F743B0 /* SKPhysicsBody+Health.m */; };
 		CECAE37B1D5F3B1700008176 /* StageOne.m in Sources */ = {isa = PBXBuildFile; fileRef = CECAE37A1D5F3B1700008176 /* StageOne.m */; };
 		CECAE37E1D5F47E300008176 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CECAE37D1D5F47E300008176 /* Utilities.m */; };
 		CEF187091D61D38100979544 /* StageTwo.sks in Resources */ = {isa = PBXBuildFile; fileRef = CEF187081D61D38100979544 /* StageTwo.sks */; };
@@ -92,6 +97,15 @@
 		CEB6DD7B1D5E485600FD0016 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		CEC3A8E91D5EF708002E845E /* Zombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zombie.h; sourceTree = "<group>"; };
 		CEC3A8EA1D5EF708002E845E /* Zombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zombie.m; sourceTree = "<group>"; };
+		CECA0D131D98090B00F743B0 /* LevelSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectionViewController.h; sourceTree = "<group>"; };
+		CECA0D141D98090B00F743B0 /* LevelSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectionViewController.m; sourceTree = "<group>"; };
+		CECA0D161D98091C00F743B0 /* LevelSelectionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectionCollectionViewCell.h; sourceTree = "<group>"; };
+		CECA0D171D98091C00F743B0 /* LevelSelectionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectionCollectionViewCell.m; sourceTree = "<group>"; };
+		CECA0D181D98091C00F743B0 /* LevelSelectionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LevelSelectionCollectionViewCell.xib; sourceTree = "<group>"; };
+		CECA0D1C1D9865FB00F743B0 /* BossHorsePutin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BossHorsePutin.h; sourceTree = "<group>"; };
+		CECA0D1D1D9865FB00F743B0 /* BossHorsePutin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BossHorsePutin.m; sourceTree = "<group>"; };
+		CECA0D1F1D9866AF00F743B0 /* SKPhysicsBody+Health.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKPhysicsBody+Health.h"; sourceTree = "<group>"; };
+		CECA0D201D9866AF00F743B0 /* SKPhysicsBody+Health.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKPhysicsBody+Health.m"; sourceTree = "<group>"; };
 		CECAE3791D5F3B1700008176 /* StageOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageOne.h; sourceTree = "<group>"; };
 		CECAE37A1D5F3B1700008176 /* StageOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageOne.m; sourceTree = "<group>"; };
 		CECAE37C1D5F47E300008176 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
@@ -183,6 +197,15 @@
 				CE68A9E11D950E3C00843ED6 /* TankBody.m */,
 			);
 			path = TankBody;
+			sourceTree = "<group>";
+		};
+		CE68A9E31D951E6800843ED6 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				CECA0D1F1D9866AF00F743B0 /* SKPhysicsBody+Health.h */,
+				CECA0D201D9866AF00F743B0 /* SKPhysicsBody+Health.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		CE98E53E1D5E59CA001E00B1 /* GameScene */ = {
@@ -294,19 +317,12 @@
 		CE98E55F1D5E5B79001E00B1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE68A9E31D951E6800843ED6 /* Categories */,
 				CE03B78B1D93EAA000CC06E0 /* Fonts */,
 				CE441DFB1D62224F00AAFF64 /* Actions */,
-				CE98E5601D5E5B79001E00B1 /* Categories */,
 				CE98E5611D5E5B79001E00B1 /* Utilities */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		CE98E5601D5E5B79001E00B1 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Categories;
 			sourceTree = "<group>";
 		};
 		CE98E5611D5E5B79001E00B1 /* Utilities */ = {
@@ -333,8 +349,9 @@
 		CE98E5631D5E5BB3001E00B1 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				CECA0D1B1D9810AF00F743B0 /* HorsePutin */,
 				CE68A9DF1D950E3000843ED6 /* TankBody */,
-				CEFD97D71D91D2F9004EB5A0 /* Dragon */,
+				CEFD97D71D91D2F9004EB5A0 /* Dragons */,
 				CE16DFBE1D915A0C00AB1465 /* FireRing */,
 				F6E3735F1D6306CA0045EAA9 /* Ghosts */,
 				CEB16A1F1D60E09700376A99 /* ShootingBall */,
@@ -423,6 +440,7 @@
 		CEB6DD7E1D5E485C00FD0016 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CECA0D101D9808FD00F743B0 /* LevelSelection */,
 				F6E373521D62EDB80045EAA9 /* AppEngine.h */,
 				F6E373531D62EDB80045EAA9 /* AppEngine.m */,
 				CE98E54A1D5E59F8001E00B1 /* Achievement */,
@@ -443,6 +461,43 @@
 			path = Zombies;
 			sourceTree = "<group>";
 		};
+		CECA0D101D9808FD00F743B0 /* LevelSelection */ = {
+			isa = PBXGroup;
+			children = (
+				CECA0D111D9808FD00F743B0 /* Cell */,
+				CECA0D121D9808FD00F743B0 /* ViewController */,
+			);
+			path = LevelSelection;
+			sourceTree = "<group>";
+		};
+		CECA0D111D9808FD00F743B0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CECA0D161D98091C00F743B0 /* LevelSelectionCollectionViewCell.h */,
+				CECA0D171D98091C00F743B0 /* LevelSelectionCollectionViewCell.m */,
+				CECA0D181D98091C00F743B0 /* LevelSelectionCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CECA0D121D9808FD00F743B0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CECA0D131D98090B00F743B0 /* LevelSelectionViewController.h */,
+				CECA0D141D98090B00F743B0 /* LevelSelectionViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CECA0D1B1D9810AF00F743B0 /* HorsePutin */ = {
+			isa = PBXGroup;
+			children = (
+				CECA0D1C1D9865FB00F743B0 /* BossHorsePutin.h */,
+				CECA0D1D1D9865FB00F743B0 /* BossHorsePutin.m */,
+			);
+			path = HorsePutin;
+			sourceTree = "<group>";
+		};
 		CEF187071D61D36000979544 /* StageTwo */ = {
 			isa = PBXGroup;
 			children = (
@@ -453,12 +508,13 @@
 			path = StageTwo;
 			sourceTree = "<group>";
 		};
-		CEFD97D71D91D2F9004EB5A0 /* Dragon */ = {
+		CEFD97D71D91D2F9004EB5A0 /* Dragons */ = {
 			isa = PBXGroup;
 			children = (
 				CEFD97D81D91D310004EB5A0 /* Dragon.h */,
 				CEFD97D91D91D310004EB5A0 /* Dragon.m */,
 			);
+			name = Dragons;
 			path = Dragon;
 			sourceTree = "<group>";
 		};
@@ -574,6 +630,7 @@
 				CEB6DD7D1D5E485600FD0016 /* GameScene.sks in Resources */,
 				CEB6DD711D5E464300FD0016 /* LaunchScreen.storyboard in Resources */,
 				CEB6DD6E1D5E464300FD0016 /* Assets.xcassets in Resources */,
+				CECA0D1A1D98091C00F743B0 /* LevelSelectionCollectionViewCell.xib in Resources */,
 				CEB6DD6C1D5E464300FD0016 /* Main.storyboard in Resources */,
 				CE310DAD1D5F2B690084E18A /* StageOne.sks in Resources */,
 				CEF187091D61D38100979544 /* StageTwo.sks in Resources */,
@@ -592,10 +649,12 @@
 				CEFD97D61D91B4F6004EB5A0 /* StagesParent.m in Sources */,
 				CE16DFC11D915A1600AB1465 /* FireRing.m in Sources */,
 				F6E373721D631B010045EAA9 /* StageFive.m in Sources */,
+				CECA0D191D98091C00F743B0 /* LevelSelectionCollectionViewCell.m in Sources */,
 				CE98E5491D5E59CA001E00B1 /* GameViewController.m in Sources */,
 				CEFD97DA1D91D310004EB5A0 /* Dragon.m in Sources */,
 				CEB6DD611D5E464300FD0016 /* AppDelegate.m in Sources */,
 				CECAE37B1D5F3B1700008176 /* StageOne.m in Sources */,
+				CECA0D211D9866B000F743B0 /* SKPhysicsBody+Health.m in Sources */,
 				CE68A9DC1D950A6000843ED6 /* StartingPosition.m in Sources */,
 				F6E373661D6312350045EAA9 /* GameOver.m in Sources */,
 				CE68A9E21D950E3C00843ED6 /* TankBody.m in Sources */,
@@ -607,6 +666,7 @@
 				CE98E5581D5E5A42001E00B1 /* MainMenuViewModel.m in Sources */,
 				CEB6DD7C1D5E485600FD0016 /* GameScene.m in Sources */,
 				CE441DFE1D62226400AAFF64 /* Actions.m in Sources */,
+				CECA0D1E1D9865FB00F743B0 /* BossHorsePutin.m in Sources */,
 				CEB6DD5E1D5E464300FD0016 /* main.m in Sources */,
 				F6E373541D62EDB80045EAA9 /* AppEngine.m in Sources */,
 				F6E3736F1D631AF90045EAA9 /* StageFour.m in Sources */,
@@ -617,6 +677,7 @@
 				CECAE37E1D5F47E300008176 /* Utilities.m in Sources */,
 				CE1864241D5E7F7100027836 /* GameSceneViewModel.m in Sources */,
 				F6E3735E1D6300610045EAA9 /* StageThree.m in Sources */,
+				CECA0D151D98090B00F743B0 /* LevelSelectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -737,8 +798,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YP5PB2LQ27;
 				INFOPLIST_FILE = ZombieTank/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = mk.ZombieTank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -751,8 +814,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YP5PB2LQ27;
 				INFOPLIST_FILE = ZombieTank/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = mk.ZombieTank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

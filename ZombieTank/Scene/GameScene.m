@@ -9,6 +9,8 @@
 #import "StageOne.h"
 #import "StageTwo.h"
 #import "StageThree.h"
+#import "StageFour.h"
+
 
 #import "GameScene.h"
 #import "StartingPosition.h"
@@ -62,11 +64,11 @@
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
     [view addGestureRecognizer:longPress];
-    [self createWorldAtSelectedLevel];
+    [self createWorldAtSelectedLevel:self.selectedLevel];
 }
 
-- (void)createWorldAtSelectedLevel{
-    [self.viewModel selectedLevel];
+- (void)createWorldAtSelectedLevel:(NSInteger)level{
+    [self.viewModel selectedLevel:level];
     self.tankRifle.position = CGPointMake(self.viewModel.moveByX + self.tankRifle.position.x, self.viewModel.moveByY + self.tankRifle.position.y);
     [self createWorldLevel:self.viewModel.level];
 }
@@ -96,7 +98,7 @@
     if (self.tankRifle.zRotation < 0) {
         self.tankRifle.zRotation = self.tankRifle.zRotation + M_PI * 2;
     }
-    
+
     [self.tankRifle runAction:[SKAction rotateToAngle:self.viewModel.lastAngle duration:self.viewModel.speed shortestUnitArc:YES] completion:^{
         self.rotating = NO;
         [self shootBallToPosition:position];
@@ -241,6 +243,15 @@
             stageThree.parentSceneDelegate = self;
             [stageThree arrayWithMonsters];
             [stageThree createMonstersFromScene:self];
+            break;
+        }
+        case 4:
+        {
+            StageFour *stageFour = [StageFour nodeWithFileNamed:stageNameStageFour];
+            stageFour.viewModel = self.viewModel;
+            stageFour.parentSceneDelegate = self;
+            [stageFour arrayWithMonsters];
+            [stageFour createMonstersFromScene:self];
             break;
         }
         default:

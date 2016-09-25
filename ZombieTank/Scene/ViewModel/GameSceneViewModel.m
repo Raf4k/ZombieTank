@@ -62,7 +62,7 @@
 
     for (int i = 0; i < enemyName.count; i++) {
         NSString *enemyNameString = enemyName[i];
-        if (![enemyNameString isEqualToString:spriteNameEnemyDragon]) {
+        if (![enemyNameString isEqualToString:spriteNameEnemyNotMoving]) {
             for (SKNode *monster in children) {
                 if ([monster.name isEqualToString:enemyNameString]) {
                     CGPoint currentPosition = monster.position;
@@ -113,8 +113,8 @@
     }
 }
 
-- (void)selectedLevel{
-    self.level = [AppEngine defaultEngine].startingLvl;
+- (void)selectedLevel:(NSInteger)selectedLevel{
+    self.level = (int)selectedLevel;
     if (!self.level || self.level == 0) {
         self.level = 1;
     }

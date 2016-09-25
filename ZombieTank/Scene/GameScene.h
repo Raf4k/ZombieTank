@@ -14,5 +14,6 @@
 @end
 @interface GameScene : SKScene
 @property (nonatomic, weak) id<GameSceneDelegate>gameSceneDelegate;
+@property (nonatomic, assign) NSInteger selectedLevel;
 
 @end

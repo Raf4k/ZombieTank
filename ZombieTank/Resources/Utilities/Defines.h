@@ -21,7 +21,7 @@ static NSString *const spriteNameBang = @"bang";
 
 static NSString *const spriteNameEnemyZombie = @"zombie";
 static NSString *const spriteNameEnemyGhost = @"ghost";
-static NSString *const spriteNameEnemyDragon = @"dragon";
+static NSString *const spriteNameEnemyNotMoving = @"notMovingEnemy";
 static NSString *const spriteNameEnemyfireBall = @"fireBall";
 
 //stages
@@ -48,3 +48,6 @@ static NSString *const userDefaultsAvaiableSkins = @"avaiableSkins";
 static NSString *const userDefaultsSelectedTankSkin = @"selectedTankSkin";
 static NSString *const userDefaultsUnlockedLevel = @"unlockedLevel";
 
+//segue
+
+static NSString *const segueGoToMainScene = @"goToMainScene";

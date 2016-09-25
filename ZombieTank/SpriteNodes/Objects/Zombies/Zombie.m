@@ -7,6 +7,7 @@
 //
 
 #import "Zombie.h"
+#import "SKPhysicsBody+Health.h"
 #import "Defines.h"
 
 @implementation Zombie
@@ -23,6 +24,7 @@
     zombie.physicsBody.collisionBitMask = sprite1Category;
     zombie.physicsBody.affectedByGravity = NO;
     zombie.zPosition = 3;
+
     
     return zombie;
 }

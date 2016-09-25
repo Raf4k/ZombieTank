@@ -8,6 +8,8 @@
 
 #import "Ghost.h"
 #import "Defines.h"
+#import "SKPhysicsBody+Health.h"
+
 
 @implementation Ghost
 + (Ghost *)ghostSpriteNode{
@@ -23,7 +25,6 @@
      ghost.physicsBody.collisionBitMask = sprite1Category;
     ghost.physicsBody.affectedByGravity = NO;
     ghost.zPosition = 3;
-    
     return ghost;
 }
 

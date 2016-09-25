@@ -15,39 +15,27 @@
 
 @interface StageFour()
 
-@property (nonatomic, strong) NSTimer *respawnMonsterTimer;
-@property (nonatomic, strong) SKScene *parentScene;
-@property (nonatomic, assign) int spawnNumber;
-
 @end
 
 @implementation StageFour
 
 - (void)createMonstersFromScene:(SKScene *)scene{
-    
     self.parentScene = scene;
+    self.waveMaxSpawnNumber = 12;
     self.spawnNumber = 0;
-    
-    self.respawnMonsterTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(spawnMonsters) userInfo:nil repeats:YES];
+    self.viewModel.bossLevel = YES;
+    [self setBasePosition];
+    [self setRifleSpeed:0.3 monstersSpeed:70 chargingLevel:2];
+    [self respawnMonstersTimer:0.5];
+    [self monsterSkillsTimer:0.5];
+}
+
+- (void)arrayWithMonsters{
+    self.viewModel.arrayWithMonsters = nil;
 }
 
 - (void)spawnMonsters{
-    self.spawnNumber++;
-    Zombie *zombie = [Zombie zombieSpriteNode];
-    
-    zombie.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageFour];
-    [self.parentScene addChild:zombie];
-    
-    Ghost *ghost = [Ghost ghostSpriteNode];
-    
-    ghost.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageFour];
-    [self.parentScene addChild:ghost];
-    
-    if (self.spawnNumber == 20) {
-        [AppEngine defaultEngine].goToNextLevel = YES;
-        
-        [self.respawnMonsterTimer invalidate];
-    }
+   
 }
 
 @end

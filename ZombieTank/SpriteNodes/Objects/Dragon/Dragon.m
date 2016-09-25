@@ -12,7 +12,7 @@
 
 @implementation Dragon
 + (Dragon *)dragonSpriteNode{
-    Dragon *dragon = (Dragon *)[SKSpriteNode spriteNodeWithImageNamed:@"dragon"];
+    Dragon *dragon = (Dragon *)[SKSpriteNode spriteNodeWithImageNamed:spriteNameEnemyNotMoving];
     dragon.name = @"dragon";
     dragon.size = CGSizeMake(40, 70);
     dragon.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:dragon.size];
@@ -37,7 +37,7 @@
     int visibleDragons = 0;
     NSMutableArray *arrayWithDragons = [NSMutableArray new];
     for (SKSpriteNode *node in parentScene.children) {
-        if ([node.name isEqualToString:spriteNameEnemyDragon]) {
+        if ([node.name isEqualToString:spriteNameEnemyNotMoving]) {
             visibleDragons++;
             [arrayWithDragons addObject:node];
         }

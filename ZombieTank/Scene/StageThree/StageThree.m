@@ -31,7 +31,7 @@
 }
 
 - (void)arrayWithMonsters{
-    self.viewModel.arrayWithMonsters = [[NSArray alloc]initWithObjects:spriteNameEnemyDragon, spriteNameEnemyfireBall, nil];
+    self.viewModel.arrayWithMonsters = [[NSArray alloc]initWithObjects:spriteNameEnemyNotMoving, spriteNameEnemyfireBall, nil];
 }
 
 - (void)spawnMonsters{

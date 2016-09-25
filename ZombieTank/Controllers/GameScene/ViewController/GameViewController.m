@@ -22,10 +22,8 @@
 
 @implementation GameViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
-    [AppEngine defaultEngine].startingLvl = 1;
     self.labelPause.alpha = 0;
     self.navigationController.navigationBar.hidden = YES;
     // Configure the view.
@@ -36,19 +34,18 @@
     // Create and configure the scene.
     self.scene = [GameScene nodeWithFileNamed:@"GameScene"];
     self.scene.gameSceneDelegate = self;
+    self.scene.selectedLevel = self.selectedLevel;
     self.scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
     [skView presentScene:self.scene];
 }
 
-- (BOOL)shouldAutorotate
-{
+- (BOOL)shouldAutorotate{
     return YES;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
 }
@@ -56,6 +53,7 @@
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
+
 - (IBAction)quitButtonTapped:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }

@@ -41,11 +41,19 @@
                                     <segue destination="1qv-J1-cSo" kind="show" id="y1V-gI-EAe"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jzq-Zp-sWh">
+                                <state key="normal" title="choose lvl"/>
+                                <connections>
+                                    <segue destination="luC-oX-GfB" kind="show" id="mFn-jD-wDL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Jzq-Zp-sWh" firstAttribute="centerX" secondItem="F17-PO-NNl" secondAttribute="centerX" id="1oh-Zj-WH6"/>
                             <constraint firstItem="Ya6-lm-tFk" firstAttribute="centerX" secondItem="F17-PO-NNl" secondAttribute="centerX" id="9VJ-Ba-EGu"/>
                             <constraint firstItem="CRL-7J-TSJ" firstAttribute="centerX" secondItem="F17-PO-NNl" secondAttribute="centerX" id="9iB-Np-WXE"/>
+                            <constraint firstItem="Jzq-Zp-sWh" firstAttribute="top" secondItem="Ya6-lm-tFk" secondAttribute="bottom" constant="30" id="KnD-Gi-bvT"/>
                             <constraint firstItem="CRL-7J-TSJ" firstAttribute="top" secondItem="XyY-tw-4hS" secondAttribute="bottom" constant="10" id="OWS-1a-oYw"/>
                             <constraint firstItem="XyY-tw-4hS" firstAttribute="centerX" secondItem="F17-PO-NNl" secondAttribute="centerX" id="cDb-hl-mwa"/>
                             <constraint firstItem="Ya6-lm-tFk" firstAttribute="top" secondItem="CRL-7J-TSJ" secondAttribute="bottom" constant="10" id="xM1-Rp-XAN"/>
@@ -159,7 +167,51 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1680.8" y="96.7016491754123"/>
+            <point key="canvasLocation" x="2954" y="212"/>
+        </scene>
+        <!--Level Selection View Controller-->
+        <scene sceneID="p43-CB-6eZ">
+            <objects>
+                <viewController id="luC-oX-GfB" customClass="LevelSelectionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ecx-mx-rJY"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rzd-rb-am1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QhC-GD-K2w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YYR-AG-odv">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SHv-Ri-j4N">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="luC-oX-GfB" id="52r-eY-vmz"/>
+                                    <outlet property="delegate" destination="luC-oX-GfB" id="eFs-Dm-v4F"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YYR-AG-odv" firstAttribute="top" secondItem="ecx-mx-rJY" secondAttribute="bottom" id="DTp-GS-hk6"/>
+                            <constraint firstItem="Rzd-rb-am1" firstAttribute="top" secondItem="YYR-AG-odv" secondAttribute="bottom" id="Ghx-aO-FQp"/>
+                            <constraint firstAttribute="trailing" secondItem="YYR-AG-odv" secondAttribute="trailing" id="ONI-Mg-2W0"/>
+                            <constraint firstItem="YYR-AG-odv" firstAttribute="leading" secondItem="QhC-GD-K2w" secondAttribute="leading" id="Z0a-Gb-jrh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="YYR-AG-odv" id="9uK-3n-vsi"/>
+                        <segue destination="BV1-FR-VrT" kind="show" identifier="goToMainScene" id="hVc-lX-rcg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RgT-LE-4JP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1858" y="672"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="A8X-4V-wU0">
@@ -184,4 +236,7 @@
         <image name="exit" width="2400" height="2400"/>
         <image name="pause" width="128" height="128"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="hVc-lX-rcg"/>
+    </inferredMetricsTieBreakers>
 </document>
