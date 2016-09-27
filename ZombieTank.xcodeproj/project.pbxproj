@@ -51,6 +51,10 @@
 		F6E3736C1D631AE40045EAA9 /* StageFive.sks in Resources */ = {isa = PBXBuildFile; fileRef = F6E3736B1D631AE40045EAA9 /* StageFive.sks */; };
 		F6E3736F1D631AF90045EAA9 /* StageFour.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E3736E1D631AF90045EAA9 /* StageFour.m */; };
 		F6E373721D631B010045EAA9 /* StageFive.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E373711D631B010045EAA9 /* StageFive.m */; };
+		F6F79B3F1D9946EF00D7FEDB /* ShopCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F79B3D1D9946EF00D7FEDB /* ShopCollectionViewCell.m */; };
+		F6F79B401D9946EF00D7FEDB /* ShopCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6F79B3E1D9946EF00D7FEDB /* ShopCollectionViewCell.xib */; };
+		F6F79B441D99470000D7FEDB /* ItemsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F79B421D99470000D7FEDB /* ItemsCollectionViewCell.m */; };
+		F6F79B451D99470000D7FEDB /* ItemsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6F79B431D99470000D7FEDB /* ItemsCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +136,12 @@
 		F6E3736E1D631AF90045EAA9 /* StageFour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageFour.m; sourceTree = "<group>"; };
 		F6E373701D631B010045EAA9 /* StageFive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageFive.h; sourceTree = "<group>"; };
 		F6E373711D631B010045EAA9 /* StageFive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageFive.m; sourceTree = "<group>"; };
+		F6F79B3C1D9946EF00D7FEDB /* ShopCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCollectionViewCell.h; sourceTree = "<group>"; };
+		F6F79B3D1D9946EF00D7FEDB /* ShopCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCollectionViewCell.m; sourceTree = "<group>"; };
+		F6F79B3E1D9946EF00D7FEDB /* ShopCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopCollectionViewCell.xib; sourceTree = "<group>"; };
+		F6F79B411D99470000D7FEDB /* ItemsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsCollectionViewCell.h; sourceTree = "<group>"; };
+		F6F79B421D99470000D7FEDB /* ItemsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsCollectionViewCell.m; sourceTree = "<group>"; };
+		F6F79B431D99470000D7FEDB /* ItemsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemsCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +273,7 @@
 		CE98E5461D5E59CA001E00B1 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				F6F79B3B1D9946CD00D7FEDB /* Cells */,
 				CE98E5471D5E59CA001E00B1 /* ViewController */,
 				CE98E5481D5E59CA001E00B1 /* ViewModel */,
 			);
@@ -566,6 +577,19 @@
 			path = StageFive;
 			sourceTree = "<group>";
 		};
+		F6F79B3B1D9946CD00D7FEDB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F6F79B3C1D9946EF00D7FEDB /* ShopCollectionViewCell.h */,
+				F6F79B3D1D9946EF00D7FEDB /* ShopCollectionViewCell.m */,
+				F6F79B3E1D9946EF00D7FEDB /* ShopCollectionViewCell.xib */,
+				F6F79B411D99470000D7FEDB /* ItemsCollectionViewCell.h */,
+				F6F79B421D99470000D7FEDB /* ItemsCollectionViewCell.m */,
+				F6F79B431D99470000D7FEDB /* ItemsCollectionViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -629,11 +653,13 @@
 				F6E3735B1D6300400045EAA9 /* StageThree.sks in Resources */,
 				CEB6DD7D1D5E485600FD0016 /* GameScene.sks in Resources */,
 				CEB6DD711D5E464300FD0016 /* LaunchScreen.storyboard in Resources */,
+				F6F79B451D99470000D7FEDB /* ItemsCollectionViewCell.xib in Resources */,
 				CEB6DD6E1D5E464300FD0016 /* Assets.xcassets in Resources */,
 				CECA0D1A1D98091C00F743B0 /* LevelSelectionCollectionViewCell.xib in Resources */,
 				CEB6DD6C1D5E464300FD0016 /* Main.storyboard in Resources */,
 				CE310DAD1D5F2B690084E18A /* StageOne.sks in Resources */,
 				CEF187091D61D38100979544 /* StageTwo.sks in Resources */,
+				F6F79B401D9946EF00D7FEDB /* ShopCollectionViewCell.xib in Resources */,
 				F6E3736A1D631ADB0045EAA9 /* StageFour.sks in Resources */,
 				CE03B78F1D93EAB300CC06E0 /* From_Cartoon_Blocks.ttf in Resources */,
 			);
@@ -651,6 +677,7 @@
 				F6E373721D631B010045EAA9 /* StageFive.m in Sources */,
 				CECA0D191D98091C00F743B0 /* LevelSelectionCollectionViewCell.m in Sources */,
 				CE98E5491D5E59CA001E00B1 /* GameViewController.m in Sources */,
+				F6F79B441D99470000D7FEDB /* ItemsCollectionViewCell.m in Sources */,
 				CEFD97DA1D91D310004EB5A0 /* Dragon.m in Sources */,
 				CEB6DD611D5E464300FD0016 /* AppDelegate.m in Sources */,
 				CECAE37B1D5F3B1700008176 /* StageOne.m in Sources */,
@@ -666,6 +693,7 @@
 				CE98E5581D5E5A42001E00B1 /* MainMenuViewModel.m in Sources */,
 				CEB6DD7C1D5E485600FD0016 /* GameScene.m in Sources */,
 				CE441DFE1D62226400AAFF64 /* Actions.m in Sources */,
+				F6F79B3F1D9946EF00D7FEDB /* ShopCollectionViewCell.m in Sources */,
 				CECA0D1E1D9865FB00F743B0 /* BossHorsePutin.m in Sources */,
 				CEB6DD5E1D5E464300FD0016 /* main.m in Sources */,
 				F6E373541D62EDB80045EAA9 /* AppEngine.m in Sources */,
@@ -800,11 +828,13 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = YP5PB2LQ27;
 				INFOPLIST_FILE = ZombieTank/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = mk.ZombieTank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -816,11 +846,13 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = YP5PB2LQ27;
 				INFOPLIST_FILE = ZombieTank/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = mk.ZombieTank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

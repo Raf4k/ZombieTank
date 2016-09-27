@@ -77,8 +77,42 @@
                     <view key="view" contentMode="scaleToFill" id="qMz-7h-UWq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="42z-RU-h6U">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ezl-4r-geU">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="LIU-kb-QLw">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="1qv-J1-cSo" id="3iv-tW-q2b"/>
+                                    <outlet property="delegate" destination="1qv-J1-cSo" id="tSV-PQ-8aO"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="42z-RU-h6U" secondAttribute="trailing" id="EQK-Cb-Yse"/>
+                            <constraint firstItem="42z-RU-h6U" firstAttribute="leading" secondItem="qMz-7h-UWq" secondAttribute="leading" id="Fro-CX-dha"/>
+                            <constraint firstItem="1oZ-0N-EPG" firstAttribute="top" secondItem="42z-RU-h6U" secondAttribute="bottom" id="YMG-Zj-ilK"/>
+                            <constraint firstItem="42z-RU-h6U" firstAttribute="top" secondItem="k0V-tu-609" secondAttribute="bottom" id="pAV-K0-Qn5"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="shopCollectionView" destination="42z-RU-h6U" id="PaE-DG-ea9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OWD-9d-He5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -237,6 +271,6 @@
         <image name="pause" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hVc-lX-rcg"/>
+        <segue reference="ua8-aS-Swe"/>
     </inferredMetricsTieBreakers>
 </document>

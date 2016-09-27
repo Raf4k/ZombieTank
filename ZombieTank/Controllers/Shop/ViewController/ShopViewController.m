@@ -7,8 +7,12 @@
 //
 
 #import "ShopViewController.h"
+#import "ShopCollectionViewCell.h"
 
-@interface ShopViewController ()
+@interface ShopViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UICollectionView *shopCollectionView;
+@property (nonatomic, strong) NSArray *arrayCategories;
 
 @end
 
@@ -16,7 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    NSArray *arrayCategories = [[NSArray alloc]initWithObjects:@"Tanks",@"Soldiers",@"Rifles", nil];
+     [self.shopCollectionView registerNib:[UINib nibWithNibName:[[ShopCollectionViewCell class] description] bundle:nil] forCellWithReuseIdentifier:[[ShopCollectionViewCell class] description]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +30,21 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.arrayCategories.count;
 }
-*/
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    ShopCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[[ShopCollectionViewCell class] description] forIndexPath:indexPath];
+    
+   [cell customizeWithName:self.arrayCategories[indexPath.row]];
+   
+    return cell;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+}
+
 
 @end
