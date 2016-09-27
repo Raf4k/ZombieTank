@@ -31,11 +31,12 @@
     self.parentScene = scene;
     [(GameScene *)self.parentScene setCollisionDelegate:self];
     self.waveMaxSpawnNumber = 1;
+    self.respawnSpeed = 1;
     self.spawnNumber = 0;
     self.viewModel.bossLevel = YES;
     [self setBasePosition];
     [self setRifleSpeed:0.2 monstersSpeed:45 chargingLevel:2 shootingPower:0];
-    [self respawnMonstersTimer:1];
+    [self respawnMonstersTimer:self.respawnSpeed];
     [self monsterSkillsTimer:0.8];
  
 }

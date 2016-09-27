@@ -38,7 +38,7 @@
             [self.waitingWaveTimer invalidate];
             self.spawnNumber = 0;
             self.wavesNumber++;
-            [self respawnMonstersTimer:1];
+            [self respawnMonstersTimer:self.respawnSpeed];
             [self waitingWaveAdditionalOptions];
         });
     }

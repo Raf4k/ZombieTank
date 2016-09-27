@@ -20,9 +20,10 @@
 
 - (void)createMonstersFromScene:(SKScene *)scene{
     self.waveMaxSpawnNumber = 10;
+    self.respawnSpeed = 0.5;
     self.parentScene = scene;
     [self setRifleSpeed:0.3 monstersSpeed:45 chargingLevel:5 shootingPower:1];
-    [self respawnMonstersTimer:0.5];
+    [self respawnMonstersTimer:self.respawnSpeed];
     [self monsterSkillsTimer:2];
 }
 
@@ -43,8 +44,13 @@
 }
 
 - (void)waitingWaveAdditionalOptions{
-    self.waveMaxSpawnNumber = self.waveMaxSpawnNumber + 10;
-    self.viewModel.monsterSpeed = self.viewModel.monsterSpeed + 8;
+    self.waveMaxSpawnNumber = self.waveMaxSpawnNumber + 15;
+    self.viewModel.monsterSpeed = self.viewModel.monsterSpeed + 12;
+    if (self.viewModel.wavesCounter  == 1) {
+        self.viewModel.monsterSpeed = 30;
+        self.waveMaxSpawnNumber = 110;
+        self.respawnSpeed = 0.3;
+    }
 }
 
 - (void)monsterSkills{

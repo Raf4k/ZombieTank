@@ -38,6 +38,8 @@
 		CECA0D1E1D9865FB00F743B0 /* BossHorsePutin.m in Sources */ = {isa = PBXBuildFile; fileRef = CECA0D1D1D9865FB00F743B0 /* BossHorsePutin.m */; };
 		CECAE37B1D5F3B1700008176 /* StageOne.m in Sources */ = {isa = PBXBuildFile; fileRef = CECAE37A1D5F3B1700008176 /* StageOne.m */; };
 		CECAE37E1D5F47E300008176 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CECAE37D1D5F47E300008176 /* Utilities.m */; };
+		CED3330E1D9AE56800398A91 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED3330D1D9AE56800398A91 /* StoreKit.framework */; };
+		CED333101D9AE57100398A91 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED3330F1D9AE57100398A91 /* GameKit.framework */; };
 		CEF187091D61D38100979544 /* StageTwo.sks in Resources */ = {isa = PBXBuildFile; fileRef = CEF187081D61D38100979544 /* StageTwo.sks */; };
 		CEF1870C1D61D39300979544 /* StageTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF1870B1D61D39300979544 /* StageTwo.m */; };
 		CEFD97D61D91B4F6004EB5A0 /* StagesParent.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFD97D51D91B4F6004EB5A0 /* StagesParent.m */; };
@@ -114,6 +116,8 @@
 		CECAE37A1D5F3B1700008176 /* StageOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageOne.m; sourceTree = "<group>"; };
 		CECAE37C1D5F47E300008176 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		CECAE37D1D5F47E300008176 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		CED3330D1D9AE56800398A91 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		CED3330F1D9AE57100398A91 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		CEF187081D61D38100979544 /* StageTwo.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StageTwo.sks; sourceTree = "<group>"; };
 		CEF1870A1D61D39300979544 /* StageTwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageTwo.h; sourceTree = "<group>"; };
 		CEF1870B1D61D39300979544 /* StageTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageTwo.m; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED3330E1D9AE56800398A91 /* StoreKit.framework in Frameworks */,
+				CED333101D9AE57100398A91 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +398,7 @@
 			children = (
 				CEB6DD5B1D5E464200FD0016 /* ZombieTank */,
 				CEB6DD5A1D5E464200FD0016 /* Products */,
+				CED3330C1D9AE56800398A91 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -509,6 +516,15 @@
 			path = HorsePutin;
 			sourceTree = "<group>";
 		};
+		CED3330C1D9AE56800398A91 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CED3330F1D9AE57100398A91 /* GameKit.framework */,
+				CED3330D1D9AE56800398A91 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CEF187071D61D36000979544 /* StageTwo */ = {
 			isa = PBXGroup;
 			children = (
@@ -622,6 +638,14 @@
 					CEB6DD581D5E464200FD0016 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = YP5PB2LQ27;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};

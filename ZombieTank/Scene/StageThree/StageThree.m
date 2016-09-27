@@ -23,10 +23,11 @@
     self.waveMaxSpawnNumber = 12;
     self.spawnNumber = 0;
     [self setBasePosition];
+    self.respawnSpeed = 0.5;
     
     [self moveByX:0 byY:1200 byAngle:0];
     [self setRifleSpeed:0.3 monstersSpeed:55 chargingLevel:4 shootingPower:1];
-    [self respawnMonstersTimer:0.5];
+    [self respawnMonstersTimer:self.respawnSpeed];
     [self monsterSkillsTimer:0.8];
 }
 
