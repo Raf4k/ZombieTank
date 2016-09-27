@@ -132,7 +132,6 @@
     }
 }
 
-
 - (NSString *)setBangSpriteImage{
     
     if (self.lastAngle <= -1.5) {

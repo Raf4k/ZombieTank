@@ -27,7 +27,7 @@
     [self moveByX:0 byY:1200 byAngle:0];
     [self setRifleSpeed:0.3 monstersSpeed:55 chargingLevel:4 shootingPower:1];
     [self respawnMonstersTimer:0.5];
-    [self monsterSkillsTimer:0.5];
+    [self monsterSkillsTimer:0.8];
 }
 
 - (void)arrayWithMonsters{

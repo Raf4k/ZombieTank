@@ -18,8 +18,8 @@
     [Utilities createSpriteNode:shootingBall withName:@"ball" size:CGSizeMake(10, 10)];
     
     shootingBall.physicsBody.categoryBitMask = sprite3Category;
-    shootingBall.physicsBody.collisionBitMask = sprite3Category;
-    shootingBall.physicsBody.contactTestBitMask = sprite2Category;
+    shootingBall.physicsBody.collisionBitMask = sprite3Category | sprite2Category;
+    shootingBall.physicsBody.contactTestBitMask = sprite2Category | sprite3Category;
     shootingBall.position = startPosition;
     shootingBall.physicsBody.mass = 0.4;
     [shootingBall setHealth:0];

@@ -56,9 +56,11 @@
 - (void)collisionNodeA:(SKSpriteNode *)nodeA nodeB:(SKSpriteNode *)nodeB{
   if (nodeB.name == spriteNameEnemyNotMoving || nodeA.name == spriteNameEnemyNotMoving){
         self.horsePutin.physicsBody.categoryBitMask = spriteDissapearCategory;
+      self.stopBossActions = YES;
       [self.horsePutin removeAllActions];
         [self.horsePutin runAction:[Actions fadeOutAndFadeInWithchangingPosition:[Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageFour]]completion:^{
             self.horsePutin.physicsBody.categoryBitMask = sprite2Category;
+            self.stopBossActions = NO;
         }];
     }
 }

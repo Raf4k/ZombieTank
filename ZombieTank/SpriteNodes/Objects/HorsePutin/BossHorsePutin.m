@@ -26,8 +26,8 @@
     horsePutin.physicsBody.affectedByGravity = NO;
     horsePutin.zPosition = 3;
     horsePutin.physicsBody.mass = 1000;
-    [horsePutin setMaxHealth:2];
-    [horsePutin setHealth:2];
+    [horsePutin setMaxHealth:5];
+    [horsePutin setHealth:5];
     return horsePutin;
 }
 
