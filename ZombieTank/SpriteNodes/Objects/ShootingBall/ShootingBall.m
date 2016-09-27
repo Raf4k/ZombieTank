@@ -22,7 +22,7 @@
     shootingBall.physicsBody.contactTestBitMask = sprite2Category;
     shootingBall.position = startPosition;
     shootingBall.physicsBody.mass = 0.4;
-    [shootingBall setHealth:1];
+    [shootingBall setHealth:0];
     return shootingBall;
 }
 

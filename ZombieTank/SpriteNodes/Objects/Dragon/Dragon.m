@@ -13,8 +13,8 @@
 
 @implementation Dragon
 + (Dragon *)dragonSpriteNode{
-    Dragon *dragon = (Dragon *)[SKSpriteNode spriteNodeWithImageNamed:spriteNameEnemyNotMoving];
-    dragon.name = @"dragon";
+    Dragon *dragon = (Dragon *)[SKSpriteNode spriteNodeWithImageNamed:@"dragon"];
+    dragon.name = spriteNameEnemyNotMoving;
     dragon.size = CGSizeMake(40, 70);
     dragon.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:dragon.size];
     dragon.physicsBody.allowsRotation = NO;

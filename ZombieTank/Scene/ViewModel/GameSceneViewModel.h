@@ -22,11 +22,14 @@
 @property (nonatomic, assign) CGFloat lastAngle;
 @property (nonatomic, assign) int level;
 @property (nonatomic, assign) int wavesCounter;
+@property (nonatomic, assign) int shootingPower;
 @property (nonatomic, assign) BOOL bossLevel;
 
 - (double)calculateRadiusAndDurationTimeFromTouchLocation:(CGPoint)positionInScene spriteNode:(SKSpriteNode *)spriteNode;
 - (NSString *)setBangSpriteImage;
+- (CGPoint)tankPositionFromScene:(SKScene *)scene;
 - (BOOL)areMonstersInScene:(SKScene *)scene;
+- (SKSpriteNode *)nodeAfterCollisionWithFireShield:(SKPhysicsContact *)contact;
 
 - (void)updateEnemyPosition:(NSArray *)children basePosition:(CGPoint)position enemyNames:(NSArray *)enemyName;
 - (void)createCartoonLabelsWithName:(NSString *)name atPosition:(CGPoint)position inScene:(SKScene *)scene;
@@ -36,5 +39,6 @@
 - (NSString *)labelHexColorWithLevel:(int)level;
 - (BOOL)contact:(SKPhysicsContact *)contact isEqualToFirstPhysicBody:(SKPhysicsBody *)body;
 - (BOOL)healthIsZeroFromChildren:(NSArray *)children contactBody:(SKPhysicsBody *)bodyB;
+- (SKSpriteNode *)spriteNodeFromChildren:(NSArray *)children fromContactBody:(SKPhysicsBody *)body;
 
 @end

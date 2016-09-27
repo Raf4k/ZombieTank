@@ -9,33 +9,87 @@
 #import "StageFour.h"
 #import "Zombie.h"
 #import "Ghost.h"
+#import "BossHorsePutin.h"
 #import "Utilities.h"
 #import "Defines.h"
 #import "AppEngine.h"
+#import "Actions.h"
+#import "GameScene.h"
+#import "SKSpriteNode+Health.h"
 
-@interface StageFour()
-
+@interface StageFour() <CollisionDelegate>
+@property (nonatomic, strong) NSTimer *communistZombieTimer;
+@property (nonatomic, strong) NSTimer *dashBoss;
+@property (nonatomic, strong) BossHorsePutin *horsePutin;
 @end
 
 @implementation StageFour
 
 - (void)createMonstersFromScene:(SKScene *)scene{
     self.parentScene = scene;
-    self.waveMaxSpawnNumber = 12;
+    [(GameScene *)self.parentScene setCollisionDelegate:self];
+    self.waveMaxSpawnNumber = 1;
     self.spawnNumber = 0;
     self.viewModel.bossLevel = YES;
     [self setBasePosition];
-    [self setRifleSpeed:0.3 monstersSpeed:70 chargingLevel:2];
-    [self respawnMonstersTimer:0.5];
+    [self setRifleSpeed:0.2 monstersSpeed:45 chargingLevel:2 shootingPower:0];
+    [self respawnMonstersTimer:1];
     [self monsterSkillsTimer:0.5];
 }
 
 - (void)arrayWithMonsters{
-    self.viewModel.arrayWithMonsters = nil;
+    self.viewModel.arrayWithMonsters = @[spriteNameEnemyNotMoving, spriteNameEnemyZombie];
 }
 
 - (void)spawnMonsters{
-   
+    self.horsePutin = [BossHorsePutin bossHorsePutinSpriteNode];
+    self.horsePutin.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageFour];
+    [self.parentScene addChild:self.horsePutin];
+    self.communistZombieTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(bossMonsters) userInfo:nil repeats:YES];
+    [self.respawnMonsterTimer invalidate];
+}
+
+- (void)collisionNodeA:(SKSpriteNode *)nodeA nodeB:(SKSpriteNode *)nodeB{
+  if (nodeB.name == spriteNameEnemyNotMoving || nodeA.name == spriteNameEnemyNotMoving){
+        self.horsePutin.physicsBody.categoryBitMask = spriteDissapearCategory;
+      [self.horsePutin removeAllActions];
+        [self.horsePutin runAction:[Actions fadeOutAndFadeInWithchangingPosition:[Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageFour]]completion:^{
+            self.horsePutin.physicsBody.categoryBitMask = sprite2Category;
+        }];
+    }
+}
+
+- (void)shieldCollisionWithNode:(SKSpriteNode *)node{
+    if ([node.name isEqualToString:spriteNameEnemyNotMoving]) {
+        self.horsePutin.health--;
+        if (self.horsePutin.health <= 0){
+            [self endingLevel];
+        }
+    }
+}
+
+- (void)endingLevel{
+    for (int i = 0; i < self.parentScene.children.count; i++) {
+        if ([self.parentScene.children[i].name isEqualToString:spriteNameEnemyZombie]){
+            [self.parentScene.children[i] removeFromParent];
+            [AppEngine defaultEngine].goToNextLevel = YES;
+        }
+    }
+}
+
+- (void)monsterSkills{
+    [Zombie dashZombieFromParentScene:self.parentScene];
+    int rand = arc4random() % 6;
+    if (rand == 3) {
+        [self.horsePutin runAction:[SKAction moveTo:[self.viewModel tankPositionFromScene:self.parentScene] duration:3]];
+    }
+}
+
+- (void)bossMonsters{
+    Zombie *zombie = [Zombie zombieSpriteNode];
+    [zombie setHealth:0];
+    zombie.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageFour];
+    [self.parentScene addChild:zombie];
 }
 
 @end

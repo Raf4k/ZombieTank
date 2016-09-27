@@ -23,7 +23,7 @@
     self.waveMaxSpawnNumber = 15;
     self.parentScene = scene;
     [self setBasePosition];
-    [self setRifleSpeed:0.3 monstersSpeed:50 chargingLevel:5];
+    [self setRifleSpeed:0.3 monstersSpeed:50 chargingLevel:5 shootingPower:1];
     [self respawnMonstersTimer:0.5];
     [self monsterSkillsTimer:2];
 }

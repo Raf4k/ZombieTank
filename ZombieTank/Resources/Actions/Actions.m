@@ -26,6 +26,14 @@
                                 ]];
 }
 
++ (SKAction *)fadeOutAndFadeInWithchangingPosition:(CGPoint)position{
+    return [SKAction sequence:@[
+                                [SKAction fadeOutWithDuration:0.5],
+                                [SKAction moveTo:position duration:0.2],
+                                [SKAction fadeInWithDuration:0.5]
+                                ]];
+}
+
 + (SKAction *)rotateToAngle:(CGFloat)angle andMoveByX:(CGFloat)x moveByY:(CGFloat)y{
     return [SKAction sequence:@[
                                 [SKAction rotateToAngle:angle duration:2],

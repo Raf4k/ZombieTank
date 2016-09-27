@@ -83,14 +83,24 @@
     for (int i =0; i < children.count; i++) {
         SKSpriteNode *node = (SKSpriteNode *)children[i];
         if (node.physicsBody == body) {
-            node.health--;
-            if (node.health == 0) {
+            node.health = node.health - self.shootingPower;
+            if (node.health <= 0) {
                 return YES;
             }
             break;
         }
     }
     return NO;
+}
+
+- (SKSpriteNode *)spriteNodeFromChildren:(NSArray *)children fromContactBody:(SKPhysicsBody *)body{
+    for (int i =0; i < children.count; i++) {
+        SKSpriteNode *node = (SKSpriteNode *)children[i];
+        if (node.physicsBody == body) {
+            return node;
+        }
+    }
+    return nil;
 }
 
 - (BOOL)areMonstersInScene:(SKScene *)scene{
@@ -111,6 +121,14 @@
         return YES;
     }else{
         return NO;
+    }
+}
+
+- (SKSpriteNode *)nodeAfterCollisionWithFireShield:(SKPhysicsContact *)contact{
+    if ([contact.bodyA.node.name isEqualToString:spriteNameTankBody]) {
+        return (SKSpriteNode *)contact.bodyB.node;
+    }else{
+         return (SKSpriteNode *)contact.bodyA.node;
     }
 }
 
@@ -168,6 +186,17 @@
             return @"FC131B";
             break;
     }
+}
+
+- (CGPoint)tankPositionFromScene:(SKScene *)scene{
+    for (int i = 0; i < scene.children.count; i++) {
+        SKSpriteNode *node = (SKSpriteNode *)scene.children[i];
+        if ([node.name isEqualToString:spriteNameTankBody]) {
+            return node.position;
+            break;
+        }
+    }
+    return CGPointMake(0, 0);
 }
 
 

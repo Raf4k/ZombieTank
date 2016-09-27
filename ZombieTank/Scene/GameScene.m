@@ -125,23 +125,22 @@
         }
     }
     
-   
-    
     if (firstBody == self.shootingBall.physicsBody || firstBody == self.fireRing.physicsBody) {
         if (contact.bodyB != self.fireRing.physicsBody && contact.bodyB != self.tankBody.physicsBody) {
-            
+            [self.collisionDelegate collisionNodeA:[self.viewModel spriteNodeFromChildren:self.scene.children fromContactBody:contact.bodyB] nodeB:[self.viewModel spriteNodeFromChildren:self.scene.children fromContactBody:contact.bodyA]];
             if ([self.viewModel healthIsZeroFromChildren:self.scene.children contactBody:contact.bodyB]) {
                 [contact.bodyB.node removeFromParent];
             }
         }
         if (contact.bodyA != self.fireRing.physicsBody && contact.bodyA != self.tankBody.physicsBody) {
+            [self.collisionDelegate collisionNodeA:[self.viewModel spriteNodeFromChildren:self.scene.children fromContactBody:contact.bodyB] nodeB:[self.viewModel spriteNodeFromChildren:self.scene.children fromContactBody:contact.bodyA]];
             if ([self.viewModel healthIsZeroFromChildren:self.scene.children contactBody:contact.bodyA]) {
                 [contact.bodyA.node removeFromParent];
             }
         }
       
         if (firstBody == self.fireRing.physicsBody) {
-            
+            [self.collisionDelegate shieldCollisionWithNode:[self.viewModel nodeAfterCollisionWithFireShield:contact]];
         }else{
             [self.viewModel createCartoonLabelsWithName:@"boom" atPosition:firstBody.node.position inScene:self];
         }

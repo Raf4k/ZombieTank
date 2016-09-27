@@ -78,7 +78,8 @@
     [AppEngine defaultEngine].baseXPosition = self.viewModel.moveByX;
 }
 
-- (void)setRifleSpeed:(float)rifleSpeed monstersSpeed:(int)monstersSpeed chargingLevel:(int)chargingLevel{
+- (void)setRifleSpeed:(float)rifleSpeed monstersSpeed:(int)monstersSpeed chargingLevel:(int)chargingLevel shootingPower:(int)power{
+    self.viewModel.shootingPower = power;
     self.viewModel.speed = rifleSpeed;
     self.viewModel.monsterSpeed = monstersSpeed;
     self.viewModel.maxChargingLevel = chargingLevel;

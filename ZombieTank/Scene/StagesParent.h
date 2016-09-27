@@ -38,5 +38,5 @@
 - (void)setBasePosition;
 - (void)createMonstersFromScene:(SKScene *)scene;
 - (void)moveByX:(CGFloat)x byY:(CGFloat)y byAngle:(CGFloat)angle;
-- (void)setRifleSpeed:(float)rifleSpeed monstersSpeed:(int)monstersSpeed chargingLevel:(int)chargingLevel;
+- (void)setRifleSpeed:(float)rifleSpeed monstersSpeed:(int)monstersSpeed chargingLevel:(int)chargingLevel shootingPower:(int)power;
 @end

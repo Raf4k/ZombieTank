@@ -14,5 +14,6 @@
 + (SKAction *)fadeInFadeOutActionForLabels;
 + (SKAction *)rotateToAngle:(CGFloat)angle andMoveByX:(CGFloat)x moveByY:(CGFloat)y;
 + (SKAction *)scaleFrom:(CGFloat)from to:(CGFloat)to;
++ (SKAction *)fadeOutAndFadeInWithchangingPosition:(CGPoint)position;
 + (void)shakeScreenFor:(int)numberOfShakes withIntensity:(CGVector)intensity andDuration:(CGFloat)duration scene:(SKScene *)scene;
 @end
