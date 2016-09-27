@@ -10,6 +10,7 @@
 
 @interface SKSpriteNode (Health)
 @property (nonatomic, assign) int health;
+@property (nonatomic, assign) int maxHealth;
 
 @end
 

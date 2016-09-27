@@ -277,6 +277,9 @@
     });
 }
 
+- (void)bossWasHit:(int)health maxHealth:(int)maxHealth{
+    [self.gameSceneDelegate bossWasHitBy:health maxHealth:maxHealth];
+}
 
 
 @end

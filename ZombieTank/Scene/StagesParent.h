@@ -10,6 +10,7 @@
 #import "GameSceneViewModel.h"
 @protocol StagesParentDelegate
 - (void)showLevelLabel:(int)level;
+- (void)bossWasHit:(int)health maxHealth:(int)maxHealth;
 @end
 @interface StagesParent : SKScene
 @property (nonatomic, weak) id <StagesParentDelegate> parentSceneDelegate;

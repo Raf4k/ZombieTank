@@ -12,6 +12,7 @@
 - (void)gameOver;
 - (void)chargingLevel:(int)level maxLevel:(int)maxLevel;
 - (void)stopCharging;
+- (void)bossWasHitBy:(int)health maxHealth:(int)maxHealth;
 @end
 
 @protocol CollisionDelegate

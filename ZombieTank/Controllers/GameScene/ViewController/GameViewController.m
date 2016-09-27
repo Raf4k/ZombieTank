@@ -18,6 +18,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonPlayPause;
 @property (weak, nonatomic) IBOutlet UILabel *labelPause;
 @property (weak, nonatomic) IBOutlet UIView *chargingView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bossHealthConstraintWidth;
+@property (nonatomic, assign) float maxWidthHealth;
+@property (weak, nonatomic) IBOutlet UIView *bossHealth;
 @end
 
 @implementation GameViewController
@@ -30,7 +33,8 @@
     SKView * skView = (SKView *)self.view;
     /* Sprite Kit applies additional optimizations to improve rendering performance */
     skView.ignoresSiblingOrder = YES;
-    
+    self.bossHealth.hidden = YES;
+    self.maxWidthHealth = self.bossHealthConstraintWidth.constant;
     // Create and configure the scene.
     self.scene = [GameScene nodeWithFileNamed:@"GameScene"];
     self.scene.gameSceneDelegate = self;
@@ -103,6 +107,16 @@
 - (void)stopCharging{
     for (UIImageView *imgView in self.chargingView.subviews) {
         [imgView removeFromSuperview];
+    }
+}
+
+- (void)bossWasHitBy:(int)health maxHealth:(int)maxHealth{
+    self.bossHealth.hidden = NO;
+    float width = self.maxWidthHealth * health / maxHealth;
+    if (width == 0) {
+        self.bossHealth.hidden = YES;
+    }else{
+        self.bossHealthConstraintWidth.constant = width;
     }
 }
 

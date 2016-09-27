@@ -180,13 +180,22 @@
                                     <constraint firstAttribute="height" constant="42" id="crP-vk-yCD"/>
                                 </constraints>
                             </view>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aNf-Tx-4sQ">
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="0eG-po-0em"/>
+                                    <constraint firstAttribute="height" constant="25" id="K4N-vQ-wNa"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="du0-1J-SGk" firstAttribute="centerY" secondItem="8AK-CU-0U5" secondAttribute="centerY" id="Foe-YL-FLD"/>
                             <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="TRb-eH-zZ7" secondAttribute="bottom" constant="10" id="G6j-5u-LdG"/>
                             <constraint firstItem="uxV-Qk-fBC" firstAttribute="centerY" secondItem="3se-qz-xqx" secondAttribute="centerY" id="M3y-mo-jk4"/>
+                            <constraint firstItem="aNf-Tx-4sQ" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" constant="20" id="Msi-qu-rkL"/>
                             <constraint firstItem="uxV-Qk-fBC" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="idN-jl-XbO"/>
+                            <constraint firstItem="aNf-Tx-4sQ" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" constant="20" id="jXk-wu-Q11"/>
                             <constraint firstItem="TRb-eH-zZ7" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" constant="20" id="plj-sz-rm5"/>
                             <constraint firstItem="8AK-CU-0U5" firstAttribute="leading" secondItem="du0-1J-SGk" secondAttribute="trailing" constant="10" id="q5c-DZ-4jv"/>
                             <constraint firstAttribute="trailing" secondItem="8AK-CU-0U5" secondAttribute="trailing" constant="10" id="sWh-tM-taF"/>
@@ -194,6 +203,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bossHealth" destination="aNf-Tx-4sQ" id="7Tr-XC-Y6P"/>
+                        <outlet property="bossHealthConstraintWidth" destination="0eG-po-0em" id="Ubh-P5-GTW"/>
                         <outlet property="buttonPlayPause" destination="du0-1J-SGk" id="jqa-Yc-ywk"/>
                         <outlet property="chargingView" destination="TRb-eH-zZ7" id="jWB-Pj-UoP"/>
                         <outlet property="labelPause" destination="uxV-Qk-fBC" id="YDm-Uy-LnG"/>
@@ -201,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2954" y="212"/>
+            <point key="canvasLocation" x="2952.8000000000002" y="211.84407796101951"/>
         </scene>
         <!--Level Selection View Controller-->
         <scene sceneID="p43-CB-6eZ">

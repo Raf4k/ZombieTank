@@ -21,6 +21,8 @@
 @property (nonatomic, strong) NSTimer *communistZombieTimer;
 @property (nonatomic, strong) NSTimer *dashBoss;
 @property (nonatomic, strong) BossHorsePutin *horsePutin;
+@property (nonatomic, assign) BOOL stopBossActions;
+
 @end
 
 @implementation StageFour
@@ -34,7 +36,8 @@
     [self setBasePosition];
     [self setRifleSpeed:0.2 monstersSpeed:45 chargingLevel:2 shootingPower:0];
     [self respawnMonstersTimer:1];
-    [self monsterSkillsTimer:0.5];
+    [self monsterSkillsTimer:0.8];
+ 
 }
 
 - (void)arrayWithMonsters{
@@ -45,6 +48,7 @@
     self.horsePutin = [BossHorsePutin bossHorsePutinSpriteNode];
     self.horsePutin.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageFour];
     [self.parentScene addChild:self.horsePutin];
+    [self.parentSceneDelegate bossWasHit:self.horsePutin.maxHealth maxHealth:self.horsePutin.maxHealth];
     self.communistZombieTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(bossMonsters) userInfo:nil repeats:YES];
     [self.respawnMonsterTimer invalidate];
 }
@@ -61,7 +65,16 @@
 
 - (void)shieldCollisionWithNode:(SKSpriteNode *)node{
     if ([node.name isEqualToString:spriteNameEnemyNotMoving]) {
+        self.stopBossActions =  YES;
+        self.horsePutin.physicsBody.categoryBitMask = spriteDissapearCategory;
+        [self.horsePutin removeAllActions];
+        [self.horsePutin runAction:[Actions fadeOutAndFadeInWithchangingPosition:[Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageFour]]completion:^{
+            self.horsePutin.physicsBody.categoryBitMask = sprite2Category;
+            self.stopBossActions = NO;
+        }];
+
         self.horsePutin.health--;
+        [self.parentSceneDelegate bossWasHit:self.horsePutin.health maxHealth:self.horsePutin.maxHealth];
         if (self.horsePutin.health <= 0){
             [self endingLevel];
         }
@@ -72,16 +85,20 @@
     for (int i = 0; i < self.parentScene.children.count; i++) {
         if ([self.parentScene.children[i].name isEqualToString:spriteNameEnemyZombie]){
             [self.parentScene.children[i] removeFromParent];
-            [AppEngine defaultEngine].goToNextLevel = YES;
+            [self.horsePutin removeFromParent];
+            [self.respawnMonsterTimer invalidate];
+            [self.monsterSkillsTimer invalidate];
+            [self.communistZombieTimer invalidate];
         }
     }
+     [AppEngine defaultEngine].goToNextLevel = YES;
 }
 
 - (void)monsterSkills{
     [Zombie dashZombieFromParentScene:self.parentScene];
     int rand = arc4random() % 6;
-    if (rand == 3) {
-        [self.horsePutin runAction:[SKAction moveTo:[self.viewModel tankPositionFromScene:self.parentScene] duration:3]];
+    if (rand == 3 && !self.stopBossActions) {
+        [self.horsePutin runAction:[SKAction moveTo:[self.viewModel tankPositionFromScene:self.parentScene] duration:3.5]];
     }
 }
 
