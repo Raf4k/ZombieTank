@@ -21,14 +21,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSArray *arrayCategories = [[NSArray alloc]initWithObjects:@"Tanks",@"Soldiers",@"Rifles", nil];
+    self.arrayCategories = [[NSArray alloc]initWithObjects:@"Tanks",@"Soldiers",@"Rifles", nil];
      [self.shopCollectionView registerNib:[UINib nibWithNibName:[[ShopCollectionViewCell class] description] bundle:nil] forCellWithReuseIdentifier:[[ShopCollectionViewCell class] description]];
+     self.shopCollectionView.delegate = self;
+     self.shopCollectionView.dataSource = self;
+     [self.shopCollectionView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.arrayCategories.count;
@@ -46,5 +50,10 @@
     
 }
 
-
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+      sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return CGSizeMake(self.shopCollectionView.frame.size.width, self.shopCollectionView.frame.size.height);
+}
+    
 @end
