@@ -9,6 +9,7 @@
 #import "Ghost.h"
 #import "Defines.h"
 #import "SKSpriteNode+Health.h"
+#import "SKSpriteNode+Speed.h"
 
 
 @implementation Ghost
@@ -26,6 +27,7 @@
     ghost.physicsBody.affectedByGravity = NO;
     ghost.zPosition = 3;
     [ghost setHealth:1];
+    [ghost setSpeed:40];
     return ghost;
 }
 

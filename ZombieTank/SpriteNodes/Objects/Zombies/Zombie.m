@@ -9,6 +9,7 @@
 #import "Zombie.h"
 #import "Defines.h"
 #import "SKSpriteNode+Health.h"
+#import "SKSpriteNode+Speed.h"
 
 @implementation Zombie
 + (Zombie *)zombieSpriteNode{
@@ -25,6 +26,7 @@
     zombie.physicsBody.affectedByGravity = NO;
     zombie.zPosition = 3;
     [zombie setHealth:1];
+    [zombie setSpeed:22];
     return zombie;
 }
 

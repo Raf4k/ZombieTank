@@ -14,6 +14,7 @@
 		CE441DFE1D62226400AAFF64 /* Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = CE441DFD1D62226400AAFF64 /* Actions.m */; };
 		CE68A9DC1D950A6000843ED6 /* StartingPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = CE68A9DB1D950A6000843ED6 /* StartingPosition.m */; };
 		CE68A9E21D950E3C00843ED6 /* TankBody.m in Sources */ = {isa = PBXBuildFile; fileRef = CE68A9E11D950E3C00843ED6 /* TankBody.m */; };
+		CE7C76191DAD31F700BDEFBD /* SKSpriteNode+Speed.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7C76181DAD31F700BDEFBD /* SKSpriteNode+Speed.m */; };
 		CE98E5491D5E59CA001E00B1 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E5411D5E59CA001E00B1 /* GameViewController.m */; };
 		CE98E54F1D5E5A11001E00B1 /* AchievementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E54E1D5E5A11001E00B1 /* AchievementsViewController.m */; };
 		CE98E5521D5E5A23001E00B1 /* AchievementsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98E5511D5E5A23001E00B1 /* AchievementsViewModel.m */; };
@@ -72,6 +73,8 @@
 		CE68A9DB1D950A6000843ED6 /* StartingPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartingPosition.m; sourceTree = "<group>"; };
 		CE68A9E01D950E3C00843ED6 /* TankBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TankBody.h; sourceTree = "<group>"; };
 		CE68A9E11D950E3C00843ED6 /* TankBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TankBody.m; sourceTree = "<group>"; };
+		CE7C76171DAD31F700BDEFBD /* SKSpriteNode+Speed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKSpriteNode+Speed.h"; sourceTree = "<group>"; };
+		CE7C76181DAD31F700BDEFBD /* SKSpriteNode+Speed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKSpriteNode+Speed.m"; sourceTree = "<group>"; };
 		CE98E5401D5E59CA001E00B1 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		CE98E5411D5E59CA001E00B1 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		CE98E54D1D5E5A11001E00B1 /* AchievementsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementsViewController.h; sourceTree = "<group>"; };
@@ -220,6 +223,8 @@
 			children = (
 				CEBE9CAA1D987E5700ABF46E /* SKSpriteNode+Health.h */,
 				CEBE9CAB1D987E5700ABF46E /* SKSpriteNode+Health.m */,
+				CE7C76171DAD31F700BDEFBD /* SKSpriteNode+Speed.h */,
+				CE7C76181DAD31F700BDEFBD /* SKSpriteNode+Speed.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -696,6 +701,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE7C76191DAD31F700BDEFBD /* SKSpriteNode+Speed.m in Sources */,
 				CEFD97D61D91B4F6004EB5A0 /* StagesParent.m in Sources */,
 				CE16DFC11D915A1600AB1465 /* FireRing.m in Sources */,
 				F6E373721D631B010045EAA9 /* StageFive.m in Sources */,

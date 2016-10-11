@@ -12,6 +12,7 @@
 #import "Actions.h"
 #import "StartingPosition.h"
 #import "SKSpriteNode+Health.h"
+#import "SKSpriteNode+Speed.h"
 #import "AppEngine.h"
 
 #define speedRotation 0.5;
@@ -69,8 +70,11 @@
                     CGPoint currentPosition = monster.position;
                     double angle = atan2(currentPosition.y - position.y, (currentPosition.x - position.x) + M_PI);
                     
-                    CGFloat velX = self.monsterSpeed * cos(angle);
-                    CGFloat velY = self.monsterSpeed * sin(angle);
+                    SKSpriteNode *node = (SKSpriteNode *)monster;
+                    
+                    
+                    CGFloat velX = (self.monsterSpeed + node.speed) * cos(angle);
+                    CGFloat velY = (self.monsterSpeed + node.speed) * sin(angle);
                     
                     monster.physicsBody.velocity = CGVectorMake(-velX, -velY);
                 }
