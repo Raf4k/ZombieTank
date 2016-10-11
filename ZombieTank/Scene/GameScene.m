@@ -222,7 +222,7 @@
 }
 
 - (void)createWorldLevel:(int)level{
-    [self showLevelLabel:level];
+    [self showLevelLabel:level customTextLabel:@""];
     switch (level) {
         case 1:
         {
@@ -267,12 +267,17 @@
 
 #pragma mark - delegate Scene
 
-- (void)showLevelLabel:(int)level{
+- (void)showLevelLabel:(int)level customTextLabel:(NSString *)textLabel{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.viewModel.wavesCounter ++;
         self.labelEndingWave.fontColor = [Utilities colorWithHexString:[self.viewModel labelHexColorWithLevel:level]];
         self.labelEndingWave.position = CGPointMake(self.tankBody.position.x + 100, self.tankBody.position.y + 150);
-        self.labelEndingWave.text = [NSString stringWithFormat:@"Wave %i",self.viewModel.wavesCounter];
+        
+        if (textLabel.length > 0) {
+            self.labelEndingWave.text = textLabel;
+        }else{
+            self.labelEndingWave.text = [NSString stringWithFormat:@"Wave %i",self.viewModel.wavesCounter];
+        }
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.labelEndingWave runAction:[Actions fadeInFadeOutActionForLabels]];
         });

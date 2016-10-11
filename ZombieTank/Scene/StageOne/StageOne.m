@@ -22,7 +22,7 @@
     self.waveMaxSpawnNumber = 10;
     self.respawnSpeed = 0.5;
     self.parentScene = scene;
-    [self setRifleSpeed:0.3 monstersSpeed:45 chargingLevel:5 shootingPower:1];
+    [self setRifleSpeed:0.3 monstersSpeed:40 chargingLevel:5 shootingPower:1];
     [self respawnMonstersTimer:self.respawnSpeed];
     [self monsterSkillsTimer:2];
 }
@@ -39,17 +39,17 @@
             
     if (self.spawnNumber == self.waveMaxSpawnNumber) {
         [self.respawnMonsterTimer invalidate];
-        [self wavesNumberToEndLevel:2];
+        [self wavesNumberToEndLevel:3];
     }
 }
 
 - (void)waitingWaveAdditionalOptions{
     self.waveMaxSpawnNumber = self.waveMaxSpawnNumber + 15;
-    self.viewModel.monsterSpeed = self.viewModel.monsterSpeed + 12;
-    if (self.viewModel.wavesCounter  == 1) {
+    self.viewModel.monsterSpeed = self.viewModel.monsterSpeed + 10;
+    if (self.viewModel.wavesCounter  >= 2) {
         self.viewModel.monsterSpeed = 30;
-        self.waveMaxSpawnNumber = 110;
-        self.respawnSpeed = 0.3;
+        self.waveMaxSpawnNumber = 60;
+        self.respawnSpeed = 0.28;
     }
 }
 

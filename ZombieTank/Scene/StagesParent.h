@@ -9,7 +9,7 @@
 #import <SpriteKit/SpriteKit.h>
 #import "GameSceneViewModel.h"
 @protocol StagesParentDelegate
-- (void)showLevelLabel:(int)level;
+- (void)showLevelLabel:(int)level customTextLabel:(NSString *)textLabel;
 - (void)bossWasHit:(int)health maxHealth:(int)maxHealth;
 @end
 @interface StagesParent : SKScene
@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSTimer *monsterSkillsTimer;
 @property (nonatomic, strong) NSTimer *respawnMonsterTimer;
 @property (nonatomic, strong) NSTimer *waitingWaveTimer;
+@property (nonatomic, strong) NSString *customTextLabel;
 
 - (void)arrayWithMonsters;
 - (void)spawnMonsters;

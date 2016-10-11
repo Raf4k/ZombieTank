@@ -34,7 +34,7 @@
 - (void)waitingWave{
     if (![self.viewModel areMonstersInScene:self.parentScene]) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.parentSceneDelegate showLevelLabel:self.viewModel.level];
+            [self.parentSceneDelegate showLevelLabel:self.viewModel.level customTextLabel:self.customTextLabel];
             [self.waitingWaveTimer invalidate];
             self.spawnNumber = 0;
             self.wavesNumber++;

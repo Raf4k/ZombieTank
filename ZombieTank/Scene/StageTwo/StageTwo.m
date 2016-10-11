@@ -20,7 +20,7 @@
 @implementation StageTwo
 
 - (void)createMonstersFromScene:(SKScene *)scene{
-    self.waveMaxSpawnNumber = 15;
+    self.waveMaxSpawnNumber = 20;
     self.parentScene = scene;
     self.respawnSpeed = 0.5;
     [self setBasePosition];
@@ -37,7 +37,13 @@
     self.spawnNumber++;
     Zombie *zombie = [Zombie zombieSpriteNode];
     Ghost *ghost = [Ghost ghostSpriteNode];
-    int rand = arc4random() % 2;
+    
+    int rand = 0;
+    
+    if (self.viewModel.wavesCounter > 1) {
+        rand = arc4random() % 2;
+    }
+    
     switch (rand) {
         case 0:
             zombie.position = [Utilities positionOfRespawnPlaceFromNodesArray:self.children respawnName:spawnStageTwo];
@@ -64,7 +70,13 @@
 }
 
 - (void)waitingWaveAdditionalOptions{
-    self.waveMaxSpawnNumber = self.waveMaxSpawnNumber + 5;
+    self.waveMaxSpawnNumber = self.waveMaxSpawnNumber + 15;
+    self.viewModel.monsterSpeed = self.viewModel.monsterSpeed + 10;
+    if (self.viewModel.wavesCounter  >= 2) {
+        self.viewModel.monsterSpeed = 30;
+        self.waveMaxSpawnNumber = 60;
+        self.respawnSpeed = 0.28;
+    }
 }
 
 @end
