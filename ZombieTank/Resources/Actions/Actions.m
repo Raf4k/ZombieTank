@@ -38,7 +38,7 @@
     return [SKAction sequence:@[
                                 [SKAction rotateToAngle:angle duration:2],
                                 [SKAction waitForDuration:0.08],
-                                [SKAction moveByX:x y:y duration:6]
+                                [SKAction moveTo:CGPointMake(x, y) duration:6]
                                 ]];
 }
 

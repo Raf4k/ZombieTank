@@ -20,12 +20,12 @@
         case 3:
             viewModel.moveByX = 1200;
             viewModel.moveByY = 1100;
-            viewModel.moveByAngle = 1.5;
+            viewModel.moveByAngle = 0;
             break;
         case 4:
             viewModel.moveByX = 1200;
             viewModel.moveByY = 2200;
-            viewModel.moveByAngle = 0;
+            viewModel.moveByAngle = 1.5;
             break;
             
         default:

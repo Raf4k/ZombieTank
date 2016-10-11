@@ -174,8 +174,8 @@
         [self.viewModel unlockLevel];
         [StartingPosition startingPositionBasedOnLvl:self.viewModel.level viewModel:self.viewModel];
         self.moving = YES;
-        [self.tankBody runAction:[Actions rotateToAngle:self.viewModel.moveByAngle andMoveByX:self.viewModel.moveByX moveByY:self.viewModel.moveByY]];
-        [self.tankRifle runAction:[Actions rotateToAngle:self.viewModel.moveByAngle andMoveByX:self.viewModel.moveByX moveByY:self.viewModel.moveByY] completion:^{
+        [self.tankBody runAction:[Actions rotateToAngle:self.viewModel.moveByAngle andMoveByX:self.viewModel.moveByX + baseCenterX moveByY:self.viewModel.moveByY + baseCenterY]];
+        [self.tankRifle runAction:[Actions rotateToAngle:self.viewModel.moveByAngle andMoveByX:self.viewModel.moveByX + baseCenterX moveByY:self.viewModel.moveByY + baseCenterY] completion:^{
            
             self.moving = NO;
             [self createWorldLevel:self.viewModel.level];

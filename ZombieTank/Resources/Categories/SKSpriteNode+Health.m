@@ -12,6 +12,7 @@
 @implementation SKSpriteNode (Health)
 @dynamic health;
 @dynamic maxHealth;
+@dynamic aditionalHealth;
     
 - (void)setHealth:(int)health{
     NSNumber *number = [NSNumber numberWithInt:health];
@@ -31,6 +32,17 @@
 
 - (int)maxHealth {
     NSNumber *number = objc_getAssociatedObject(self, @selector(maxHealth));
+    
+    return [number intValue];
+}
+
+- (void)setAditionalHealth:(int)aditionalHealth{
+    NSNumber *number = [NSNumber numberWithInt:aditionalHealth];
+    objc_setAssociatedObject(self, @selector(aditionalHealth), number, OBJC_ASSOCIATION_ASSIGN);
+}
+
+- (int)aditionalHealth {
+    NSNumber *number = objc_getAssociatedObject(self, @selector(aditionalHealth));
     
     return [number intValue];
 }

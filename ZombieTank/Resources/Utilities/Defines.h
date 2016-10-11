@@ -6,6 +6,8 @@
 //  Copyright © 2016 Rafal Kampa. All rights reserved.
 //
 
+static const CGFloat baseCenterX = 479;
+static const CGFloat baseCenterY = 355;
 
 static const uint32_t sprite1Category = 0x1 << 0;
 static const uint32_t sprite2Category = 0x1 << 1;
