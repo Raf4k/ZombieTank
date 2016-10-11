@@ -25,7 +25,15 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    //setting arrays
+    self.arrayTank = [[NSArray alloc] initWithObjects:@"redTank",@"greenTank", nil];
+    self.arraySoldier = [[NSArray alloc] initWithObjects:@"putinSoldier", nil];
+    self.arrayRifle = [[NSArray alloc] initWithObjects:@"redRifle", nil];
         [self.itemCollectionView registerNib:[UINib nibWithNibName:[[ItemsCollectionViewCell class] description] bundle:nil] forCellWithReuseIdentifier:[[ItemsCollectionViewCell class] description]];
+        self.itemCollectionView.delegate = self;
+        self.itemCollectionView.dataSource = self;
+        [self.itemCollectionView reloadData];
 }
 
 - (void)customizeWithName:(NSString *)name{
@@ -46,7 +54,17 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     ItemsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[[ItemsCollectionViewCell class] description] forIndexPath:indexPath];
     
-    return cell;
+    if ([self.labelCategory.text isEqualToString:@"Tank"]) {
+        [cell customizeWithItem:self.arrayTank[indexPath.row]];
+        return cell;
+    }else if ([self.labelCategory.text isEqualToString:@"Soldier"]){
+        [cell customizeWithItem:self.arraySoldier[indexPath.row]];
+        return cell;
+    }else{
+        [cell customizeWithItem:self.arrayRifle[indexPath.row]];
+        return cell;
+    }
 }
+
 
 @end
