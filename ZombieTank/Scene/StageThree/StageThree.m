@@ -44,7 +44,7 @@
     if (self.spawnNumber == self.waveMaxSpawnNumber) {
         [self.respawnMonsterTimer invalidate];
         self.viewModel.monsterSpeed = self.viewModel.monsterSpeed + 8;
-        [self wavesNumberToEndLevel:0];
+        [self wavesNumberToEndLevel:3];
     }
 }
 

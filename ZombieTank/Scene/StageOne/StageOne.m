@@ -39,7 +39,7 @@
 
     if (self.spawnNumber == self.waveMaxSpawnNumber) {
         [self.respawnMonsterTimer invalidate];
-        [self wavesNumberToEndLevel:2];
+        [self wavesNumberToEndLevel:5];
     }
 }
 
