@@ -15,11 +15,14 @@
 @interface StagesParent : SKScene
 @property (nonatomic, weak) id <StagesParentDelegate> parentSceneDelegate;
 @property (nonatomic, strong)GameSceneViewModel *viewModel;
+
 @property (nonatomic, assign) int spawnNumber;
 @property (nonatomic, assign) int waveMaxSpawnNumber;
 @property (nonatomic, assign) int wavesNumber;
 @property (nonatomic, assign) float respawnSpeed;
+
 @property (nonatomic, strong) SKScene *parentScene;
+
 @property (nonatomic, strong) NSTimer *monsterSkillsTimer;
 @property (nonatomic, strong) NSTimer *respawnMonsterTimer;
 @property (nonatomic, strong) NSTimer *waitingWaveTimer;

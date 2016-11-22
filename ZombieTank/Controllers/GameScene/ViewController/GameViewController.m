@@ -7,34 +7,43 @@
 //
 
 #import "GameViewController.h"
+#import "MonsterInfoView.h"
+
+#import "GameViewModel.h"
 #import "GameScene.h"
 #import "Utilities.h"
 #import "AppEngine.h"
 #import "Defines.h"
-@interface GameViewController() <GameSceneDelegate>
-@property (nonatomic, strong) GameScene *scene;
+
+@interface GameViewController() <GameSceneDelegate, MonsterInfoDelegate>
+@property (nonatomic, assign) float maxWidthHealth;
 @property (nonatomic, assign) BOOL isPause;
 @property (nonatomic, assign) BOOL gameIsOver;
 @property (weak, nonatomic) IBOutlet UIButton *buttonPlayPause;
 @property (weak, nonatomic) IBOutlet UILabel *labelPause;
 @property (weak, nonatomic) IBOutlet UIView *chargingView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bossHealthConstraintWidth;
-@property (nonatomic, assign) float maxWidthHealth;
 @property (weak, nonatomic) IBOutlet UIView *bossHealth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bossHealthConstraintWidth;
+
+@property (nonatomic, strong) GameViewModel *viewModel;
+@property (nonatomic, strong) MonsterInfoView *monsterInfoView;
+@property (nonatomic, strong) GameScene *scene;
 @end
 
 @implementation GameViewController
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    self.viewModel = [[GameViewModel alloc] init];
     self.labelPause.alpha = 0;
     self.navigationController.navigationBar.hidden = YES;
-    // Configure the view.
+    
     SKView * skView = (SKView *)self.view;
-    /* Sprite Kit applies additional optimizations to improve rendering performance */
     skView.ignoresSiblingOrder = YES;
+    
     self.bossHealth.hidden = YES;
     self.maxWidthHealth = self.bossHealthConstraintWidth.constant;
+    
     // Create and configure the scene.
     self.scene = [GameScene nodeWithFileNamed:@"GameScene"];
     self.scene.gameSceneDelegate = self;
@@ -45,8 +54,9 @@
     [skView presentScene:self.scene];
 }
 
-- (BOOL)shouldAutorotate{
-    return YES;
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.hidden = NO;
 }
 
 - (void)didReceiveMemoryWarning{
@@ -58,6 +68,7 @@
     return YES;
 }
 
+#pragma mark - Button actions
 - (IBAction)quitButtonTapped:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -87,6 +98,7 @@
     }
 }
 
+#pragma mark - Scene delegate methods
 - (void)chargingLevel:(int)level maxLevel:(int)maxLevel{
     for (UIImageView *imgView in self.chargingView.subviews) {
         [imgView removeFromSuperview];
@@ -128,5 +140,86 @@
         self.labelPause.alpha = 1;
     }];
 }
+
+- (void)createMonsterInfoPopupWithLevel:(int)level {
+    if ([self.viewModel shouldCreatePopoverMonserInfoFromLevel:level]) {
+        self.monsterInfoView = [[MonsterInfoView alloc] init];
+        self.monsterInfoView.alpha = 0;
+        self.monsterInfoView.delegate = self;
+        [self.view addSubview:self.monsterInfoView];
+        [self constraints];
+        [self animationFadeIn:YES completion:^(BOOL finished) {
+        }];
+    }else {
+        [self.scene createWorldLevel];
+    }
+}
+
+#pragma mark - Monster Info delegate
+- (void)okButtonTapped {
+    [self animationFadeIn:NO completion:^(BOOL finished) {
+        [self.monsterInfoView removeFromSuperview];
+        [self.scene createWorldLevel];
+    }];
+}
+
+#pragma mark - Helper methods
+- (void)animationFadeIn:(BOOL)fadeIn completion:(void (^ __nullable)(BOOL finished))completion {
+    [UIView animateWithDuration:2 animations:^{
+        self.monsterInfoView.alpha = fadeIn ? 0.9 : 0;
+        
+    }completion:^(BOOL finished) {
+        completion(YES);
+    }];
+}
+
+- (void)constraints {
+    
+    self.monsterInfoView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    //center X
+    NSLayoutConstraint *centerX = [NSLayoutConstraint
+                                   constraintWithItem:self.monsterInfoView
+                                   attribute:NSLayoutAttributeCenterX
+                                   relatedBy:NSLayoutRelationEqual
+                                   toItem:self.view
+                                   attribute:NSLayoutAttributeCenterX
+                                   multiplier:1.0f
+                                   constant:0];
+    
+    //Bottom
+    NSLayoutConstraint *bottom =[NSLayoutConstraint
+                                 constraintWithItem:self.monsterInfoView
+                                 attribute:NSLayoutAttributeBottom
+                                 relatedBy:NSLayoutRelationEqual
+                                 toItem:self.view
+                                 attribute:NSLayoutAttributeBottom
+                                 multiplier:1.0f
+                                 constant:-40];
+    //top
+    NSLayoutConstraint *top =[NSLayoutConstraint
+                              constraintWithItem:self.monsterInfoView
+                              attribute:NSLayoutAttributeTop
+                              relatedBy:NSLayoutRelationEqual
+                              toItem:self.view
+                              attribute:NSLayoutAttributeTop
+                              multiplier:1.0f
+                              constant:40];
+    //width
+    NSLayoutConstraint *width = [NSLayoutConstraint
+                                 constraintWithItem:self.monsterInfoView
+                                 attribute:NSLayoutAttributeWidth
+                                 relatedBy:NSLayoutRelationEqual
+                                 toItem:nil
+                                 attribute:NSLayoutAttributeNotAnAttribute
+                                 multiplier:0
+                                 constant:300];
+    
+    [self.view addConstraint:centerX];
+    [self.view addConstraint:bottom];
+    [self.view addConstraint:top];
+    [self.monsterInfoView addConstraint:width];
+}
+
 
 @end

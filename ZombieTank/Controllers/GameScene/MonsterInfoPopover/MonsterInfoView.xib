@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MonsterInfoView">
+            <connections>
+                <outlet property="buttonReady" destination="cQf-Gz-jzH" id="Kx6-MQ-06e"/>
+                <outlet property="imageBackground" destination="4v3-gX-4N0" id="0RB-6i-5fr"/>
+                <outlet property="imageMonster" destination="O2X-bn-98C" id="7tR-m4-8X9"/>
+                <outlet property="labelMonsterInfo" destination="s6b-h5-Nrq" id="hZp-lY-OIy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundGrass" translatesAutoresizingMaskIntoConstraints="NO" id="4v3-gX-4N0">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ghost" translatesAutoresizingMaskIntoConstraints="NO" id="O2X-bn-98C">
+                    <rect key="frame" x="80" y="20" width="140" height="129.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="O2X-bn-98C" secondAttribute="height" multiplier="133:123" id="mWo-gA-MgJ"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ghosts are insensitive for attacks when they are dissapearing." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6b-h5-Nrq">
+                    <rect key="frame" x="20" y="169.5" width="260" height="41"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQf-Gz-jzH">
+                    <rect key="frame" x="99" y="250" width="102" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="ECF-Qr-cJJ"/>
+                        <constraint firstAttribute="width" constant="102" id="GI1-k3-teW"/>
+                    </constraints>
+                    <state key="normal" title="Got it!" backgroundImage="button_cienie">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="okButtonTapped:" destination="-1" eventType="touchUpInside" id="Lh9-8b-gdq"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="cQf-Gz-jzH" secondAttribute="bottom" constant="20" id="EtV-D3-uU2"/>
+                <constraint firstItem="4v3-gX-4N0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="F1l-O7-cZ4"/>
+                <constraint firstAttribute="trailing" secondItem="O2X-bn-98C" secondAttribute="trailing" constant="80" id="IZy-w5-G0X"/>
+                <constraint firstAttribute="trailing" secondItem="4v3-gX-4N0" secondAttribute="trailing" id="KhW-qr-BMM"/>
+                <constraint firstItem="s6b-h5-Nrq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="LkW-4h-9KK"/>
+                <constraint firstItem="cQf-Gz-jzH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="MWm-n4-JdG"/>
+                <constraint firstAttribute="trailing" secondItem="s6b-h5-Nrq" secondAttribute="trailing" constant="20" id="UT4-jg-CdK"/>
+                <constraint firstItem="cQf-Gz-jzH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="s6b-h5-Nrq" secondAttribute="bottom" constant="10" id="UtB-iX-4BX"/>
+                <constraint firstItem="s6b-h5-Nrq" firstAttribute="top" secondItem="O2X-bn-98C" secondAttribute="bottom" constant="20" id="VDp-DA-OLC"/>
+                <constraint firstItem="4v3-gX-4N0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="aky-lc-hba"/>
+                <constraint firstAttribute="bottom" secondItem="4v3-gX-4N0" secondAttribute="bottom" id="i3c-aQ-JDm"/>
+                <constraint firstItem="O2X-bn-98C" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="mqr-GW-DVZ"/>
+                <constraint firstItem="O2X-bn-98C" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="80" id="qU2-i1-TLd"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backgroundGrass" width="512" height="512"/>
+        <image name="button_cienie" width="31" height="31"/>
+        <image name="ghost" width="512" height="512"/>
+    </resources>
+</document>

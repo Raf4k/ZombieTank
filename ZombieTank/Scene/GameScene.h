@@ -13,6 +13,7 @@
 - (void)chargingLevel:(int)level maxLevel:(int)maxLevel;
 - (void)stopCharging;
 - (void)bossWasHitBy:(int)health maxHealth:(int)maxHealth;
+- (void)createMonsterInfoPopupWithLevel:(int)level;
 @end
 
 @protocol CollisionDelegate
@@ -25,5 +26,7 @@
 @property (nonatomic, weak) id<GameSceneDelegate>gameSceneDelegate;
 @property (nonatomic, weak) id<CollisionDelegate>collisionDelegate;
 @property (nonatomic, assign) NSInteger selectedLevel;
+
+- (void)createWorldLevel;
 
 @end

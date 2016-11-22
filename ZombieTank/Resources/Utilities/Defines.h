@@ -53,3 +53,4 @@ static NSString *const userDefaultsUnlockedLevel = @"unlockedLevel";
 //segue
 
 static NSString *const segueGoToMainScene = @"goToMainScene";
+static NSString *const segueGoToMonsterInfo = @"show_popover_info_monster";

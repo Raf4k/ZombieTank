@@ -11,6 +11,10 @@
 		CE16DFC11D915A1600AB1465 /* FireRing.m in Sources */ = {isa = PBXBuildFile; fileRef = CE16DFC01D915A1600AB1465 /* FireRing.m */; };
 		CE1864241D5E7F7100027836 /* GameSceneViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1864231D5E7F7100027836 /* GameSceneViewModel.m */; };
 		CE310DAD1D5F2B690084E18A /* StageOne.sks in Resources */ = {isa = PBXBuildFile; fileRef = CE310DAC1D5F2B690084E18A /* StageOne.sks */; };
+		CE43286A1DE387D60094D288 /* GameViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4328691DE387D60094D288 /* GameViewModel.m */; };
+		CE4328731DE3A3750094D288 /* ReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4328721DE3A3750094D288 /* ReusableView.m */; };
+		CE4328751DE3A3AB0094D288 /* MonsterInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4328741DE3A3AB0094D288 /* MonsterInfoView.xib */; };
+		CE4328781DE3A3B80094D288 /* MonsterInfoVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4328771DE3A3B80094D288 /* MonsterInfoVIew.m */; };
 		CE441DFE1D62226400AAFF64 /* Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = CE441DFD1D62226400AAFF64 /* Actions.m */; };
 		CE68A9DC1D950A6000843ED6 /* StartingPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = CE68A9DB1D950A6000843ED6 /* StartingPosition.m */; };
 		CE68A9E21D950E3C00843ED6 /* TankBody.m in Sources */ = {isa = PBXBuildFile; fileRef = CE68A9E11D950E3C00843ED6 /* TankBody.m */; };
@@ -67,6 +71,13 @@
 		CE1864221D5E7F7100027836 /* GameSceneViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneViewModel.h; sourceTree = "<group>"; };
 		CE1864231D5E7F7100027836 /* GameSceneViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSceneViewModel.m; sourceTree = "<group>"; };
 		CE310DAC1D5F2B690084E18A /* StageOne.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StageOne.sks; sourceTree = "<group>"; };
+		CE4328681DE387D60094D288 /* GameViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewModel.h; sourceTree = "<group>"; };
+		CE4328691DE387D60094D288 /* GameViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewModel.m; sourceTree = "<group>"; };
+		CE4328711DE3A3750094D288 /* ReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReusableView.h; sourceTree = "<group>"; };
+		CE4328721DE3A3750094D288 /* ReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReusableView.m; sourceTree = "<group>"; };
+		CE4328741DE3A3AB0094D288 /* MonsterInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonsterInfoView.xib; sourceTree = "<group>"; };
+		CE4328761DE3A3B80094D288 /* MonsterInfoVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterInfoVIew.h; sourceTree = "<group>"; };
+		CE4328771DE3A3B80094D288 /* MonsterInfoVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonsterInfoVIew.m; sourceTree = "<group>"; };
 		CE441DFC1D62226400AAFF64 /* Actions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actions.h; sourceTree = "<group>"; };
 		CE441DFD1D62226400AAFF64 /* Actions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Actions.m; sourceTree = "<group>"; };
 		CE68A9DA1D950A6000843ED6 /* StartingPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartingPosition.h; sourceTree = "<group>"; };
@@ -200,6 +211,48 @@
 			path = StageOne;
 			sourceTree = "<group>";
 		};
+		CE4328631DE3848B0094D288 /* Stages */ = {
+			isa = PBXGroup;
+			children = (
+				CEFD97D41D91B4F6004EB5A0 /* StagesParent.h */,
+				CEFD97D51D91B4F6004EB5A0 /* StagesParent.m */,
+				F6E373681D631AC00045EAA9 /* StageFive */,
+				F6E373671D631AB60045EAA9 /* StageFour */,
+				F6E373571D6300060045EAA9 /* StageThree */,
+				CEF187071D61D36000979544 /* StageTwo */,
+				CE310DAB1D5F2AFB0084E18A /* StageOne */,
+			);
+			name = Stages;
+			sourceTree = "<group>";
+		};
+		CE4328671DE387CA0094D288 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE4328681DE387D60094D288 /* GameViewModel.h */,
+				CE4328691DE387D60094D288 /* GameViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE43286C1DE38F080094D288 /* MonsterInfoPopover */ = {
+			isa = PBXGroup;
+			children = (
+				CE4328741DE3A3AB0094D288 /* MonsterInfoView.xib */,
+				CE4328761DE3A3B80094D288 /* MonsterInfoVIew.h */,
+				CE4328771DE3A3B80094D288 /* MonsterInfoVIew.m */,
+			);
+			path = MonsterInfoPopover;
+			sourceTree = "<group>";
+		};
+		CE4328701DE3A3750094D288 /* ReusableView */ = {
+			isa = PBXGroup;
+			children = (
+				CE4328711DE3A3750094D288 /* ReusableView.h */,
+				CE4328721DE3A3750094D288 /* ReusableView.m */,
+			);
+			path = ReusableView;
+			sourceTree = "<group>";
+		};
 		CE441DFB1D62224F00AAFF64 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,8 +285,9 @@
 		CE98E53E1D5E59CA001E00B1 /* GameScene */ = {
 			isa = PBXGroup;
 			children = (
+				CE43286C1DE38F080094D288 /* MonsterInfoPopover */,
+				CE4328671DE387CA0094D288 /* ViewModel */,
 				CE98E53F1D5E59CA001E00B1 /* ViewController */,
-				CE98E5421D5E59CA001E00B1 /* ViewModel */,
 			);
 			path = GameScene;
 			sourceTree = "<group>";
@@ -245,13 +299,6 @@
 				CE98E5411D5E59CA001E00B1 /* GameViewController.m */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		CE98E5421D5E59CA001E00B1 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		CE98E5431D5E59CA001E00B1 /* MainMenu */ = {
@@ -339,6 +386,7 @@
 		CE98E55F1D5E5B79001E00B1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE4328701DE3A3750094D288 /* ReusableView */,
 				CE68A9E31D951E6800843ED6 /* Categories */,
 				CE03B78B1D93EAA000CC06E0 /* Fonts */,
 				CE441DFB1D62224F00AAFF64 /* Actions */,
@@ -444,14 +492,8 @@
 		CEB6DD781D5E485600FD0016 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				CEFD97D41D91B4F6004EB5A0 /* StagesParent.h */,
-				CEFD97D51D91B4F6004EB5A0 /* StagesParent.m */,
+				CE4328631DE3848B0094D288 /* Stages */,
 				F6E373631D6312230045EAA9 /* GameOver */,
-				F6E373681D631AC00045EAA9 /* StageFive */,
-				F6E373671D631AB60045EAA9 /* StageFour */,
-				F6E373571D6300060045EAA9 /* StageThree */,
-				CEF187071D61D36000979544 /* StageTwo */,
-				CE310DAB1D5F2AFB0084E18A /* StageOne */,
 				CE1864211D5E7F7100027836 /* ViewModel */,
 				CEB6DD791D5E485600FD0016 /* GameScene.h */,
 				CEB6DD7A1D5E485600FD0016 /* GameScene.m */,
@@ -682,6 +724,7 @@
 				F6E3735B1D6300400045EAA9 /* StageThree.sks in Resources */,
 				CEB6DD7D1D5E485600FD0016 /* GameScene.sks in Resources */,
 				CEB6DD711D5E464300FD0016 /* LaunchScreen.storyboard in Resources */,
+				CE4328751DE3A3AB0094D288 /* MonsterInfoView.xib in Resources */,
 				F6F79B451D99470000D7FEDB /* ItemsCollectionViewCell.xib in Resources */,
 				CEB6DD6E1D5E464300FD0016 /* Assets.xcassets in Resources */,
 				CECA0D1A1D98091C00F743B0 /* LevelSelectionCollectionViewCell.xib in Resources */,
@@ -706,6 +749,7 @@
 				CE16DFC11D915A1600AB1465 /* FireRing.m in Sources */,
 				F6E373721D631B010045EAA9 /* StageFive.m in Sources */,
 				CECA0D191D98091C00F743B0 /* LevelSelectionCollectionViewCell.m in Sources */,
+				CE4328731DE3A3750094D288 /* ReusableView.m in Sources */,
 				CE98E5491D5E59CA001E00B1 /* GameViewController.m in Sources */,
 				F6F79B441D99470000D7FEDB /* ItemsCollectionViewCell.m in Sources */,
 				CEFD97DA1D91D310004EB5A0 /* Dragon.m in Sources */,
@@ -725,6 +769,7 @@
 				CE441DFE1D62226400AAFF64 /* Actions.m in Sources */,
 				F6F79B3F1D9946EF00D7FEDB /* ShopCollectionViewCell.m in Sources */,
 				CECA0D1E1D9865FB00F743B0 /* BossHorsePutin.m in Sources */,
+				CE43286A1DE387D60094D288 /* GameViewModel.m in Sources */,
 				CEB6DD5E1D5E464300FD0016 /* main.m in Sources */,
 				F6E373541D62EDB80045EAA9 /* AppEngine.m in Sources */,
 				F6E3736F1D631AF90045EAA9 /* StageFour.m in Sources */,
@@ -734,6 +779,7 @@
 				CE98E5551D5E5A37001E00B1 /* MainMenuViewController.m in Sources */,
 				CECAE37E1D5F47E300008176 /* Utilities.m in Sources */,
 				CE1864241D5E7F7100027836 /* GameSceneViewModel.m in Sources */,
+				CE4328781DE3A3B80094D288 /* MonsterInfoVIew.m in Sources */,
 				F6E3735E1D6300610045EAA9 /* StageThree.m in Sources */,
 				CECA0D151D98090B00F743B0 /* LevelSelectionViewController.m in Sources */,
 			);

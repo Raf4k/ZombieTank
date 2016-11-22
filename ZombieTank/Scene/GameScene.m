@@ -28,20 +28,23 @@
 #import "GameOver.h"
 
 @interface GameScene () <SKPhysicsContactDelegate, StagesParentDelegate>
-@property (nonatomic, strong) SKSpriteNode *tankRifle;
 @property (nonatomic , strong) SKAction *rotateAction;
+@property (nonatomic, strong) SKSpriteNode *tankRifle;
 @property (nonatomic, strong) SKLabelNode *labelEndingWave;
-@property (nonatomic, strong) GameSceneViewModel *viewModel;
-@property (nonatomic, strong) ShootingBall *shootingBall;
-@property (nonatomic, strong) FireRing *fireRing;
 @property (nonatomic, strong) SKSpriteNode *bangNode;
 @property (nonatomic, strong) SKSpriteNode *tankBody;
+
 @property (nonatomic, assign) CGPoint selectedPoint;
 @property (nonatomic, assign) BOOL rotating;
 @property (nonatomic, assign) BOOL moving;
 @property (nonatomic, assign) double lastAngle;
 @property (nonatomic, strong) NSTimer *shieldAndBombTimer;
+
+@property (nonatomic, strong) GameSceneViewModel *viewModel;
+@property (nonatomic, strong) ShootingBall *shootingBall;
+@property (nonatomic, strong) FireRing *fireRing;
 @end
+
 @implementation GameScene
 
 -(void)didMoveToView:(SKView *)view {
@@ -67,16 +70,17 @@
     [self createWorldAtSelectedLevel:self.selectedLevel];
 }
 
-- (void)createWorldAtSelectedLevel:(NSInteger)level{
-    [self.viewModel selectedLevel:level];
-    self.tankRifle.position = CGPointMake(self.viewModel.moveByX + self.tankRifle.position.x, self.viewModel.moveByY + self.tankRifle.position.y);
-    [self createWorldLevel:self.viewModel.level];
-}
-
 - (void)update:(NSTimeInterval)currentTime{
     [self.viewModel updateEnemyPosition:self.children basePosition:self.tankRifle.position enemyNames:self.viewModel.arrayWithMonsters];
 }
 
+- (void)didSimulatePhysics{
+    SKCameraNode *camera = (SKCameraNode *)[self childNodeWithName:@"camera"];
+    camera.position = CGPointMake(self.tankBody.position.x, self.tankBody.position.y);
+    self.camera = camera;
+}
+
+#pragma mark - Gesture Recognizer action
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     UITouch *touch = [[event allTouches] anyObject];
     self.selectedPoint = [touch locationInNode:self];
@@ -91,21 +95,22 @@
     }
 }
 
--(void)startObjectAnimationToPosition:(CGPoint)position {
-   [self.tankRifle removeAllActions];
-    self.viewModel.lastAngle = atan2(position.y - self.tankRifle.position.y, position.x - self.tankRifle.position.x);
-    
-    if (self.tankRifle.zRotation < 0) {
-        self.tankRifle.zRotation = self.tankRifle.zRotation + M_PI * 2;
+- (void)longPressAction:(UILongPressGestureRecognizer *)recognizer{
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        self.viewModel.chargingLevel = 0;
+        [self.shieldAndBombTimer invalidate];
+        if ([self.tankBody containsPoint:self.selectedPoint]) {
+            NSLog(@"charging");
+            self.shieldAndBombTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(charging) userInfo:nil repeats:YES];
+        }
     }
-
-    [self.tankRifle runAction:[SKAction rotateToAngle:self.viewModel.lastAngle duration:self.viewModel.speed shortestUnitArc:YES] completion:^{
-        self.rotating = NO;
-        [self shootBallToPosition:position];
-        [self.bangNode runAction:[Actions fadeInFadeOutAction]];
-    }];
+    if (recognizer.state == UIGestureRecognizerStateEnded) {
+        [self.gameSceneDelegate stopCharging];
+        [self.shieldAndBombTimer invalidate];
+    }
 }
 
+#pragma mark - Sprite Contact
 - (void)didBeginContact:(SKPhysicsContact *)contact{
     SKPhysicsBody *firstBody;
     if (contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask) {
@@ -161,44 +166,7 @@
     [self.shootingBall.physicsBody applyImpulse:vector];
 }
 
-- (void)didSimulatePhysics{
-    SKCameraNode *camera = (SKCameraNode *)[self childNodeWithName:@"camera"];
-    camera.position = CGPointMake(self.tankBody.position.x, self.tankBody.position.y);
-    self.camera = camera;
-}
-
-- (void)checkNodes{
-    BOOL monsters = [self.viewModel areMonstersInScene:self.scene];
-    if (monsters == NO && [AppEngine defaultEngine].goToNextLevel) {
-         self.viewModel.level++;
-        [self.viewModel unlockLevel];
-        [StartingPosition startingPositionBasedOnLvl:self.viewModel.level viewModel:self.viewModel];
-        self.moving = YES;
-        [self.tankBody runAction:[Actions rotateToAngle:self.viewModel.moveByAngle andMoveByX:self.viewModel.moveByX + baseCenterX moveByY:self.viewModel.moveByY + baseCenterY]];
-        [self.tankRifle runAction:[Actions rotateToAngle:self.viewModel.moveByAngle andMoveByX:self.viewModel.moveByX + baseCenterX moveByY:self.viewModel.moveByY + baseCenterY] completion:^{
-           
-            self.moving = NO;
-            [self createWorldLevel:self.viewModel.level];
-        }];
-        [AppEngine defaultEngine].goToNextLevel = NO;
-    }
-}
-
-- (void)longPressAction:(UILongPressGestureRecognizer *)recognizer{
-    if (recognizer.state == UIGestureRecognizerStateBegan) {
-        self.viewModel.chargingLevel = 0;
-        [self.shieldAndBombTimer invalidate];
-        if ([self.tankBody containsPoint:self.selectedPoint]) {
-            NSLog(@"charging");
-            self.shieldAndBombTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(charging) userInfo:nil repeats:YES];
-        }
-    }
-    if (recognizer.state == UIGestureRecognizerStateEnded) {
-        [self.gameSceneDelegate stopCharging];
-        [self.shieldAndBombTimer invalidate];
-    }
-}
-
+#pragma mark - Charging special Attack
 - (void)charging{
      [self.gameSceneDelegate chargingLevel:self.viewModel.chargingLevel maxLevel:self.viewModel.maxChargingLevel];
     self.viewModel.chargingLevel++;
@@ -219,6 +187,12 @@
             });
         }
     }
+}
+
+#pragma mark - Create actual Level
+- (void)createWorldLevel {
+    self.view.paused = NO;
+    [self createWorldLevel:self.viewModel.level];
 }
 
 - (void)createWorldLevel:(int)level{
@@ -265,8 +239,7 @@
     }
 }
 
-#pragma mark - delegate Scene
-
+#pragma mark - Delegate Scene
 - (void)showLevelLabel:(int)level customTextLabel:(NSString *)textLabel{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.viewModel.wavesCounter ++;
@@ -286,6 +259,46 @@
 
 - (void)bossWasHit:(int)health maxHealth:(int)maxHealth{
     [self.gameSceneDelegate bossWasHitBy:health maxHealth:maxHealth];
+}
+
+#pragma mark - Helper methods
+- (void)createWorldAtSelectedLevel:(NSInteger)level{
+    [self.viewModel selectedLevel:level];
+    self.tankRifle.position = CGPointMake(self.viewModel.moveByX + self.tankRifle.position.x, self.viewModel.moveByY + self.tankRifle.position.y);
+    [self createWorldLevel:self.viewModel.level];
+}
+
+- (void)checkNodes{
+    BOOL monsters = [self.viewModel areMonstersInScene:self.scene];
+    if (monsters == NO && [AppEngine defaultEngine].goToNextLevel) {
+        self.viewModel.level++;
+        [self.viewModel unlockLevel];
+        [StartingPosition startingPositionBasedOnLvl:self.viewModel.level viewModel:self.viewModel];
+        self.moving = YES;
+        [self.tankBody runAction:[Actions rotateToAngle:self.viewModel.moveByAngle andMoveByX:self.viewModel.moveByX + baseCenterX moveByY:self.viewModel.moveByY + baseCenterY]];
+        [self.tankRifle runAction:[Actions rotateToAngle:self.viewModel.moveByAngle andMoveByX:self.viewModel.moveByX + baseCenterX moveByY:self.viewModel.moveByY + baseCenterY] completion:^{
+            
+            self.moving = NO;
+            self.view.paused = YES;
+            [self.gameSceneDelegate createMonsterInfoPopupWithLevel:self.viewModel.level];
+        }];
+        [AppEngine defaultEngine].goToNextLevel = NO;
+    }
+}
+
+-(void)startObjectAnimationToPosition:(CGPoint)position {
+    [self.tankRifle removeAllActions];
+    self.viewModel.lastAngle = atan2(position.y - self.tankRifle.position.y, position.x - self.tankRifle.position.x);
+    
+    if (self.tankRifle.zRotation < 0) {
+        self.tankRifle.zRotation = self.tankRifle.zRotation + M_PI * 2;
+    }
+    
+    [self.tankRifle runAction:[SKAction rotateToAngle:self.viewModel.lastAngle duration:self.viewModel.speed shortestUnitArc:YES] completion:^{
+        self.rotating = NO;
+        [self shootBallToPosition:position];
+        [self.bangNode runAction:[Actions fadeInFadeOutAction]];
+    }];
 }
 
 
